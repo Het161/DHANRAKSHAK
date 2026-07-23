@@ -1,0 +1,4 @@
+# Optional extras for LOCAL mode only. Never installed into the hosted image:
+# faster-whisper pulls ctranslate2 + model weights and would blow the 512MB budget.
+-r requirements.txt
+faster-whisper==1.1.1

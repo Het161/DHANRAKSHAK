@@ -1,0 +1,17 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.5
+pydantic-settings==2.7.1
+httpx==0.28.1
+python-multipart==0.0.20
+slowapi==0.1.9
+cachetools==5.5.0
+rank-bm25==0.2.2
+langdetect==1.0.9
+edge-tts==7.2.8
+pytesseract==0.3.13
+pillow==11.1.0
+scikit-learn==1.6.1
+lightgbm==4.5.0
+joblib==1.4.2
+numpy==2.2.1

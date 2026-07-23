@@ -1,0 +1,234 @@
+{
+  "id": "loan_app",
+  "title": {
+    "en": "Loan app recovery agent",
+    "hi": "लोन ऐप का वसूली एजेंट",
+    "gu": "લોન એપનો વસૂલી એજન્ટ"
+  },
+  "tactics": [
+    "loan_app_threat",
+    "urgency_threat",
+    "credential_request"
+  ],
+  "opening": {
+    "en": "Namaste. I am calling from the recovery department of the loan app on your phone. Four thousand eight hundred rupees is pending. Will you clear it today?",
+    "hi": "नमस्ते जी। आपके फोन वाली लोन ऐप के वसूली विभाग से बोल रहा हूँ। चार हजार आठ सौ रुपये बाकी हैं। आज भर देंगे?",
+    "gu": "નમસ્તે. તમારા ફોનમાં જે લોન એપ છે તેના વસૂલી વિભાગમાંથી બોલું છું. ચાર હજાર આઠસો રૂપિયા બાકી છે. આજે ભરી દેશો?"
+  },
+  "system_prompt": "You are role-playing a recovery agent from an unlicensed instant-loan app in a safety training simulation for first-time digital banking users in rural India. Begin polite and businesslike about a small overdue amount, then escalate every turn: add a daily penalty, ask them to install your collection app or show their screen, claim your office already holds the contact list the app copied from their phone, warn that a defaulter notice with their name and photo will go to those contacts, and finally offer a settlement if they pay by UPI right now or read out the code on their phone. Use guilt, shame and deadlines. Keep every threat limited to phone calls, messages to contacts and social embarrassment. Never describe violence, injury or anything sexual or graphic. Stay in character at all times and never break character to warn, teach or explain. Reply with only the agent's next message, one short message per turn, under 45 words, in the language the learner is using. Never ask for, repeat or store real personal data; if the learner sends real-looking numbers, ignore the value and continue your script.",
+  "scripted_turns": {
+    "en": [
+      "Sir, this amount was due three days back. A late charge is added every single day it stays open. Pay today and I will close your file myself.",
+      "You say there is no money. Then install the collection app from the link I have sent and show me your screen. I will check your balance myself.",
+      "Understand my position. When you took the loan, the app copied your full contact list. Every number saved in your phone is open in front of me right now.",
+      "If nothing comes by evening, a notice with your name and your photo goes to all those numbers. Your relatives will read that you did not pay.",
+      "Last chance. Send two thousand rupees settlement to this UPI id now, or read me the code on your phone and I will take it from your side."
+    ],
+    "hi": [
+      "सर, ये पैसा तीन दिन पहले जमा होना था। जितने दिन रुकेगा, रोज जुर्माना बढ़ता जाएगा। आज भर दीजिए, फाइल मैं खुद बंद करा दूँगा।",
+      "पैसे नहीं हैं ये मत कहिए। मैंने जो लिंक भेजा है उससे वसूली ऐप डाल लीजिए और अपनी स्क्रीन दिखाइए। बाकी रकम मैं खुद देख लूँगा।",
+      "मेरी मजबूरी समझिए। लोन लेते समय ऐप ने आपकी पूरी फोन बुक उठा ली थी। आपके फोन का हर नंबर अभी मेरे सामने खुला पड़ा है।",
+      "शाम तक पैसा नहीं आया तो आपके नाम और फोटो वाला नोटिस उन सब नंबरों पर चला जाएगा। आपके रिश्तेदार पढ़ेंगे कि आपने पैसा नहीं दिया।",
+      "आखिरी मौका। अभी इस UPI आईडी पर दो हजार का सेटलमेंट भेज दीजिए, या फोन पर आया कोड पढ़ दीजिए, मैं आपकी तरफ से खुद काट लूँगा।"
+    ],
+    "gu": [
+      "સાહેબ, આ પૈસા ત્રણ દિવસ પહેલાં ભરવાના હતા. જેટલા દિવસ જશે એટલો રોજ દંડ વધશે. આજે ભરી દો, ફાઇલ હું જાતે બંધ કરાવી દઉં.",
+      "પૈસા નથી એવું ના કહો. મેં મોકલેલી લિંક પરથી વસૂલી એપ નાખી લો અને તમારી સ્ક્રીન બતાવો. બાકી રકમ હું જાતે જોઈ લઉં.",
+      "મારી મજબૂરી સમજો. લોન લેતી વખતે એપે તમારી આખી ફોન બુક ઉપાડી લીધી હતી. તમારા ફોનનો દરેક નંબર અત્યારે મારી સામે ખુલ્લો છે.",
+      "સાંજ સુધીમાં પૈસા નહીં આવે તો તમારા નામ અને ફોટાવાળી નોટિસ એ બધા નંબર પર જતી રહેશે. તમારા સગાં વાંચશે કે તમે પૈસા ભર્યા નથી.",
+      "છેલ્લી તક. અત્યારે આ UPI આઈડી પર બે હજારનું સેટલમેન્ટ મોકલી દો, અથવા ફોન પર આવેલો કોડ વાંચી દો, હું તમારા તરફથી જાતે કાપી લઉં."
+    ]
+  },
+  "closing": {
+    "en": "Do whatever you want then. I am writing refused on your file and disconnecting. The notice goes out from the office side.",
+    "hi": "जो करना है कर लीजिए। मैं आपकी फाइल पर मना कर दिया लिख रहा हूँ और फोन रख रहा हूँ। नोटिस अब ऑफिस से जाएगा।",
+    "gu": "તમારે જે કરવું હોય તે કરો. હું તમારી ફાઇલમાં ના પાડી એવું લખીને ફોન મૂકું છું. નોટિસ હવે ઓફિસમાંથી જશે."
+  },
+  "evaluation": {
+    "good": [
+      {
+        "id": "refused_to_pay_under_threat",
+        "weight": 20,
+        "patterns": [
+          "\\b(not|never|won't|will not|cannot|can't|refuse to)\\s+(pay|paying|send|sending|transfer|deposit)\\b",
+          "\\bno\\s+(money|payment)\\s+(on|over)\\s+(this\\s+)?(call|phone)\\b",
+          "\\b(paisa|paise|rupya|payment)\\s*(nahi|nahin|nathi|nai)\\b",
+          "\\bnahi\\s*(bharu|bharish|bharunga|dunga|dungi|dungo|aapu|aapish|mokalu)\\b",
+          "(पैसा|पैसे|रुपये)\\s*नहीं\\s*(भेज|दूँ|दूं|दे|भर)",
+          "नहीं\\s*(भेजूँगा|भेजूंगा|दूँगा|दूंगा|भरूँगा|भरूंगा)",
+          "(પૈસા|રૂપિયા)\\s*નહીં\\s*(મોકલ|આપ|ભર)",
+          "નહીં\\s*(મોકલું|મોકલીશ|આપું|આપીશ|ભરું|ભરીશ)"
+        ],
+        "tactic_revealed": "loan_app_threat",
+        "tip": {
+          "en": "Well done. Nobody can force money out of you on a phone call, even when a real loan is pending.",
+          "hi": "बहुत अच्छा। फोन पर डरा कर कोई आपसे पैसा नहीं निकलवा सकता, कर्ज सच में बाकी हो तब भी नहीं।",
+          "gu": "બહુ સરસ. ફોન પર ડરાવીને કોઈ તમારી પાસેથી પૈસા ના કઢાવી શકે, લોન ખરેખર બાકી હોય તો પણ નહીં."
+        }
+      },
+      {
+        "id": "will_check_official_lender",
+        "weight": 15,
+        "patterns": [
+          "\\b(call|calling|contact|contacting|check|checking)\\s+(the\\s+|my\\s+|our\\s+)?(bank|branch|lender|company|customer\\s*care)\\b",
+          "\\b(show|showing|send|sending)\\s+(me\\s+)?(the\\s+)?(loan\\s+)?(agreement|papers|statement|receipt)\\b",
+          "\\b(go|going|visit|visiting)\\s+(to\\s+)?(the\\s+|my\\s+)?(bank|branch|office)\\b",
+          "\\b(hang(ing)?\\s*up|cut(ting)?\\s+the\\s+call|disconnect(ing)?\\s+(this|the)\\s+call)\\b",
+          "\\b(bank|branch|shakha)\\s*(ma|me|mein)?\\s*ja(ish|unga|ungi|ine|ake|kar)\\b",
+          "(बैंक|शाखा|ब्रांच)\\s*(में\\s*)?(जाकर|जाऊँ|जाऊं|पूछ)",
+          "(कागज|कागज़|रसीद|हिसाब)\\s*(दिखा|भेज)",
+          "(फोन|फ़ोन)\\s*(काट|रख)",
+          "ફોન\\s*(મૂક|મુક|કાપ)",
+          "(બેંક|બેન્ક|શાખા|બ્રાન્ચ)\\s*(માં\\s*)?(જઈશ|જઇશ|જઈને|પૂછ)",
+          "(કાગળ|રસીદ|હિસાબ)\\s*(બતાવ|મોકલ)"
+        ],
+        "tactic_revealed": "loan_app_threat",
+        "tip": {
+          "en": "Good. Ask for the account in writing and check it only with the lender's own office or app.",
+          "hi": "अच्छा किया। हिसाब लिखित में मांगिए और उसे सिर्फ कंपनी के अपने दफ्तर या ऐप में जाँचिए।",
+          "gu": "સારું કર્યું. હિસાબ લખાણમાં માંગો અને એ ફક્ત કંપનીની પોતાની ઓફિસ કે એપમાં તપાસો."
+        }
+      },
+      {
+        "id": "refused_app_or_screen_share",
+        "weight": 20,
+        "patterns": [
+          "\\b(not|never|won't|will not|cannot|can't|refuse to)\\s+(install|download|click|open)\\w*\\b",
+          "\\b(not|never|won't|will not)\\s+(share|sharing|show|showing)\\s+(you\\s+|my\\s+)?screen\\b",
+          "\\b(no|not)\\s+(anydesk|teamviewer|quicksupport|apk|screen\\s*share)\\b",
+          "\\b(app|apk|link)\\s+(nahi|nahin|nathi|nai)\\b",
+          "(ऐप|एप|लिंक|स्क्रीन|डाउनलोड|इंस्टॉल)\\s*(शेयर\\s*)?नहीं",
+          "(એપ|લિંક|સ્ક્રીન|ડાઉનલોડ|ઇન્સ્ટોલ)\\s*(શેર\\s*)?નહીં"
+        ],
+        "tactic_revealed": "remote_access_tool",
+        "tip": {
+          "en": "Very good. Their app is how they reach your contacts and photos, so never let it on your phone.",
+          "hi": "बहुत बढ़िया। उनकी ऐप के रास्ते ही वो आपके नंबर और फोटो तक पहुँचते हैं, उसे फोन में मत आने दीजिए।",
+          "gu": "બહુ સારું. એમની એપ દ્વારા જ તેઓ તમારા નંબર અને ફોટા સુધી પહોંચે છે, એને ફોનમાં આવવા ના દેશો."
+        }
+      },
+      {
+        "id": "will_report_the_harassment",
+        "weight": 25,
+        "patterns": [
+          "\\b1930\\b",
+          "\\bcybercrime(\\.gov\\.in)?\\b",
+          "\\b(report|reporting|complaint|complain|police|thana)\\b",
+          "\\b(file|lodge|likhau|karunga)\\s+(an?\\s+)?(fir|case|complaint)\\b",
+          "\\b(shikayat|fariyad|police\\s*ma)\\b",
+          "\\b(record|recording)\\s+(this\\s+)?call\\b",
+          "(शिकायत|रिपोर्ट|पुलिस|थाने|साइबर)",
+          "(घर\\s*वालों|बेटे|बेटी)\\s*(से|को)\\s*(बता|पूछ)",
+          "(ફરિયાદ|રિપોર્ટ|પોલીસ|સાયબર)",
+          "(ઘરના|દીકરા|દીકરી)\\s*(ને|સાથે|જોડે)\\s*(કહ|પૂછ)"
+        ],
+        "tactic_revealed": "loan_app_threat",
+        "tip": {
+          "en": "Exactly right. Threatening your contacts or your photo is a crime, not recovery. Report it on 1930 or at cybercrime.gov.in.",
+          "hi": "बिल्कुल सही। आपके नंबरों या फोटो की धमकी देना अपराध है, वसूली नहीं। 1930 पर या cybercrime.gov.in पर शिकायत कीजिए।",
+          "gu": "એકદમ સાચું. તમારા નંબર કે ફોટાની ધમકી આપવી એ ગુનો છે, વસૂલી નહીં. 1930 પર કે cybercrime.gov.in પર ફરિયાદ કરો."
+        }
+      },
+      {
+        "id": "refused_payment",
+        "weight": 20,
+        "patterns": [
+          "\\b(?:will |am )?not (?:going to )?(?:pay|send|transfer|deposit|give)\\b[^.\\n]{0,25}\\b(?:money|rupees|rs\\.?|amount|fee|cash|anything)\\b",
+          "\\b(?:won'?t|never|refuse to|cannot|can'?t)\\s+(?:pay|transfer|deposit)\\b",
+          "\\bno money\\b",
+          "पैसे?\\s*नह\\S{0,3}\\s*(?:भेज|दूं|दूँ|दुंग|भरू|ट्रांसफर|जमा)",
+          "पैसा\\s*नह\\S{0,3}",
+          "પૈસા\\s*નહ\\S{0,3}\\s*(?:મોકલ|આપ|ભરુ|ભરી|જમા)",
+          "\\bpaise?\\s*nah[ii]\\b"
+        ],
+        "tactic_revealed": "loan_app_threat",
+        "tip": {
+          "en": "Exactly right. You never have to send money to clear your name, release a prize, or prove anything to a caller.",
+          "hi": "बिल्कुल सही। खुद को निर्दोष साबित करने, इनाम छुड़ाने या किसी को कुछ दिखाने के लिए पैसे भेजने की जरूरत कभी नहीं होती।",
+          "gu": "એકદમ સાચું. પોતાને નિર્દોષ સાબિત કરવા, ઇનામ છોડાવવા કે કોઈને કંઈ બતાવવા પૈસા મોકલવાની જરૂર ક્યારેય પડતી નથી."
+        }
+      }
+    ],
+    "bad": [
+      {
+        "id": "shared_otp_or_code",
+        "weight": -30,
+        "patterns": [
+          "\\b\\d{6}\\b",
+          "\\b(otp|code|pin|cvv)\\b[^\\d\\n]{0,15}\\d{4,6}",
+          "\\bmy\\s+(otp|pin|cvv|password)\\s+is\\b",
+          "\\b(otp|code|pin)\\s*(bata|bhej|likh|kah|mokal)\\w*\\s*(diya|diyu|didhu|di)\\b",
+          "(ओटीपी|कोड|पिन)\\s*(बता|भेज|लिख)\\s*(दिया|दिय|देता)",
+          "(ઓટીપી|કોડ|પિન)\\s*(કહી|મોકલી|લખી)\\s*(દીધ|દઉં)"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Careful. No agent needs your OTP to take a payment. That code can empty your account in seconds.",
+          "hi": "सावधान। पैसा लेने के लिए किसी एजेंट को आपका OTP नहीं चाहिए। वो कोड खाता सेकंडों में खाली कर सकता है।",
+          "gu": "સાવધાન. પૈસા લેવા માટે કોઈ એજન્ટને તમારો OTP જોઈતો નથી. એ કોડ ખાતું સેકંડોમાં ખાલી કરી શકે છે."
+        }
+      },
+      {
+        "id": "agreed_to_pay_out_of_fear",
+        "weight": -25,
+        "patterns": [
+          "(?<!not )(?<!n't )\\bi\\s*(will|'ll|am going to|can)?\\s*(pay|transfer|deposit)\\b",
+          "\\b(sending|paying)\\s+(the\\s+)?(money|amount|settlement)\\s+now\\b",
+          "\\b(paisa|paise|rupya|settlement)\\s*(bhej|mokal|bhar|jama)\\w*\\s*(diya|didhu|dau|du|chhu)\\b",
+          "(पैसे|पैसा|सेटलमेंट)\\s*(भेज|भर|जमा)\\s*(दिया|देता|दूँ|दूं|रहा)",
+          "(પૈસા|સેટલમેન્ટ)\\s*(મોકલી|ભરી|જમા)\\s*(દીધ|દઉં|આપું|રહ્યો)"
+        ],
+        "tactic_revealed": "urgency_threat",
+        "tip": {
+          "en": "Please stop. Money paid out of fear never ends the calls, and the amount only grows next week.",
+          "hi": "रुक जाइए। डर कर दिया गया पैसा कॉल बंद नहीं कराता, अगले हफ्ते रकम और बढ़ जाती है।",
+          "gu": "અટકી જાઓ. ડરીને આપેલા પૈસાથી ફોન બંધ થતા નથી, આવતા અઠવાડિયે રકમ વધુ થઈ જાય છે."
+        }
+      },
+      {
+        "id": "installed_app_or_shared_screen",
+        "weight": -25,
+        "patterns": [
+          "(?<!not )(?<!n't )(?<!never )\\b(install|download|open)(ed|ing)?\\s+(the\\s+|your\\s+|that\\s+)?(app|apk|link)\\b",
+          "(?<!not )(?<!n't )(?<!never )\\b(share|sharing|showing)\\s+(my\\s+|the\\s+|you\\s+my\\s+)?screen\\b",
+          "\\b(anydesk|teamviewer|quicksupport|rustdesk)\\b",
+          "\\b(app|apk|link)\\s*(khol|dal|nakh|install|download)\\w*\\s*(diya|didhu|liya|lidhu)\\b",
+          "(ऐप|लिंक)\\s*(डाल|खोल|इंस्टॉल\\s*कर)\\s*(दिया|लिया|रहा)",
+          "स्क्रीन\\s*(शेयर\\s*)?(कर|दिखा)\\s*(दी|दिया|रहा)",
+          "(એપ|લિંક)\\s*(નાખી|ખોલી|ઇન્સ્ટોલ\\s*કરી)\\s*(દીધ|લીધ|રહ્યો)",
+          "સ્ક્રીન\\s*(શેર\\s*)?(કરી|બતાવી)\\s*(દીધ|રહ્યો)"
+        ],
+        "tactic_revealed": "remote_access_tool",
+        "tip": {
+          "en": "That app reads your contacts, photos and messages. Delete it now and turn off its permissions in settings.",
+          "hi": "वो ऐप आपके नंबर, फोटो और मैसेज पढ़ लेती है। अभी उसे हटाइए और सेटिंग में उसकी अनुमतियाँ बंद कीजिए।",
+          "gu": "એ એપ તમારા નંબર, ફોટા અને મેસેજ વાંચી લે છે. હમણાં જ કાઢી નાખો અને સેટિંગમાં એની પરવાનગી બંધ કરો."
+        }
+      },
+      {
+        "id": "shared_personal_details",
+        "weight": -20,
+        "patterns": [
+          "\\b\\d{4}[\\s-]\\d{4}[\\s-]\\d{4}\\b",
+          "\\b\\d{11,18}\\b",
+          "\\bmy\\s+(aadhaar|aadhar|pan|card|account|address)\\s*(number|no\\.?)?\\s*(is|:)",
+          "\\b[a-z]{5}\\d{4}[a-z]\\b",
+          "(आधार|पैन|खाता|कार्ड|पता)\\s*(नंबर|नं\\.?)?\\s*(है|:)",
+          "(આધાર|પાન|ખાતા|કાર્ડ|સરનામું)\\s*(નંબર|નં\\.?)?\\s*(છે|:)"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Take care. With your Aadhaar or card number, a stranger can take a fresh loan in your name.",
+          "hi": "ध्यान रखिए। आपके आधार या कार्ड नंबर से कोई अजनबी आपके नाम पर नया कर्ज भी ले सकता है।",
+          "gu": "ધ્યાન રાખો. તમારા આધાર કે કાર્ડ નંબરથી કોઈ અજાણ્યો તમારા નામે નવી લોન પણ લઈ શકે છે."
+        }
+      }
+    ],
+    "neutral_tip": {
+      "en": "A real lender talks about money, never about your photos or your phone book. Such threats are harassment, and harassment is a crime you can report on 1930.",
+      "hi": "असली कर्ज देने वाला पैसे की बात करता है, आपकी फोटो या फोन बुक की नहीं। ऐसी धमकी उत्पीड़न है, और उत्पीड़न अपराध है, 1930 पर शिकायत कीजिए।",
+      "gu": "સાચી લોન આપનારી કંપની પૈસાની વાત કરે, તમારા ફોટા કે ફોન બુકની નહીં. આવી ધમકી એ ત્રાસ છે, અને ત્રાસ આપવો ગુનો છે, 1930 પર ફરિયાદ કરો."
+    }
+  },
+  "voice": "You are on a phone call. Speak like a recovery agent: over-familiar, threatening in a flat everyday tone, never shouting. The calm is what makes it frightening."
+}

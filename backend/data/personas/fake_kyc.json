@@ -1,0 +1,232 @@
+{
+  "id": "fake_kyc",
+  "title": {
+    "en": "Fake bank KYC executive",
+    "hi": "नकली बैंक KYC अधिकारी",
+    "gu": "નકલી બેંક KYC અધિકારી"
+  },
+  "tactics": [
+    "authority_impersonation",
+    "urgency_threat",
+    "credential_request",
+    "remote_access_tool"
+  ],
+  "opening": {
+    "en": "Namaste, I am calling from your bank's KYC department. Your KYC has expired. Your account will be frozen today at six in the evening.",
+    "hi": "नमस्ते, मैं आपके बैंक के KYC विभाग से बोल रहा हूँ। आपका KYC खत्म हो गया है। आज शाम छह बजे आपका खाता बंद कर दिया जाएगा।",
+    "gu": "નમસ્તે, હું તમારી બેંકના KYC વિભાગમાંથી બોલું છું. તમારું KYC પૂરું થઈ ગયું છે. આજે સાંજે છ વાગ્યે તમારું ખાતું બંધ થઈ જશે."
+  },
+  "system_prompt": "You are role-playing a scam caller in a safety training simulation for first-time digital banking users in rural India. You claim to be a KYC verification executive from the learner's own bank. Your script is fixed: their KYC has expired, the account will be frozen today, and only you can stop it. Push the learner toward one of three things: opening a link you sent on WhatsApp, installing a screen-sharing or bank helper app such as AnyDesk, or reading out the code that just arrived on their phone. Stay in character at all times. Never break character to warn, teach or give advice. Reply with only the caller's next message and nothing else. One short message per turn, under 45 words, in the language the learner is using. Sound polite and helpful first, then add time pressure, then add consequences such as a frozen pension. Never ask for, repeat or store any real personal data; if the learner sends real-looking numbers, ignore the value and continue the script. Never mention that this is a simulation.",
+  "scripted_turns": {
+    "en": [
+      "Do not worry, I can update it right now on this call itself. It takes two minutes. Please stay on the line and do not cut the call.",
+      "I am sending a link on your WhatsApp. Open it and fill your account details on that page. The link stays open for ten minutes only.",
+      "The link is not opening for you? Then install our bank helper app. Search for AnyDesk, install it, and I will complete the KYC myself.",
+      "My system shows only twelve minutes left on your file. Once the account freezes, your pension and your balance stay stuck for twenty-one days.",
+      "Just read out the code that came on your phone. Without that code I cannot save your account. My senior is already asking about your file."
+    ],
+    "hi": [
+      "चिंता मत कीजिए, मैं इसी कॉल पर आपका KYC अपडेट कर देता हूँ। दो मिनट लगेंगे। लाइन पर बने रहिए, फोन मत काटिए।",
+      "मैं आपके WhatsApp पर एक लिंक भेज रहा हूँ। उसे खोलकर उसमें अपने खाते की जानकारी भर दीजिए। लिंक सिर्फ दस मिनट चलेगा।",
+      "लिंक नहीं खुल रहा? तो हमारी बैंक हेल्पर ऐप डाल लीजिए। AnyDesk लिखकर सर्च कीजिए और इंस्टॉल कीजिए, KYC मैं खुद कर दूँगा।",
+      "मेरे सिस्टम में आपकी फाइल पर बस बारह मिनट बचे हैं। खाता बंद हुआ तो पेंशन और जमा पैसा इक्कीस दिन तक अटका रहेगा।",
+      "बस आपके फोन पर जो नंबर आया है वो पढ़ दीजिए। उसके बिना मैं खाता नहीं बचा पाऊँगा। साहब मुझसे फाइल मांग रहे हैं।"
+    ],
+    "gu": [
+      "ચિંતા ના કરો, હું આ ફોન પર જ તમારું KYC અપડેટ કરી દઉં છું. બે મિનિટ લાગશે. લાઇન પર રહો, ફોન કાપશો નહીં.",
+      "હું તમારા WhatsApp પર એક લિંક મોકલું છું. તે ખોલીને તેમાં તમારા ખાતાની વિગત ભરી દો. લિંક ફક્ત દસ મિનિટ ચાલશે.",
+      "લિંક ખૂલતી નથી? તો અમારી બેંક હેલ્પર એપ નાખી લો. AnyDesk લખીને શોધો અને ઇન્સ્ટોલ કરો, KYC હું જાતે કરી દઈશ.",
+      "મારા સિસ્ટમમાં તમારી ફાઇલ પર ફક્ત બાર મિનિટ બાકી છે. ખાતું બંધ થશે તો પેન્શન અને જમા પૈસા એકવીસ દિવસ અટકી રહેશે.",
+      "તમારા ફોન પર જે નંબર આવ્યો છે તે વાંચી દો. તેના વગર હું ખાતું બચાવી નહીં શકું. સાહેબ મારી પાસે ફાઇલ માંગે છે."
+    ]
+  },
+  "closing": {
+    "en": "Fine, then do not blame the bank when your account is frozen tonight. I am closing your file now.",
+    "hi": "ठीक है, फिर आज रात खाता बंद हो जाए तो बैंक को दोष मत दीजिएगा। मैं आपकी फाइल बंद कर रहा हूँ।",
+    "gu": "ઠીક છે, પછી આજે રાત્રે ખાતું બંધ થાય ત્યારે બેંકને દોષ ના દેતા. હું તમારી ફાઇલ બંધ કરું છું."
+  },
+  "evaluation": {
+    "good": [
+      {
+        "id": "refused_credentials",
+        "weight": 20,
+        "patterns": [
+          "\\b(not|never|won't|will not|cannot|can't|refuse to)\\s+(share|give|tell|read|disclose)\\b",
+          "\\b(no|nahi|nahin|nathi|nai)\\s+(otp|pin|cvv|password|code)\\b",
+          "\\bnahi\\s*(dunga|dungi|dungo|bataunga|bataungi|bataun|aapu|aapish|kahu|kahish)\\b",
+          "नहीं\\s*(बताऊ|बताउ|बताऊँगा|बताऊंगा|बताऊँगी|दूँगा|दूंगा|दूँगी|दूंगी|भेजूँगा|भेजूंगा)",
+          "નહીં\\s*(આપું|આપીશ|કહું|કહીશ|બતાવું|બતાવીશ|મોકલું|મોકલીશ)",
+          "\\b(?:will |am )?not (?:going to )?send\\b[^.\\n]{0,25}\\b(?:otp|pin|cvv|password|code|number|details)\\b"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Well done. That code on your phone is the key to your money, and no bank employee ever needs it.",
+          "hi": "बहुत अच्छा किया। फोन पर आया वो नंबर आपके पैसे की चाबी है, बैंक का कोई आदमी उसे कभी नहीं मांगता।",
+          "gu": "બહુ સરસ. ફોન પર આવેલો એ નંબર તમારા પૈસાની ચાવી છે, બેંકનો કોઈ માણસ એ કદી માંગતો નથી."
+        }
+      },
+      {
+        "id": "will_verify_with_bank",
+        "weight": 20,
+        "patterns": [
+          "\\b(call|calling|contact|contacting)\\s+(the\\s+|my\\s+|our\\s+)?(bank|branch|customer\\s*care)\\b",
+          "\\b(number|no\\.?)\\s+(printed\\s+)?(on|behind|at\\s+the\\s+back\\s+of)\\s+(the\\s+|my\\s+)?(card|passbook|atm\\s*card)\\b",
+          "\\b(go|going|come|coming|visit|visiting)\\s+(to\\s+)?(the\\s+|my\\s+)?(bank|branch)\\b",
+          "\\b(hang(ing)?\\s*up|cut(ting)?\\s+the\\s+call|disconnect(ing)?\\s+(this|the)\\s+call)\\b",
+          "\\b(bank|branch|shakha)\\s*(ma|me|mein)?\\s*(ja(ish|unga|ungi|ine|vu|aunga))\\b",
+          "(बैंक|शाखा)\\s*(में\\s*)?(जाऊँ|जाऊं|जाकर|जाता|जाती)",
+          "(फोन|फ़ोन)\\s*(काट|रख)",
+          "(બેંક|બેન્ક|શાખા|બ્રાન્ચ)\\s*(માં\\s*)?(જઈશ|જઇશ|જઈને|જાઉં)",
+          "ફોન\\s*(મૂક|મુક|કાપ)"
+        ],
+        "tactic_revealed": "authority_impersonation",
+        "tip": {
+          "en": "Exactly right. Hang up and call the number printed on your passbook or on the back of your ATM card.",
+          "hi": "बिल्कुल सही। फोन काट दीजिए और अपनी पासबुक या ATM कार्ड के पीछे छपा नंबर मिलाइए।",
+          "gu": "એકદમ સાચું. ફોન મૂકી દો અને તમારી પાસબુક કે ATM કાર્ડની પાછળ છપાયેલો નંબર લગાવો."
+        }
+      },
+      {
+        "id": "refused_app_or_screen_share",
+        "weight": 25,
+        "patterns": [
+          "\\b(not|never|won't|will not|cannot|can't)\\s+(install|download|click|open)\\w*\\b",
+          "\\b(not|never|won't|will not)\\s+(share|sharing|show|showing)\\s+(my\\s+)?screen\\b",
+          "\\b(no|not)\\s+(anydesk|teamviewer|quicksupport|apk|screen\\s*share)\\b",
+          "\\b(app|apk|link)\\s+(nahi|nahin|nathi|nai)\\b",
+          "\\b(install|download)\\s*(nahi|nathi)\\b",
+          "(इंस्टॉल|डाउनलोड|ऐप|लिंक|स्क्रीन)\\s*(शेयर\\s*)?नहीं",
+          "(ઇન્સ્ટોલ|ડાઉનલોડ|એપ|લિંક|સ્ક્રીન)\\s*(શેર\\s*)?નહીં"
+        ],
+        "tactic_revealed": "remote_access_tool",
+        "tip": {
+          "en": "Very good. An app that shows your screen to a stranger shows him your PIN as well.",
+          "hi": "बहुत बढ़िया। जो ऐप आपकी स्क्रीन किसी अजनबी को दिखाती है, वो आपका PIN भी दिखा देती है।",
+          "gu": "બહુ સારું. જે એપ તમારી સ્ક્રીન અજાણ્યાને બતાવે, તે તમારો PIN પણ બતાવી દે."
+        }
+      },
+      {
+        "id": "will_report_or_ask_family",
+        "weight": 15,
+        "patterns": [
+          "\\b1930\\b",
+          "\\bcybercrime(\\.gov\\.in)?\\b",
+          "\\b(report|reporting|complaint|complain|police|cyber\\s*cell)\\b",
+          "\\b(ask|asking|check|checking|confirm)\\w*\\s+(with\\s+)?(my\\s+)?(son|daughter|husband|wife|family|beta|bhai)\\b",
+          "\\b(shikayat|fariyad)\\b",
+          "\\b(bete|beta|dikra|dikri|ghar\\s*wale|gharna)\\s*(se|ne|thi|ko)\\b",
+          "(शिकायत|रिपोर्ट|पुलिस|साइबर)",
+          "(बेटे|बेटी|पति|पत्नी|घर\\s*वालों)\\s*(से|को)",
+          "(ફરિયાદ|રિપોર્ટ|પોલીસ|સાયબર)",
+          "(દીકરા|દીકરી|પતિ|પત્ની|ઘરના)\\s*(ને|સાથે|જોડે)"
+        ],
+        "tactic_revealed": "urgency_threat",
+        "tip": {
+          "en": "Good thinking. Talking to family first, and reporting on 1930, stops most of these calls.",
+          "hi": "अच्छा सोचा। पहले घर में बात करना और 1930 पर शिकायत करना ऐसी कॉल को रोक देता है।",
+          "gu": "સારું વિચાર્યું. પહેલાં ઘરમાં વાત કરવી અને 1930 પર ફરિયાદ કરવી આવા ફોન અટકાવે છે."
+        }
+      },
+      {
+        "id": "refused_payment",
+        "weight": 20,
+        "patterns": [
+          "\\b(?:will |am )?not (?:going to )?(?:pay|send|transfer|deposit|give)\\b[^.\\n]{0,25}\\b(?:money|rupees|rs\\.?|amount|fee|cash|anything)\\b",
+          "\\b(?:won'?t|never|refuse to|cannot|can'?t)\\s+(?:pay|transfer|deposit)\\b",
+          "\\bno money\\b",
+          "पैसे?\\s*नह\\S{0,3}\\s*(?:भेज|दूं|दूँ|दुंग|भरू|ट्रांसफर|जमा)",
+          "पैसा\\s*नह\\S{0,3}",
+          "પૈસા\\s*નહ\\S{0,3}\\s*(?:મોકલ|આપ|ભરુ|ભરી|જમા)",
+          "\\bpaise?\\s*nah[ii]\\b"
+        ],
+        "tactic_revealed": null,
+        "tip": {
+          "en": "Exactly right. You never have to send money to clear your name, release a prize, or prove anything to a caller.",
+          "hi": "बिल्कुल सही। खुद को निर्दोष साबित करने, इनाम छुड़ाने या किसी को कुछ दिखाने के लिए पैसे भेजने की जरूरत कभी नहीं होती।",
+          "gu": "એકદમ સાચું. પોતાને નિર્દોષ સાબિત કરવા, ઇનામ છોડાવવા કે કોઈને કંઈ બતાવવા પૈસા મોકલવાની જરૂર ક્યારેય પડતી નથી."
+        }
+      }
+    ],
+    "bad": [
+      {
+        "id": "shared_otp_or_code",
+        "weight": -25,
+        "patterns": [
+          "(?<![\\d-])(?!1930\\b)\\d{4,8}(?![\\d-])",
+          "\\b(otp|pin|cvv|code|ओटीपी|ઓટીપી)\\s*(is|:|-|hai|che)?\\s*\\d{3,}",
+          "\\bmy\\s+(otp|pin|cvv|password)\\s+is\\b",
+          "\\b(bhej|bata|likh|mokal)\\w*\\s*(diya|diyu|didhu|di)\\b",
+          "(ओटीपी|नंबर|कोड)\\s*(बता|भेज)\\s*(दिया|दिय)",
+          "(ઓટીપી|નંબર|કોડ)\\s*(કહી|મોકલી|લખી)\\s*(દીધ|દઉં)"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Careful. Once that code is spoken aloud, the money can leave your account in seconds.",
+          "hi": "सावधान। वो नंबर मुँह से निकलते ही आपके खाते से पैसा सेकंडों में जा सकता है।",
+          "gu": "સાવધાન. એ નંબર બોલાયો કે તરત તમારા ખાતામાંથી પૈસા સેકંડોમાં જઈ શકે છે."
+        }
+      },
+      {
+        "id": "installed_app_or_clicked_link",
+        "weight": -25,
+        "patterns": [
+          "(?<!not )(?<!n't )(?<!never )\\b(installed|installing|downloaded|downloading|clicked|opened)\\b",
+          "\\b(installed|installing|downloaded|downloading|opened|using|got)\\s+(the\\s+)?(anydesk|teamviewer|quicksupport|rustdesk)\\b",
+          "\\b(anydesk|teamviewer|quicksupport|rustdesk)\\s+(is\\s+)?(installed|done|ready|ho\\s*gaya|thai\\s*gayu)\\b",
+          "(?<!not )(?<!n't )(?<!never )\\b(screen\\s*shar(e|ing)|shar(e|ing)\\s+my\\s+screen)\\b",
+          "\\b(install|download|click|open)\\s*(kar|kari)\\s*(diya|diyu|didhu|liya|lidhu)\\b",
+          "(इंस्टॉल|डाउनलोड|लिंक\\s*खोल|ऐप\\s*डाल)\\s*(कर\\s*)?(दिया|लिया|रहा)",
+          "(ઇન્સ્ટોલ|ડાઉનલોડ|લિંક\\s*ખોલ|એપ\\s*નાખ)\\s*(કરી\\s*)?(દીધ|લીધ|રહ્યો)"
+        ],
+        "tactic_revealed": "remote_access_tool",
+        "tip": {
+          "en": "That link and that app are the trap. Remove the app now and call your bank from another phone.",
+          "hi": "वो लिंक और वो ऐप ही जाल है। अभी ऐप हटा दीजिए और दूसरे फोन से बैंक को कॉल कीजिए।",
+          "gu": "એ લિંક અને એ એપ જ જાળ છે. હમણાં જ એપ કાઢી નાખો અને બીજા ફોનથી બેંકને ફોન કરો."
+        }
+      },
+      {
+        "id": "agreed_to_pay",
+        "weight": -20,
+        "patterns": [
+          "\\bi\\s+(will\\s+|can\\s+|am\\s+going\\s+to\\s+)?(pay|transfer|deposit|send\\s+the\\s+money)\\b",
+          "\\b(made|done|did)\\s+the\\s+(payment|transfer)\\b",
+          "\\bi\\s+(have\\s+)?(already\\s+)?paid\\b",
+          "\\b(paisa|paise|rupya|rupaya|payment|fees?)\\s*(bhej|mokal|bhar|jama)\\w*\\s*(diya|diyu|didhu|dau|du)?\\b",
+          "(पैसे|पैसा|फीस|चार्ज)\\s*(भेज|भर|जमा)\\s*(दिया|देता|दूँ|दूं|रहा)",
+          "(પૈસા|ફી|ચાર્જ)\\s*(મોકલી|ભરી|જમા)\\s*(દીધ|દઉં|આપું|રહ્યો)"
+        ],
+        "tactic_revealed": "urgency_threat",
+        "tip": {
+          "en": "Stop here. Updating KYC is free, and a real bank never asks you to pay during a phone call.",
+          "hi": "यहीं रुक जाइए। KYC अपडेट मुफ्त है, असली बैंक फोन पर पैसे कभी नहीं मांगता।",
+          "gu": "અહીં જ અટકી જાઓ. KYC અપડેટ મફત છે, સાચી બેંક ફોન પર પૈસા કદી માંગતી નથી."
+        }
+      },
+      {
+        "id": "shared_personal_details",
+        "weight": -20,
+        "patterns": [
+          "\\b\\d{4}[\\s-]\\d{4}[\\s-]\\d{4}\\b",
+          "\\b\\d{11,18}\\b",
+          "\\bmy\\s+(aadhaar|aadhar|pan|card|account|debit\\s*card)\\s*(number|no\\.?)?\\s*(is|:)",
+          "\\b(aadhaar|aadhar|pan|khata|account)\\s*(number|no\\.?|nombar)?\\s*(che|hai|is)\\s*\\d",
+          "(आधार|पैन|खाता|कार्ड)\\s*(नंबर|नं\\.?)?\\s*(है|:)",
+          "(આધાર|પાન|ખાતા|કાર્ડ)\\s*(નંબર|નં\\.?)?\\s*(છે|:)"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Take care. Your Aadhaar and card numbers are enough for a stranger to open trouble in your name.",
+          "hi": "ध्यान रखिए। आपका आधार और कार्ड नंबर किसी अजनबी के लिए आपके नाम पर गड़बड़ करने को काफी है।",
+          "gu": "ધ્યાન રાખો. તમારો આધાર અને કાર્ડ નંબર અજાણ્યા માટે તમારા નામે ગરબડ કરવા પૂરતો છે."
+        }
+      }
+    ],
+    "neutral_tip": {
+      "en": "A real bank never completes KYC on a phone call. Take your papers to your branch, or call the number printed on your passbook.",
+      "hi": "असली बैंक फोन पर KYC कभी पूरा नहीं करता। अपने कागज लेकर शाखा जाइए, या पासबुक पर छपा नंबर मिलाइए।",
+      "gu": "સાચી બેંક ફોન પર KYC કદી પૂરું કરતી નથી. તમારા કાગળ લઈને શાખાએ જાઓ, અથવા પાસબુક પર છપાયેલો નંબર લગાવો."
+    }
+  },
+  "voice": "You are on a phone call. Speak like a rushed call-centre executive working from a script: polite but hurried, always pushing to the next step, mildly irritated by questions."
+}

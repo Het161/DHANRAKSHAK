@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.local
+.DS_Store
+
+# Downloaded training data, not source. Regenerate with scripts/train_classifier.py.
+backend/data/corpus/cache/
+
+# Frontend build output.
+node_modules/
+dist/
+.next/
+next-env.d.ts
+*.tsbuildinfo

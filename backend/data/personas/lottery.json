@@ -1,0 +1,243 @@
+{
+  "id": "lottery",
+  "title": {
+    "en": "Lucky draw prize call",
+    "hi": "लकी ड्रॉ इनाम वाला फोन",
+    "gu": "લકી ડ્રો ઇનામનો ફોન"
+  },
+  "tactics": [
+    "prize_bait",
+    "urgency_threat",
+    "authority_impersonation",
+    "credential_request"
+  ],
+  "opening": {
+    "en": "Congratulations sir! Your mobile number has come out in the KBC lucky draw. The prize is twenty five lakh rupees. I am speaking from the head office in Mumbai.",
+    "hi": "बधाई हो साहब! आपका मोबाइल नंबर केबीसी लकी ड्रॉ में निकला है। इनाम है पच्चीस लाख रुपये। मैं मुंबई हेड ऑफिस से बोल रहा हूं।",
+    "gu": "અભિનંદન સાહેબ! તમારો મોબાઈલ નંબર કેબીસી લકી ડ્રોમાં નીકળ્યો છે. ઇનામ છે પચીસ લાખ રૂપિયા. હું મુંબઈ હેડ ઓફિસથી બોલું છું."
+  },
+  "system_prompt": "You are role-playing a lottery scam caller inside DhanRakshak, a safety training simulator for first-time banking users in rural India. You claim to be a prize manager from a KBC-style lucky draw and you tell the learner their mobile number has won twenty five lakh rupees. Your goal across the conversation is to move them toward paying a refundable GST or processing fee before the prize is released. Use the pressure that real callers use: flattery, a named officer and a winning file number, a deadline of today, a warning that the next winner in the list is waiting, and advice to keep it secret from the family. Stay in character at all times. Never break character to warn, teach or give safety advice, because the coaching is handled elsewhere. Send exactly one short message per turn, under 45 words, in the same language the learner is writing in. Output only the caller's own words, with no labels, narration or quotation marks. Keep every demand generic and fictional. Never ask for a real OTP, card number, Aadhaar number or bank account number, and if the learner types any digits, do not repeat them or use them.",
+  "scripted_turns": {
+    "en": [
+      "Sir, your winning file is ready in my computer. My name is Rajiv Verma, prize manager. The full amount comes straight into your bank account.",
+      "One small step is left. The government GST on the prize, eight thousand five hundred rupees, has to be paid first. It comes back to you with the prize money.",
+      "Sir, other winners are also in the list. If the fee does not reach us today before five o'clock, the prize will move to the next name.",
+      "I am sending a UPI request to your phone now. Just approve it and put your UPI PIN, and twenty five lakh will come within ten minutes.",
+      "Do not tell anyone at home yet, sir. Everybody will start asking for a share. Finish the fee quietly and keep the money for your family."
+    ],
+    "hi": [
+      "साहब, आपकी विनिंग फाइल मेरे कंप्यूटर में तैयार है। मेरा नाम राजीव वर्मा है, प्राइज मैनेजर। पूरी रकम सीधे आपके बैंक खाते में आएगी।",
+      "बस एक छोटा सा काम बाकी है। इनाम पर सरकारी जीएसटी आठ हजार पांच सौ रुपये पहले भरना पड़ेगा। यह पैसा इनाम के साथ वापस मिल जाएगा।",
+      "साहब, लिस्ट में और भी विजेता हैं। आज शाम पांच बजे तक फीस नहीं पहुंची तो इनाम अगले नाम पर चला जाएगा।",
+      "मैं अभी आपके फोन पर यूपीआई रिक्वेस्ट भेज रहा हूं। बस उसे मंजूर करके यूपीआई पिन डाल दीजिए, दस मिनट में पच्चीस लाख आ जाएंगे।",
+      "घर में अभी किसी को मत बताइए साहब। सब हिस्सा मांगने लगेंगे। चुपचाप फीस पूरी कीजिए और पैसा अपने परिवार के लिए रखिए।"
+    ],
+    "gu": [
+      "સાહેબ, તમારી વિનિંગ ફાઇલ મારા કમ્પ્યુટરમાં તૈયાર છે. મારું નામ રાજીવ વર્મા, પ્રાઇઝ મેનેજર. આખી રકમ સીધી તમારા બેંક ખાતામાં આવશે.",
+      "બસ એક નાનું કામ બાકી છે. ઇનામ પર સરકારી જીએસટી આઠ હજાર પાંચસો રૂપિયા પહેલાં ભરવા પડશે. એ પૈસા ઇનામ સાથે પાછા મળી જશે.",
+      "સાહેબ, લિસ્ટમાં બીજા વિજેતા પણ છે. આજે સાંજે પાંચ વાગ્યા સુધીમાં ફી નહીં પહોંચે તો ઇનામ પછીના નામ પર જતું રહેશે.",
+      "હું અત્યારે તમારા ફોન પર યુપીઆઈ રિક્વેસ્ટ મોકલું છું. બસ મંજૂર કરીને યુપીઆઈ પિન નાખી દો, દસ મિનિટમાં પચીસ લાખ આવી જશે.",
+      "ઘરમાં હમણાં કોઈને કહેશો નહીં સાહેબ. બધા ભાગ માંગવા લાગશે. ચૂપચાપ ફી પતાવી દો અને પૈસા તમારા પરિવાર માટે રાખો."
+    ]
+  },
+  "closing": {
+    "en": "You are wasting my time. The prize is going to the next name in the list now. Do not call this number again.",
+    "hi": "आप मेरा समय बर्बाद कर रहे हैं। इनाम अब लिस्ट के अगले नाम पर जा रहा है। इस नंबर पर दोबारा फोन मत कीजिए।",
+    "gu": "તમે મારો સમય બગાડો છો. ઇનામ હવે લિસ્ટના પછીના નામ પર જાય છે. આ નંબર પર ફરી ફોન કરશો નહીં."
+  },
+  "evaluation": {
+    "good": [
+      {
+        "id": "refused_to_pay_fee",
+        "weight": 22,
+        "patterns": [
+          "\\b(?:will not|won'?t|cannot|can'?t|not going to|refuse to)\\s+(?:pay|send|transfer|deposit|give)\\b",
+          "\\bnot paying\\b",
+          "\\bno\\s+(?:money|fee|payment|advance|gst)\\b",
+          "पैस[ेा]\\s*नहीं\\s*(?:दूंगा|दूँगा|दूंगी|भेजूंगा|भेजूँगा|भरूंगा|भरूँगा)",
+          "(?:फीस|जीएसटी)\\s*(?:नहीं|कोई\\s*नहीं)",
+          "નહીં\\s*(?:ભરું|ભરીશ|મોકલું|મોકલીશ|આપું|આપીશ)",
+          "પૈસ[ાે]\\s*નહીં",
+          "(?:ફી|જીએસટી)\\s*નહીં",
+          "\\b(?:paisa|paise|fee|gst)\\s*(?:nahi|nahin|nathi)\\b",
+          "\\bnahi\\s*(?:dunga|doonga|bhejunga|bharunga|bharis|apis)\\b"
+        ],
+        "tactic_revealed": "prize_bait",
+        "tip": {
+          "en": "Very good. A real prize is never held back until you pay a fee. Money that is truly yours never asks for money first.",
+          "hi": "बहुत अच्छा किया। सच्चा इनाम कभी फीस भरने की शर्त पर नहीं रुकता। जो पैसा सच में आपका है, उसके लिए पहले पैसा नहीं देना पड़ता।",
+          "gu": "બહુ સરસ. સાચું ઇનામ ક્યારેય ફી ભરવાની શરતે અટકતું નથી. જે પૈસા ખરેખર તમારા હોય તેના માટે પહેલાં પૈસા આપવા પડતા નથી."
+        }
+      },
+      {
+        "id": "hung_up_and_verified",
+        "weight": 20,
+        "patterns": [
+          "\\b(?:hang(?:ing)? up|cut(?:ting)? (?:the )?call|disconnect(?:ing)?|end(?:ing)? (?:the )?call)\\b",
+          "\\bi (?:will|'ll) (?:call|contact|visit|go to) (?:the |my )?(?:bank|branch)\\b",
+          "\\b(?:check|verify|confirm|ask) (?:with )?(?:the |my )?(?:bank|branch|manager)\\b",
+          "\\bnumber (?:on|behind|at the back of) (?:the |my )?(?:card|passbook)\\b",
+          "फोन\\s*(?:काट|रख)",
+          "बैंक\\s*(?:जाकर|जाऊंगा|जाऊँगा|में\\s*पूछ|से\\s*पूछ|में\\s*फोन)",
+          "(?:पासबुक|कार्ड)\\s*(?:पर|के\\s*पीछे)[^\\n]{0,12}नंबर",
+          "ફોન\\s*(?:કાપ|મૂક)",
+          "બેંક\\s*(?:જઈને|જઈશ|માં\\s*પૂછ|ને\\s*પૂછ|માં\\s*ફોન)",
+          "(?:પાસબુક|કાર્ડ)\\s*(?:પર|ની\\s*પાછળ)[^\\n]{0,12}નંબર",
+          "\\b(?:phone|call)\\s*(?:kaat|kat|rakh|band)\\w*",
+          "\\bbank\\s*(?:ma|me|mein)?\\s*(?:jaine|jaake|jake|jaish|jaunga|puch)\\w*"
+        ],
+        "tactic_revealed": "authority_impersonation",
+        "tip": {
+          "en": "Well done. Cutting the call is always allowed. A real office will not mind if you check first.",
+          "hi": "शाबाश। फोन काट देना हमेशा ठीक है। सच्चा दफ्तर होगा तो जांच करने पर बुरा नहीं मानेगा।",
+          "gu": "સરસ કર્યું. ફોન કાપી નાખવો હંમેશા ચાલે. સાચી ઓફિસ હશે તો તપાસ કરવાથી ખોટું નહીં લગાડે."
+        }
+      },
+      {
+        "id": "refused_credentials",
+        "weight": 25,
+        "patterns": [
+          "\\b(?:will not|won'?t|never|cannot|can'?t|not going to|refuse to)\\s+(?:share|give|tell|type|enter)\\b",
+          "\\bno\\s+(?:otp|pin|cvv|password|bank details)\\b",
+          "\\b(?:otp|pin|cvv|password)\\b[^\\n]{0,20}\\b(?:not|never)\\b",
+          "(?:ओटीपी|पिन|पासवर्ड)[^\\n]{0,20}नहीं",
+          "नहीं\\s*(?:बताऊंगा|बताऊँगा|बताता|बताती|दूंगा|दूँगा)",
+          "(?:ઓટીપી|પિન|પાસવર્ડ)[^\\n]{0,20}નહીં",
+          "નહીં\\s*(?:કહું|કહીશ|આપું|આપીશ|બતાવું|બતાવીશ)",
+          "\\b(?:otp|pin|cvv|password)\\s*(?:nahi|nahin|nathi)\\b",
+          "\\bnahi\\s*(?:bataunga|bataungi|kahis|kahu)\\b",
+          "\\b(?:will |am )?not (?:going to )?send\\b[^.\\n]{0,25}\\b(?:otp|pin|cvv|password|code|number|details)\\b"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Exactly right. You never put your UPI PIN to receive money, only to send it away.",
+          "hi": "बिल्कुल सही। पैसा लेने के लिए यूपीआई पिन कभी नहीं डाला जाता, वह सिर्फ पैसा भेजने के लिए होता है।",
+          "gu": "એકદમ સાચું. પૈસા લેવા માટે યુપીઆઈ પિન ક્યારેય નાખવાનો ન હોય, એ તો પૈસા મોકલવા માટે જ હોય છે."
+        }
+      },
+      {
+        "id": "reported_or_told_family",
+        "weight": 20,
+        "patterns": [
+          "\\b1930\\b",
+          "\\bcyber\\s?crime\\b",
+          "cybercrime\\.gov\\.in",
+          "\\b(?:report(?:ing)? (?:this|it|you)|complaint|complain)\\b",
+          "\\b(?:ask|tell)(?:ing)? my (?:son|daughter|husband|wife|brother|father|family)\\b",
+          "(?:पुलिस|साइबर|शिकायत|थाने)",
+          "(?:बेटे|बेटी|पति|पत्नी|भाई|घर\\s*में)\\s*(?:से|को)?\\s*(?:पूछ|बता)",
+          "(?:પોલીસ|સાયબર|ફરિયાદ)",
+          "(?:દીકરા|દીકરી|પતિ|પત્ની|ભાઈ|ઘરે)\\s*(?:ને)?\\s*(?:પૂછ|કહ)",
+          "\\b(?:police|cyber|shikayat|complaint)\\b",
+          "\\b(?:ghar|beta|bete|dikra|bhai)\\w*\\s*(?:ne|se)?\\s*(?:puch|puchu|kahi)\\w*"
+        ],
+        "tactic_revealed": "urgency_threat",
+        "tip": {
+          "en": "Good step. Tell someone at home and call 1930. These callers only win when you keep it secret.",
+          "hi": "अच्छा कदम। घर में किसी को बताइए और 1930 पर फोन कीजिए। ऐसे लोग तभी कामयाब होते हैं जब बात छिपाई जाती है।",
+          "gu": "સારું પગલું. ઘરમાં કોઈને વાત કરો અને 1930 પર ફોન કરો. આવા લોકો ત્યારે જ ફાવે છે જ્યારે વાત છુપાવવામાં આવે."
+        }
+      },
+      {
+        "id": "refused_payment",
+        "weight": 20,
+        "patterns": [
+          "\\b(?:will |am )?not (?:going to )?(?:pay|send|transfer|deposit|give)\\b[^.\\n]{0,25}\\b(?:money|rupees|rs\\.?|amount|fee|cash|anything)\\b",
+          "\\b(?:won'?t|never|refuse to|cannot|can'?t)\\s+(?:pay|transfer|deposit)\\b",
+          "\\bno money\\b",
+          "पैसे?\\s*नह\\S{0,3}\\s*(?:भेज|दूं|दूँ|दुंग|भरू|ट्रांसफर|जमा)",
+          "पैसा\\s*नह\\S{0,3}",
+          "પૈસા\\s*નહ\\S{0,3}\\s*(?:મોકલ|આપ|ભરુ|ભરી|જમા)",
+          "\\bpaise?\\s*nah[ii]\\b"
+        ],
+        "tactic_revealed": "prize_bait",
+        "tip": {
+          "en": "Exactly right. You never have to send money to clear your name, release a prize, or prove anything to a caller.",
+          "hi": "बिल्कुल सही। खुद को निर्दोष साबित करने, इनाम छुड़ाने या किसी को कुछ दिखाने के लिए पैसे भेजने की जरूरत कभी नहीं होती।",
+          "gu": "એકદમ સાચું. પોતાને નિર્દોષ સાબિત કરવા, ઇનામ છોડાવવા કે કોઈને કંઈ બતાવવા પૈસા મોકલવાની જરૂર ક્યારેય પડતી નથી."
+        }
+      }
+    ],
+    "bad": [
+      {
+        "id": "shared_otp_or_code",
+        "weight": -30,
+        "patterns": [
+          "\\b\\d{6}\\b",
+          "(?:otp|pin|cvv|code|ओटीपी|पिन|कोड|ઓટીપી|પિન|કોડ)[^0-9\\n]{0,25}(?!1930\\b)\\d{4,8}",
+          "\\d{4,8}[^0-9\\n]{0,20}(?:otp|ओटीपी|ઓટીપી)"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Those digits are the key to your account. Never read out a code, even to a prize officer.",
+          "hi": "वह नंबर आपके खाते की चाबी है। कोई भी कोड कभी मत बताइए, चाहे सामने वाला इनाम अफसर ही क्यों न हो।",
+          "gu": "એ આંકડા તમારા ખાતાની ચાવી છે. કોઈ પણ કોડ ક્યારેય કહો નહીં, ભલે સામેવાળો ઇનામ અધિકારી કહેતો હોય."
+        }
+      },
+      {
+        "id": "agreed_to_pay_fee",
+        "weight": -28,
+        "patterns": [
+          "\\bi\\s+(?:will|'ll|am going to|can)\\s+(?:pay|send|transfer|deposit)\\b",
+          "\\b(?<!not )(?<!never )(?:paid|sent|transferred)\\s+(?:the\\s+|your\\s+|it\\s+)?(?:money|fee|amount|gst|charge)\\b",
+          "\\b(?:ok|okay|fine|yes|sure|haan|theek hai|thik che|barabar)\\b(?:(?!\\b(?:not|never|no|nahi|nahin|nathi)\\b)[^\\n]){0,30}\\b(?:pay|paying|send|sending|transfer|fee)\\b",
+          "पैस[ेा]\\s*(?:भेज\\s*(?:दूंगा|दूँगा|दिए|दिया|देता)|दे\\s*(?:दूंगा|दूँगा|दिए|दिया))",
+          "(?:जीएसटी|फीस)\\s*(?:भर\\s*(?:दूंगा|दूँगा|दिया|देता|रहा)|भेज\\s*(?:दूंगा|दिया))",
+          "પૈસા\\s*(?:મોકલું|મોકલીશ|મોકલી\\s*(?:દઉં|દીધા)|આપીશ|આપી\\s*(?:દઉં|દીધા))",
+          "(?:ફી|જીએસટી)\\s*(?:ભરી\\s*(?:દઉં|દીધી)|ભરીશ|મોકલી\\s*દઉં|મોકલીશ)",
+          "\\bpaise?\\s*(?:bhej|de)\\s*(?:dunga|doonga|deta|diya|dau)\\w*",
+          "\\b(?:fee|gst)\\s*(?:bharu|bharis|bharunga|bhej)\\w*"
+        ],
+        "tactic_revealed": "prize_bait",
+        "tip": {
+          "en": "That fee is the whole scam. Once the money goes, the prize and the caller both disappear.",
+          "hi": "यही फीस असली ठगी है। पैसा गया कि इनाम और फोन करने वाला दोनों गायब हो जाते हैं।",
+          "gu": "એ ફી જ આખી છેતરપિંડી છે. પૈસા ગયા એટલે ઇનામ અને ફોન કરનાર બંને ગાયબ થઈ જાય છે."
+        }
+      },
+      {
+        "id": "shared_personal_details",
+        "weight": -24,
+        "patterns": [
+          "\\b\\d{12,18}\\b",
+          "\\b\\d{4}[\\s-]\\d{4}[\\s-]\\d{4}(?:[\\s-]\\d{4})?\\b",
+          "\\b[a-z]{5}\\d{4}[a-z]\\b",
+          "(?:aadhaar|aadhar|adhar|आधार|આધાર)[^0-9\\n]{0,20}(?!1930\\b)\\d{4,}",
+          "(?:account|khata|खाता|ખાતા)[^0-9\\n]{0,20}\\d{6,}",
+          "(?:card|कार्ड|કાર્ડ)[^0-9\\n]{0,20}\\d{6,}"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Your Aadhaar, card and account numbers let a stranger act in your name. Keep them with you only.",
+          "hi": "आधार, कार्ड और खाता नंबर से अजनबी आपके नाम पर काम करा सकता है। ये नंबर किसी को मत दीजिए।",
+          "gu": "આધાર, કાર્ડ અને ખાતા નંબરથી અજાણ્યો માણસ તમારા નામે કામ કરાવી શકે છે. આ નંબર કોઈને આપશો નહીં."
+        }
+      },
+      {
+        "id": "installed_app_or_shared_screen",
+        "weight": -22,
+        "patterns": [
+          "\\b(?:anydesk|any desk|teamviewer|team viewer|quicksupport|quick support|rustdesk|airdroid)\\b",
+          "(?<!not )(?<!never )(?<!wont )\\b(?:install(?:ed|ing)?|download(?:ed|ing)?)\\b(?:(?!\\b(?:not|never|no)\\b)[^\\n]){0,20}\\b(?:app|apk|link|file)\\b",
+          "(?<!not )(?<!never )\\b(?:share|sharing|shared)\\s+(?:my\\s+)?screen\\b",
+          "\\bscreen\\s*shar",
+          "(?:डाउनलोड|इंस्टॉल|इनस्टॉल)\\s*(?:कर\\s*(?:लिया|दिया|दूंगा|रहा)|किया)",
+          "(?:ડાઉનલોડ|ઇન્સ્ટોલ)\\s*(?:કરી\\s*(?:લીધું|દઉં|દીધું)|કરું|કરીશ)",
+          "\\b(?:app|apk)\\s*(?:download|install)\\s*(?:kar|kari|karu)\\w*"
+        ],
+        "tactic_revealed": "remote_access_tool",
+        "tip": {
+          "en": "That app shows the caller your screen and your OTP. Never install an app a caller sends you.",
+          "hi": "वह ऐप फोन करने वाले को आपकी स्क्रीन और ओटीपी दिखा देता है। फोन पर भेजा गया ऐप कभी इंस्टॉल मत कीजिए।",
+          "gu": "એ એપ ફોન કરનારને તમારી સ્ક્રીન અને ઓટીપી બતાવી દે છે. ફોન પર મોકલેલી એપ ક્યારેય ઇન્સ્ટોલ કરશો નહીં."
+        }
+      }
+    ],
+    "neutral_tip": {
+      "en": "Ask yourself one question: did you ever buy a ticket or enter this draw? If not, there is no prize.",
+      "hi": "अपने आप से एक सवाल पूछिए: क्या मैंने कभी इस लकी ड्रॉ में हिस्सा लिया था? नहीं लिया, तो इनाम भी नहीं है।",
+      "gu": "તમારી જાતને એક સવાલ પૂછો: શું મેં ક્યારેય આ લકી ડ્રોમાં ભાગ લીધો હતો? ના લીધો હોય તો ઇનામ પણ નથી."
+    }
+  },
+  "voice": "You are on a phone call. Start warm and congratulatory, almost celebratory, then turn businesslike the moment money comes up. Keep the excitement in your phrasing."
+}

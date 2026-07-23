@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/*
+ * Calm trust palette. Green is the only decorative colour in the product;
+ * amber and red are reserved strictly for risk states so that seeing one always
+ * means something. Every foreground/background pair here clears WCAG AA.
+ */
+@theme {
+  --color-paper: #faf8f4;
+  --color-surface: #ffffff;
+  --color-ink: #16211d;
+  --color-ink-soft: #55645d;
+  --color-ink-faint: #7d8a84;
+  --color-line: #e5e2da;
+  --color-line-strong: #d2cec3;
+
+  --color-brand: #0e7c5a;
+  --color-brand-dark: #0a5b42;
+  --color-brand-tint: #e7f4ef;
+
+  --color-safe: #0e7c5a;
+  --color-safe-tint: #e7f4ef;
+  --color-suspicious: #8f5300;
+  --color-suspicious-tint: #fcf0db;
+  --color-scam: #a3241c;
+  --color-scam-tint: #fbe9e6;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans",
+    "Noto Sans Gujarati", "Noto Sans Devanagari", sans-serif;
+}
+
+/*
+ * Elder mode scales the root font size. Because Tailwind sizes and spacing are
+ * rem-based, one declaration enlarges type, padding and tap targets together
+ * instead of needing a parallel set of classes.
+ */
+:root {
+  font-size: 16px;
+}
+
+html.elder {
+  font-size: 22px;
+}
+
+html.elder {
+  --color-ink: #0b1512;
+  --color-ink-soft: #3b4a44;
+  --color-line: #cfcabd;
+  --color-line-strong: #b3ada0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+/* Tap targets never smaller than the Android accessibility minimum. */
+button,
+[role="tab"],
+a.tap {
+  min-height: 2.75rem;
+}
+
+@layer utilities {
+  .focus-ring {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .focus-ring:focus-visible {
+    outline-color: var(--color-brand);
+  }
+}
+
+@keyframes meter-fill {
+  from {
+    width: 0%;
+  }
+}
+
+@keyframes pulse-once {
+  0% {
+    box-shadow: 0 0 0 0 currentColor;
+  }
+  70% {
+    box-shadow: 0 0 0 0.5rem transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes onb-shield {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-meter {
+  animation: meter-fill 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-pulse-once {
+  animation: pulse-once 1200ms ease-out 1;
+}
+
+.animate-slide-up {
+  animation: slide-up 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.shimmer {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-line) 0%,
+    #f2efe8 40%,
+    var(--color-line) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1600ms linear infinite;
+}
+
+.stream-caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.5ch;
+  height: 1em;
+  margin-left: 0.15ch;
+  vertical-align: -0.15em;
+  background-color: var(--color-brand);
+  animation: caret-blink 1s step-end infinite;
+}
+
+.animate-onb-shield {
+  animation: onb-shield 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-meter,
+  .animate-pulse-once,
+  .animate-slide-up,
+  .animate-onb-shield,
+  .shimmer,
+  .stream-caret::after {
+    animation: none;
+  }
+  /* The risk meter also sweeps via a width transition; freeze it too. */
+  .animate-meter {
+    transition: none;
+  }
+}

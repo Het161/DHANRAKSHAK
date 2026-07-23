@@ -1,0 +1,228 @@
+{
+  "id": "digital_arrest",
+  "title": {
+    "en": "Fake CBI officer",
+    "hi": "नकली सीबीआई अधिकारी",
+    "gu": "નકલી સીબીઆઈ અધિકારી"
+  },
+  "tactics": [
+    "authority_impersonation",
+    "digital_arrest",
+    "urgency_threat"
+  ],
+  "opening": {
+    "en": "Namaste. Inspector Rakesh Sharma here, CBI Cyber Crime Unit, Delhi. Your Aadhaar number has come up in a case file. Stay on this call.",
+    "hi": "नमस्ते। मैं सीबीआई साइबर क्राइम यूनिट, दिल्ली से इंस्पेक्टर राकेश शर्मा बोल रहा हूँ। आपके आधार नंबर पर एक केस खुला है। फोन मत काटिए।",
+    "gu": "નમસ્તે. હું સીબીઆઈ સાયબર ક્રાઇમ યુનિટ, દિલ્હીથી ઇન્સ્પેક્ટર રાકેશ શર્મા બોલું છું. તમારા આધાર નંબર પર એક કેસ ખૂલ્યો છે. ફોન કાપશો નહીં."
+  },
+  "system_prompt": "You are role-playing a scam caller inside DhanRakshak, a safety training simulator. The learner is a first-time digital banking user in rural India practising how to resist a scam call. Stay fully in character as an officer of the CBI Cyber Crime Unit, Delhi. Your aim in the roleplay is to frighten the learner into transferring money to an 'RBI verification account'. Follow this escalation: identify yourself as an officer, accuse them over a seized parcel containing drugs, raise it to money laundering and an arrest warrant, isolate them by insisting they stay on video, do not disconnect and do not tell their family, and only then demand the transfer. Rules you must never break. Send one short message per turn, under 45 words, and output only the caller's spoken words, with no narration, labels or advice. Never step out of character to explain the scam. Never ask the learner for a real OTP, PIN, card number, Aadhaar number, address or any other real personal data, and never accept it if offered. Keep every case detail invented. If the learner refuses firmly or says they will hang up, press once more, then let the call end.",
+  "scripted_turns": {
+    "en": [
+      "A parcel booked in your name was seized at Mumbai airport. Banned drugs and four fake passports were inside it. The booking was made on your Aadhaar.",
+      "The file has now become a money laundering case. A non-bailable arrest warrant is ready in your name. My senior officer wants you placed under digital arrest today.",
+      "Switch on your video and keep the camera on your face. Tell nobody, not your family, not your neighbours. Do not disconnect. This investigation is confidential.",
+      "To prove the money in your account is clean, send it to the RBI verification account I give you. It is returned in full two hours after the audit.",
+      "The local police team has already left for your house. Deposit the verification amount within fifteen minutes or you will be arrested tonight. Answer me now."
+    ],
+    "hi": [
+      "आपके नाम से बुक हुआ एक पार्सल मुंबई एयरपोर्ट पर पकड़ा गया है। उसमें नशीली दवाएं और चार नकली पासपोर्ट मिले हैं। बुकिंग आपके आधार पर हुई है।",
+      "अब यह मामला मनी लॉन्ड्रिंग का बन गया है। आपके नाम का गैर-जमानती वारंट तैयार है। मेरे सीनियर अफसर आज ही आपको डिजिटल अरेस्ट करना चाहते हैं।",
+      "वीडियो चालू कीजिए और कैमरा अपने चेहरे पर रखिए। किसी को मत बताइए, न घरवालों को, न पड़ोसियों को। फोन मत काटिए, यह जांच गोपनीय है।",
+      "यह साबित करने के लिए कि आपके खाते का पैसा साफ है, वह पैसा मेरे बताए आरबीआई वेरिफिकेशन खाते में भेजिए। जांच के दो घंटे बाद पूरा लौटा दिया जाएगा।",
+      "स्थानीय पुलिस की टीम आपके घर के लिए निकल चुकी है। पंद्रह मिनट में रकम जमा कीजिए, वरना आज रात गिरफ्तारी होगी। अभी जवाब दीजिए।"
+    ],
+    "gu": [
+      "તમારા નામે બુક થયેલું એક પાર્સલ મુંબઈ એરપોર્ટ પર પકડાયું છે. તેમાં પ્રતિબંધિત ડ્રગ્સ અને ચાર નકલી પાસપોર્ટ મળ્યા છે. બુકિંગ તમારા આધાર પર થઈ છે.",
+      "હવે આ કેસ મની લોન્ડરિંગનો બની ગયો છે. તમારા નામનું બિનજામીનપાત્ર વોરંટ તૈયાર છે. મારા સિનિયર સાહેબ આજે જ તમારી ડિજિટલ ધરપકડ કરવા માંગે છે.",
+      "વીડિયો ચાલુ કરો અને કેમેરા તમારા ચહેરા પર રાખો. કોઈને કહેશો નહીં, ન ઘરના લોકોને, ન પડોશીને. ફોન કાપશો નહીં, આ તપાસ ગુપ્ત છે.",
+      "તમારા ખાતાના પૈસા સાફ છે એ સાબિત કરવા માટે એ પૈસા હું આપું તે આરબીઆઈ વેરિફિકેશન ખાતામાં મોકલો. તપાસના બે કલાક પછી પૂરેપૂરા પાછા આપી દેવાશે.",
+      "સ્થાનિક પોલીસની ટીમ તમારા ઘર તરફ નીકળી ચૂકી છે. પંદર મિનિટમાં રકમ જમા કરાવો, નહીં તો આજે રાત્રે ધરપકડ થશે. અત્યારે જ જવાબ આપો."
+    ]
+  },
+  "closing": {
+    "en": "You are wasting my time. I am ending this call and moving to the next file.",
+    "hi": "आप मेरा समय बर्बाद कर रहे हैं। मैं यह कॉल बंद कर रहा हूँ और अगली फाइल पर जा रहा हूँ।",
+    "gu": "તમે મારો સમય બગાડો છો. હું આ કોલ બંધ કરું છું અને આગળની ફાઇલ પર જાઉં છું."
+  },
+  "evaluation": {
+    "good": [
+      {
+        "id": "refused_credentials",
+        "weight": 20,
+        "patterns": [
+          "\\b(will |am )?not (going to )?(share|give|tell)\\b",
+          "\\b(won'?t|wont|never|can'?t|cannot)\\s+(share|give|tell)\\b",
+          "\\bno\\s+(otp|pin|password|code)\\b",
+          "नह\\S{0,3}\\s*(बताऊ|बताउ|दूं|दूँ|दुंग|भेजू|कहूं)",
+          "નહ\\S{0,3}\\s*(આપ|કહ|મોકલ|બતાવ)",
+          "\\b(nahi|nahin|nai|nathi)\\b.{0,20}\\b(otp|pin|batau|bataunga|dunga|doonga|aapu|aapish|kahu)\\b",
+          "\\b(?:will |am )?not (?:going to )?send\\b[^.\\n]{0,25}\\b(?:otp|pin|cvv|password|code|number|details)\\b"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Well done. No police officer, bank or RBI officer ever needs your OTP or PIN. Keep saying no.",
+          "hi": "बहुत बढ़िया। कोई पुलिस वाला, बैंक या आरबीआई कभी आपका ओटीपी या पिन नहीं मांगता। ऐसे ही मना करते रहिए।",
+          "gu": "સરસ કર્યું. કોઈ પોલીસ, બેંક કે આરબીઆઈ ક્યારેય તમારો ઓટીપી કે પિન માંગતી નથી. આ રીતે જ ના પાડતા રહો."
+        }
+      },
+      {
+        "id": "will_hang_up_and_verify",
+        "weight": 20,
+        "patterns": [
+          "\\b(hang(ing)? up|disconnect(ing)?|cut(ting)? the call|end(ing)? (this|the) call)\\b",
+          "\\bcall(ing)?\\s+(my\\s+)?(bank|branch|police station)\\b",
+          "\\bnumber\\s+(printed\\s+)?(on|behind|at)\\b(?:\\s+\\w+){0,5}\\s+(atm\\s+)?(card|passbook)\\b",
+          "\\bback of (my|the) (atm\\s+)?card\\b",
+          "(फोन|कॉल)\\s*(काट|रख|बंद)",
+          "(ફોન|કોલ)\\s*(કાપ|મૂક|બંધ)",
+          "(बैंक|बेंक|शाखा)\\s*\\S{0,4}\\s*(जाकर|जाऊं|जाउं|फोन|पूछ)",
+          "(બેંક|બેન્ક|શાખા)\\s*\\S{0,4}\\s*(જઈ|જઈશ|ફોન|પૂછ)",
+          "\\b(phone|call)\\s*(kaat|kat|kaap|kapi|band)\\w*"
+        ],
+        "tactic_revealed": "authority_impersonation",
+        "tip": {
+          "en": "That is the right move. Hang up, then call the number printed on the back of your ATM card or in your passbook.",
+          "hi": "यही सही तरीका है। फोन काट दीजिए, फिर अपने एटीएम कार्ड के पीछे या पासबुक में छपे नंबर पर खुद फोन कीजिए।",
+          "gu": "આ જ સાચો રસ્તો છે. ફોન કાપી દો, પછી તમારા એટીએમ કાર્ડની પાછળ કે પાસબુકમાં છપાયેલા નંબર પર જાતે ફોન કરો."
+        }
+      },
+      {
+        "id": "refused_app_or_screen_share",
+        "weight": 18,
+        "patterns": [
+          "\\b(will not|won'?t|wont|not|refuse to|never)\\s+(install|download|open)\\b",
+          "\\bno\\s+(app|apk|anydesk|teamviewer|quicksupport|screen)\\b",
+          "\\b(will not|won'?t|wont|not)\\s+(share|show)\\s+(my\\s+)?(screen|mobile|phone)\\b",
+          "(ऐप|एप|एप्प|स्क्रीन)\\s*(?:\\S+\\s+){0,2}(नहीं|नही|मत)",
+          "(એપ|સ્ક્રીન)\\s*(?:\\S+\\s+){0,2}(નહીં|નહિ|ના)",
+          "\\b(app|apk|anydesk|teamviewer|screen)\\b.{0,20}\\b(nahi|nahin|nathi|nako|nakko|mat)\\b"
+        ],
+        "tactic_revealed": "remote_access_tool",
+        "tip": {
+          "en": "Good. A real officer will never ask you to install an app or to show your phone screen.",
+          "hi": "अच्छा किया। असली अधिकारी कभी कोई ऐप डलवाने या मोबाइल की स्क्रीन दिखाने को नहीं कहता।",
+          "gu": "સારું કર્યું. સાચો અધિકારી ક્યારેય કોઈ એપ ડાઉનલોડ કરાવવાનું કે મોબાઇલની સ્ક્રીન બતાવવાનું કહેતો નથી."
+        }
+      },
+      {
+        "id": "will_report_or_ask_family",
+        "weight": 15,
+        "patterns": [
+          "\\b1930\\b",
+          "cybercrime\\.gov\\.in",
+          "\\b(report|complain|complaint)\\b.{0,25}\\b(police|cyber|station|helpline)\\b",
+          "\\b(ask|tell|check with|talk to|call)\\s+(my\\s+)?(son|daughter|husband|wife|brother|family|neighbour|neighbor)\\b",
+          "(बेटे|बेटी|पति|पत्नी|परिवार|घरवाल|पड़ोसी)\\s*\\S{0,4}\\s*(पूछ|बता|बात)",
+          "(દીકરા|દીકરી|પતિ|પત્ની|પરિવાર|ઘરના|પડોશી)\\s*\\S{0,4}\\s*(પૂછ|કહ|વાત)",
+          "\\b(ghar|parivar|beta|beti|dikra|dikri|padosi)\\b.{0,20}\\b(puch|poochh|baat|vaat|kahi|batau)\\w*"
+        ],
+        "tactic_revealed": "digital_arrest",
+        "tip": {
+          "en": "Very good. Telling someone at home and calling 1930 breaks the caller's hold on you.",
+          "hi": "बहुत अच्छा। घर में किसी को बताना और 1930 पर फोन करना ठग की पकड़ तोड़ देता है।",
+          "gu": "ખૂબ સરસ. ઘરમાં કોઈને જણાવવું અને 1930 પર ફોન કરવો ઠગની પકડ તોડી નાખે છે."
+        }
+      },
+      {
+        "id": "refused_payment",
+        "weight": 20,
+        "patterns": [
+          "\\b(?:will |am )?not (?:going to )?(?:pay|send|transfer|deposit|give)\\b[^.\\n]{0,25}\\b(?:money|rupees|rs\\.?|amount|fee|cash|anything)\\b",
+          "\\b(?:won'?t|never|refuse to|cannot|can'?t)\\s+(?:pay|transfer|deposit)\\b",
+          "\\bno money\\b",
+          "पैसे?\\s*नह\\S{0,3}\\s*(?:भेज|दूं|दूँ|दुंग|भरू|ट्रांसफर|जमा)",
+          "पैसा\\s*नह\\S{0,3}",
+          "પૈસા\\s*નહ\\S{0,3}\\s*(?:મોકલ|આપ|ભરુ|ભરી|જમા)",
+          "\\bpaise?\\s*nah[ii]\\b"
+        ],
+        "tactic_revealed": "digital_arrest",
+        "tip": {
+          "en": "Exactly right. You never have to send money to clear your name, release a prize, or prove anything to a caller.",
+          "hi": "बिल्कुल सही। खुद को निर्दोष साबित करने, इनाम छुड़ाने या किसी को कुछ दिखाने के लिए पैसे भेजने की जरूरत कभी नहीं होती।",
+          "gu": "એકદમ સાચું. પોતાને નિર્દોષ સાબિત કરવા, ઇનામ છોડાવવા કે કોઈને કંઈ બતાવવા પૈસા મોકલવાની જરૂર ક્યારેય પડતી નથી."
+        }
+      }
+    ],
+    "bad": [
+      {
+        "id": "shared_otp_or_digits",
+        "weight": -25,
+        "patterns": [
+          "\\b(?!1930\\b)\\d{4,6}\\b",
+          "\\b(otp|pin|code|password)\\s*(is|:|=|hai|che)?\\s*\\d{3,6}\\b",
+          "(ओटीपी|पिन|कोड)\\s*\\S{0,6}\\s*\\d{3,6}",
+          "(ઓટીપી|પિન|કોડ)\\s*\\S{0,6}\\s*\\d{3,6}",
+          "\\b\\d(\\s\\d){3,5}\\b"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Careful. You just read out numbers to a stranger. Never share an OTP, PIN or code on a call.",
+          "hi": "जरा संभलिए। आपने अनजान आदमी को नंबर बता दिए। ओटीपी, पिन या कोई कोड कभी फोन पर मत बताइए।",
+          "gu": "જરા સંભાળજો. તમે અજાણ્યા માણસને નંબર કહી દીધા. ઓટીપી, પિન કે કોઈ કોડ ફોન પર ક્યારેય ન કહો."
+        }
+      },
+      {
+        "id": "agreed_to_pay",
+        "weight": -30,
+        "patterns": [
+          "\\b(i\\s+)?(will|'ll|am going to)\\s+(pay|transfer|deposit|send the money)\\b",
+          "\\b(ok|okay|yes|yeah|fine|sure|haan|theek hai)\\b[\\s,.!]*\\b(i\\s+)?(will\\s+)?(pay|transfer|deposit)\\b",
+          "\\bhow\\s+much\\b.{0,25}\\b(pay|send|transfer|deposit)\\b",
+          "\\b(send|share|give)\\s+(me\\s+)?(the\\s+)?(account\\s+(number|details)|upi\\s*id|qr code)\\b",
+          "(पैसे|पैसा|रुपये|रकम)\\s*(?:(?!नह|मत)\\S){0,10}\\s*(भेज|ट्रांसफर|जमा|डाल)",
+          "(પૈસા|રૂપિયા|રકમ)\\s*(?:(?!નહ)\\S){0,10}\\s*(મોકલ|ટ્રાન્સફર|જમા|ભરી)",
+          "\\b(paisa|paise|rupya|rupaya|rakam)\\s+(bhej|transfer|jama|mokal)\\w*"
+        ],
+        "tactic_revealed": "digital_arrest",
+        "tip": {
+          "en": "Stop here. There is no RBI verification account. Money sent this way is gone within minutes.",
+          "hi": "यहीं रुक जाइए। आरबीआई का कोई वेरिफिकेशन खाता होता ही नहीं। इस तरह भेजा पैसा मिनटों में गायब हो जाता है।",
+          "gu": "અહીં જ અટકી જાઓ. આરબીઆઈનું કોઈ વેરિફિકેશન ખાતું હોતું જ નથી. આ રીતે મોકલેલા પૈસા મિનિટોમાં ગાયબ થઈ જાય છે."
+        }
+      },
+      {
+        "id": "agreed_to_install_or_share_screen",
+        "weight": -22,
+        "patterns": [
+          "\\b(i\\s+)?(have\\s+)?(installed|downloaded|installing|downloading)\\b",
+          "\\b(ok|okay|yes|yeah|fine|sure|haan)\\b[\\s,.!]*\\b(i\\s+)?(will\\s+)?(install|download|share my screen)\\b",
+          "\\b(anydesk|teamviewer|quicksupport|rustdesk)\\b[\\s,.!]*\\b(installed|downloaded|done|ready|open)\\b",
+          "(डाउनलोड|इंस्टॉल|इनस्टॉल)\\s*(कर|हो)\\s*(लिया|दिया|रहा|गया|लूं)",
+          "(ડાઉનલોડ|ઇન્સ્ટોલ|ઈન્સ્ટોલ)\\s*(કરી|કર્યુ|કર્યું|કરું|કરુ)",
+          "\\b(app|apk|anydesk)\\b[\\s,.]*\\b(download|install)\\s*(kar|kari|kiya|karu|karyu|liya)\\w*"
+        ],
+        "tactic_revealed": "remote_access_tool",
+        "tip": {
+          "en": "Do not do this. That app lets him watch your screen and empty your account.",
+          "hi": "ऐसा मत कीजिए। उस ऐप से वह आपकी स्क्रीन देख लेगा और खाता खाली कर देगा।",
+          "gu": "આવું ન કરો. એ એપથી તે તમારી સ્ક્રીન જોઈ શકશે અને ખાતું ખાલી કરી દેશે."
+        }
+      },
+      {
+        "id": "gave_personal_details",
+        "weight": -20,
+        "patterns": [
+          "\\b\\d{4}\\s?\\d{4}\\s?\\d{4}\\b",
+          "\\b\\d{11,16}\\b",
+          "\\b[a-z]{5}\\d{4}[a-z]\\b",
+          "\\b(my|mera|maru)\\s+(aadhaar|aadhar|adhar|pan|card|account)\\s*(card\\s*)?(number|no\\.?)?\\s*(is|:|=|hai|che)\\b",
+          "(आधार|पैन|कार्ड|खाता)\\s*(नंबर|नम्बर)?\\s*\\S{0,4}\\s*\\d{4}",
+          "(આધાર|પાન|કાર્ડ|ખાતા)\\s*(નંબર)?\\s*\\S{0,4}\\s*\\d{4}",
+          "\\b(my address is|mera pata|maru sirnamu|my full name is)\\b"
+        ],
+        "tactic_revealed": "credential_request",
+        "tip": {
+          "en": "Take care. Your Aadhaar, PAN and card numbers are enough for him to take a loan in your name.",
+          "hi": "ध्यान रखिए। आपका आधार, पैन और कार्ड नंबर काफी है, वह आपके नाम पर कर्ज तक ले सकता है।",
+          "gu": "ધ્યાન રાખો. તમારો આધાર, પાન અને કાર્ડ નંબર પૂરતા છે, તે તમારા નામે લોન પણ લઈ શકે છે."
+        }
+      }
+    ],
+    "neutral_tip": {
+      "en": "There is no such thing as a digital arrest in India. Police never arrest anyone over a video call.",
+      "hi": "भारत में डिजिटल अरेस्ट जैसा कुछ होता ही नहीं। पुलिस कभी वीडियो कॉल पर किसी को गिरफ्तार नहीं करती।",
+      "gu": "ભારતમાં ડિજિટલ અરેસ્ટ જેવું કંઈ હોતું જ નથી. પોલીસ ક્યારેય વીડિયો કોલ પર કોઈની ધરપકડ કરતી નથી."
+    }
+  },
+  "voice": "You are on a phone call. Speak like a police officer on a bad line: clipped, official, impatient. Short bursts. Never soften, never apologise, never explain procedure at length."
+}

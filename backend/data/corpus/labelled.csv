@@ -1,0 +1,37 @@
+text,label,lang,source
+"Dear Customer, your SBI account will be blocked today due to incomplete verification. Share the 6 digit OTP sent on your mobile with our executive to reactivate. Call 9000012345 immediately.",scam,en,seed
+"URGENT: Your bank KYC has expired. Your account will be frozen within 24 hours. Update KYC now at http://sbi-kyc-verify.xyz/update or your money will be blocked permanently.",scam,en,seed
+"This is Inspector R. Sharma, CBI Cyber Cell. A parcel in your name with illegal items was seized at Mumbai airport. Stay on this video call, do not tell anyone, and transfer Rs. 95,000 to the RBI verification account for clearance.",scam,en,seed
+"Congratulations! Your mobile number has won Rs. 25,00,000 in the KBC Lucky Draw 2025. To claim the prize, send your Aadhaar copy and bank details on WhatsApp 9000098765 and pay processing fee Rs. 6,500.",scam,en,seed
+"Sir, I am calling from the HDFC card department. Your reward points worth Rs. 4,999 are expiring today. Install the AnyDesk app from Play Store and share the 9 digit code with me, I will credit the amount now.",scam,en,seed
+"HDFC Bank Alert: Your net banking access is suspended. Re-verify your login and card details within 2 hours at http://hdfcbank-securelogin.top/in otherwise your account will be closed permanently.",scam,en,seed
+"Amazon Work From Home Job. Earn Rs. 3,000 daily by liking videos. No experience needed. Pay Rs. 1,500 refundable registration fee to start today. Contact on Telegram at jobsdaily2025.",scam,en,seed
+"Dear Customer, Rs. 2,500.00 debited from A/c XXXX4471 on 14-Mar-25 towards UPI/508912447301/ramesh.kumar@okaxis. Avl Bal Rs. 18,342.60. If not done by you, call 1800-000-1234. -SBI",safe,en,seed
+"482913 is your OTP for HDFC Bank NetBanking login. OTP is valid for 10 minutes. Do not share this OTP with anyone, including bank staff. -HDFCBK",safe,en,seed
+"Dear Customer, Rs. 24,600.00 credited to A/c XXXX9082 on 01-Apr-25 by NEFT-SALARY-MAR2025. Avl Bal Rs. 31,904.12. -BOIIND",safe,en,seed
+"Reminder: EMI of Rs. 3,450 for Loan A/c XXXX2213 is due on 05-May-25. Please maintain sufficient balance in your account to avoid late payment charges. -ICICIB",safe,en,seed
+"Your India Post consignment EE123456789IN is out for delivery today from your local post office. Amount payable Rs. 0. Track status at indiapost.gov.in",safe,en,seed
+"प्रिय ग्राहक, आपका बिजली कनेक्शन आज रात 9:30 बजे काट दिया जाएगा क्योंकि पिछले महीने का बिल अपडेट नहीं हुआ है। तुरंत बिजली अधिकारी 9000011122 पर संपर्क करके भुगतान करें।",scam,hi,seed
+"आपने लोन की किस्त नहीं भरी है। आज शाम तक 4,999 रुपये नहीं भेजे तो आपकी फोटो आपके सभी कॉन्टैक्ट नंबर पर भेज दी जाएगी। यह आखिरी चेतावनी है। रिकवरी एजेंट।",scam,hi,seed
+"भैया मैंने आपको 5,000 रुपये भेज दिए हैं। फोन पर जो रिक्वेस्ट आई है उसे स्वीकार करके अपना UPI PIN डाल दीजिए, तभी पैसे आपके खाते में आएंगे। जल्दी कीजिए।",scam,hi,seed
+"आपका पेटीएम वॉलेट बंद कर दिया गया है। दोबारा चालू करने के लिए हमारे कस्टमर केयर 9000054321 पर तुरंत कॉल करें और अपना कार्ड नंबर तथा CVV बताएं।",scam,hi,seed
+"मैं दिल्ली साइबर सेल से बोल रहा हूँ। आपके आधार कार्ड पर मनी लॉन्ड्रिंग का केस दर्ज हुआ है। गिरफ्तारी से बचने के लिए वीडियो कॉल पर बने रहिए और यह बात किसी को मत बताइए।",scam,hi,seed
+"प्रिय ग्राहक, आपके खाता XXXX7712 में 18-Jun-25 को UPI द्वारा 1,200.00 रुपये जमा हुए। शेष राशि 9,860.45 रुपये। UPI Ref 512478930164. -PNBSMS",safe,hi,seed
+"बेटा, तेरे पापा की दवाई के लिए 800 रुपये भेज देना। जब सुविधा हो तब भेजना, कोई जल्दी नहीं है। खाना समय पर खा लेना।",safe,hi,seed
+"बैंक ऑफ बड़ौदा की सुकन्या समृद्धि खाता योजना की जानकारी के लिए अपनी नजदीकी शाखा पर आइए। खाता खोलने का कोई शुल्क नहीं। शर्तें लागू। -BOBSMS",safe,hi,seed
+"પ્રિય ગ્રાહક, તમારું KYC આજે સમાપ્ત થઈ ગયું છે. આજ રાત સુધીમાં અપડેટ નહીં કરો તો ખાતું બંધ થઈ જશે. અહીં ક્લિક કરો http://kyc-update-bank.click/gj",scam,gu,seed
+"સ્ટેટ બેંકમાંથી બોલું છું. તમારા ખાતામાંથી શંકાસ્પદ વ્યવહાર થયો છે. તેને રોકવા માટે તમારા મોબાઈલ પર આવેલો છ આંકડાનો OTP તાત્કાલિક જણાવો, નહીં તો પૈસા કપાઈ જશે.",scam,gu,seed
+"અભિનંદન! તમારો નંબર 20,00,000 રૂપિયાના લકી ડ્રોમાં પસંદ થયો છે. ઇનામ મેળવવા માટે પ્રોસેસિંગ ફી 5,500 રૂપિયા આ નંબર પર ફોનપે કરો 9000077788.",scam,gu,seed
+"બેંકની નવી એપ ડાઉનલોડ કરો, નહીં તો તમારું ખાતું ચાલુ નહીં રહે. વોટ્સએપ પર મોકલેલી SBI-Yono-Update.apk ફાઈલ ખોલીને ઇન્સ્ટોલ કરો અને તેમાં લોગિન કરો.",scam,gu,seed
+"હું CBI અધિકારી બોલું છું. તમારા નામે આવેલા પાર્સલમાં ડ્રગ્સ મળ્યું છે. ધરપકડ ટાળવા માટે વેરિફિકેશન પેટે 75,000 રૂપિયા આ ખાતામાં જમા કરાવો અને કોલ કાપશો નહીં.",scam,gu,seed
+"પ્રિય ગ્રાહક, તમારા ખાતા XXXX3390 માં 22-Jul-25 ના રોજ UPI થી રૂ. 3,000.00 જમા થયા. બાકી રકમ રૂ. 12,455.20. UPI Ref 519023774851. -BOBTXN",safe,gu,seed
+"તમારું ગેસ સિલિન્ડર બુકિંગ નોંધાઈ ગયું છે. ડિલિવરી બે દિવસમાં થશે. ડિલિવરી સમયે રૂ. 855.00 ચૂકવવાના રહેશે. બુકિંગ નંબર 4471902.",safe,gu,seed
+"મમ્મી, ખેતરના બિયારણ માટે 2,000 રૂપિયા મોકલી દીધા છે. બેંકમાં જઈને પાસબુક ભરાવી લેજો. ચિંતા ના કરતા, અહીં બધું બરાબર છે.",safe,gu,seed
+"Aapka loan payment pending hai. Aaj sham 6 baje tak 3,499 rupaye nahi bheje to aapke sabhi contacts ko aapki photo ke saath message chala jayega. Ye last warning hai.",scam,translit,seed
+"Bhai maine aapko 7,000 rupaye bhej diye hain. Phone par request aayi hogi, use accept karke apna UPI pin daal do tabhi paisa credit hoga. Jaldi karo.",scam,translit,seed
+"Sarkari yojana ka 6,000 rupaye ka labh lene ke liye ye PM-Kisan-Sahay.apk file install karo aur usme apna bank account aur Aadhaar number bharo. Aaj last date hai.",scam,translit,seed
+"Namaste, hum Shine Digital Services se hain. Ghar baithe part time job, roz 2,500 rupaye. Registration fee 999 rupaye Google Pay karo aur turant kaam shuru karo. Limited seats.",scam,translit,seed
+"SBI YONO band ho gaya hai. Turant re-activate karne ke liye niche diye link par apna user id aur password daalein: http://bit.ly/yono-reactivate-now",scam,translit,seed
+"Beta, mai theek hu. Paise abhi mat bhejna, is mahine kharcha nikal jayega. Diwali par aaoge to sab saath me baithenge.",safe,translit,seed
+"Aapko Rs. 250.00 mile hain PhonePe par, bheja hai Mukesh General Store ne. UPI Ref 507723910488. Balance dekhne ke liye app kholein.",safe,translit,seed
+"Aapka Rs. 239 ka recharge safal raha. 1.5GB per day data aur unlimited calls, validity 28 din. Plan dekhne ke liye Jio app kholein.",safe,translit,seed

@@ -1,0 +1,112 @@
+{
+  "_meta": {
+    "language": "en",
+    "note": "Seed content, written to be extended. Used verbatim whenever the LLM tier is unavailable, so every string must stand on its own.",
+    "key_set": "flags must contain one entry per canonical tactic, url reason code and upi reason code"
+  },
+  "verdict_intro": {
+    "scam": "This message is a scam. Do not reply, do not open any link, and do not send any money.",
+    "suspicious": "This message is not safe to trust. Do not act on it until you have checked it yourself.",
+    "safe": "No scam signs were found in this message."
+  },
+  "no_flags": "Nothing here matched a known scam pattern. Stay careful anyway: no real bank ever asks for your OTP, PIN or password.",
+  "advisory_lead": "According to {source}:",
+  "flags": {
+    "urgency_threat": {
+      "why": "It is rushing you, so you act before you can think or ask anyone.",
+      "do": "Stop and wait. A real bank never gives you only a few minutes to decide."
+    },
+    "authority_impersonation": {
+      "why": "Someone is claiming to be from a bank, the RBI or the police so that you obey without asking.",
+      "do": "Hang up and call the number printed on your passbook or ATM card yourself."
+    },
+    "credential_request": {
+      "why": "It is asking for your OTP, PIN, CVV or password, which no bank employee ever needs.",
+      "do": "Never say or type these numbers for anyone, however official they sound."
+    },
+    "prize_bait": {
+      "why": "It offers a prize, lottery or job you never applied for, to get a fee out of you.",
+      "do": "Ignore it. You never have to pay money to receive money you have won."
+    },
+    "digital_arrest": {
+      "why": "It claims police or CBI action and tells you to stay on a video call and pay to clear your name.",
+      "do": "There is no such thing as a digital arrest. Cut the call and dial 1930."
+    },
+    "loan_app_threat": {
+      "why": "A loan app is threatening your contacts or your photos to frighten you into paying.",
+      "do": "This threat is itself a crime. Keep the messages and report it on 1930."
+    },
+    "remote_access_tool": {
+      "why": "It wants you to install an app that lets a stranger see and control your phone.",
+      "do": "Do not install it. Nobody from a bank ever needs to see your screen."
+    },
+    "lookalike_domain": {
+      "why": "The web address only looks like your bank's; one or two letters are different.",
+      "do": "Do not open it. Type your bank's address yourself, or use its official app."
+    },
+    "suspicious_tld": {
+      "why": "The address ends in an unusual way that Indian banks do not use.",
+      "do": "Do not open this link."
+    },
+    "url_shortener": {
+      "why": "The link is shortened, so you cannot see where it really takes you.",
+      "do": "Do not open shortened links sent by strangers."
+    },
+    "ip_literal_url": {
+      "why": "The address is a row of numbers instead of a name, which real banks never send.",
+      "do": "Do not open it, and delete the message."
+    },
+    "insecure_bank_page": {
+      "why": "The page asks for banking details without a secure connection.",
+      "do": "Never type your bank details on such a page."
+    },
+    "excessive_subdomains": {
+      "why": "The real address is hidden behind extra names added in front of it.",
+      "do": "Read the address carefully, or do not open it at all."
+    },
+    "punycode_domain": {
+      "why": "The address uses look-alike foreign letters to imitate a real name.",
+      "do": "Do not open it. Reach your bank through its official app."
+    },
+    "apk_download_link": {
+      "why": "The link downloads an app file directly instead of using the Play Store.",
+      "do": "Never install an app that was sent to you in a message."
+    },
+    "collect_request_disguised": {
+      "why": "This is a request to take money from your account, made to look like money coming in.",
+      "do": "Reject the request. Approving it pays them."
+    },
+    "pin_to_receive_money": {
+      "why": "It promises you money and then asks for your UPI PIN, which only ever sends money out.",
+      "do": "Never enter your UPI PIN to receive anything."
+    },
+    "unknown_vpa_payment": {
+      "why": "The payment address belongs to a stranger, not to a recognised company.",
+      "do": "Check the name shown in your app before paying anyone."
+    },
+    "upi_link_present": {
+      "why": "The message contains a payment link.",
+      "do": "Open your UPI app yourself and check the name and the direction before approving."
+    }
+  },
+  "actions": {
+    "scam": [
+      "Do not reply, and do not send any money.",
+      "Do not open any link in this message.",
+      "Delete the message and block the sender.",
+      "Report it on 1930 or at cybercrime.gov.in.",
+      "If you have already paid, call 1930 today. Reporting quickly can stop the money."
+    ],
+    "suspicious": [
+      "Do not act on this message yet.",
+      "Call your bank on the number printed on your passbook or ATM card.",
+      "Do not open any link in the message.",
+      "Ask a family member you trust before doing anything."
+    ],
+    "safe": [
+      "No action is needed.",
+      "Never share your OTP, PIN or password with anyone.",
+      "If in doubt, call your bank on the number printed on your passbook or ATM card."
+    ]
+  }
+}

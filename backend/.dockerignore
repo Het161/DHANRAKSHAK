@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+tests/
+scripts/
+conftest.py
+pytest.ini
+requirements-dev.txt
+requirements-local.txt
+data/corpus/cache/
+.env

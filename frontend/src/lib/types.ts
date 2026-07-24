@@ -64,6 +64,8 @@ export interface DonePayload {
 export interface ErrorPayload {
   code: string;
   message: string;
+  /** e.g. "paste_text" when a screenshot could not be read. */
+  suggestion?: string | null;
 }
 
 export type SSEEventType = "verdict" | "token" | "done" | "error";

@@ -54,6 +54,11 @@ export const hi: Dictionary = {
   "status.analyzing": "मैसेज पढ़ा जा रहा है",
   "status.reading": "आपका स्क्रीनशॉट पढ़ा जा रहा है",
   "status.listening": "आपकी रिकॉर्डिंग सुनी जा रही है",
+  "status.preparing": "फ़ोटो तैयार हो रही है…",
+  "status.uploading": "भेजा जा रहा है…",
+  "ocr.failedTitle": "यह स्क्रीनशॉट पढ़ा नहीं जा सका",
+  "ocr.failedBody": "मैसेज का टेक्स्ट चिपकाएँ — यह तुरंत होता है।",
+  "ocr.pasteText": "टेक्स्ट चिपकाएँ",
 
   "verdict.safe": "ठीक लगता है",
   "verdict.suspicious": "सावधान रहें",
@@ -100,7 +105,7 @@ export const hi: Dictionary = {
   "error.empty": "जाँचने के लिए कुछ तो डालें।",
   "error.textTooLong": "यह मैसेज बहुत लंबा है। इसे 10,000 अक्षरों तक छोटा करें।",
   "error.notImage": "कृपया कोई फ़ोटो वाली फ़ाइल चुनें।",
-  "error.imageTooLarge": "यह फ़ोटो 5 MB से बड़ी है। कोई छोटी फ़ोटो चुनें।",
+  "error.imageTooLarge": "यह फ़ोटो 10 MB से बड़ी है। कोई छोटी फ़ोटो चुनें।",
   "error.audioTooLarge": "यह रिकॉर्डिंग 10 MB से बड़ी है। कोई छोटी रिकॉर्डिंग भेजें।",
   "error.micDenied": "हम माइक इस्तेमाल नहीं कर पाए। आप कोई रिकॉर्डिंग भेज सकते हैं।",
 

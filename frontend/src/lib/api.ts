@@ -167,6 +167,24 @@ export function apiBaseUrl(): string {
   return BASE_URL;
 }
 
+/**
+ * A cheap liveness check with its own short timeout, used to decide whether the
+ * server is awake before an image upload - so the upload itself never absorbs the
+ * ~30s Render cold start. Returns false on timeout or any error.
+ */
+export async function pingHealth(timeoutMs: number): Promise<boolean> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(`${BASE_URL}/api/health`, { signal: controller.signal });
+    return response.ok;
+  } catch {
+    return false;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /** Synthesised speech for one sentence. Null when synthesis is unavailable. */
 export async function fetchSpeech(
   text: string,

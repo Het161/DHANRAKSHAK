@@ -111,6 +111,8 @@ class AnalyzeResponse(BaseModel):
     analyzed_text: str = ""
     explanation: str = ""
     explanation_source: ExplanationSource = "template"
+    # Per-stage timings for ?debug=1 (image path populates OCR + engine timings).
+    debug: dict[str, Any] | None = None
 
 
 class DonePayload(BaseModel):
@@ -122,6 +124,9 @@ class DonePayload(BaseModel):
 class ErrorPayload(BaseModel):
     code: str
     message: str
+    # A machine-readable next step, e.g. "paste_text" when OCR could not read the
+    # screenshot, so the UI can offer a helpful path instead of a dead end.
+    suggestion: str | None = None
 
 
 SSEEventType = Literal["verdict", "token", "done", "error"]

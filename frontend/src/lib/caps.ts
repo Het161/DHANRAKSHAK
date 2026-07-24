@@ -4,7 +4,8 @@
 import type { MessageKey } from "@/i18n/dictionary";
 
 export const MAX_TEXT_CHARS = 10_000;
-export const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+// The client downscales before upload, so a larger original is fine to accept.
+export const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 export const MAX_AUDIO_BYTES = 10 * 1024 * 1024;
 export const MAX_AUDIO_SECONDS = 90;
 

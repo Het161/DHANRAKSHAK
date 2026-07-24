@@ -58,7 +58,12 @@ class Settings(BaseSettings):
     llm_warmup_enabled: bool = True
 
     stt_timeout_s: float = 30.0
-    ocr_timeout_s: float = 15.0
+    # Tesseract's own subprocess timeout (it kills the child on expiry); the
+    # asyncio hard budget below wraps the whole call in case the thread hangs.
+    ocr_timeout_s: float = 18.0
+    ocr_hard_budget_s: float = 20.0
+    # Retries of the same screenshot skip OCR entirely (keyed by upload-bytes hash).
+    ocr_cache_size: int = 64
 
     # Voice mode runs on the smallest fast model: a phone scammer speaks in
     # short bursts, and short replies are also what keeps the turn under a second.
@@ -95,6 +100,8 @@ class Settings(BaseSettings):
     rate_limit_enabled: bool = True
     rate_limit_default: str = "60/minute"
     rate_limit_analyze: str = "20/minute"
+    # OCR is the expensive endpoint (heavy on a 0.1 vCPU), so it is limited tighter.
+    rate_limit_image: str = "8/minute"
     rate_limit_simulator: str = "40/minute"
 
     max_text_chars: int = 10_000

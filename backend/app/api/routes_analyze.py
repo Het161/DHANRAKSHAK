@@ -12,7 +12,7 @@ from app.api.limits import limiter
 from app.config import get_settings
 from app.pipelines.audio import TranscriptionError, wav_duration_seconds
 from app.pipelines.normalize import CleanInput, normalize
-from app.pipelines.ocr import OcrError
+from app.pipelines.ocr import OcrEmpty, OcrError, OcrTimedOut
 from app.schemas.contracts import AnalyzeRequest, DonePayload, ErrorPayload, LanguageHint
 from app.state import AppContext, get_context
 
@@ -22,19 +22,22 @@ router = APIRouter(tags=["analyze"])
 _settings = get_settings()
 
 
-def _stream(ctx: AppContext, clean: CleanInput) -> StreamingResponse:
+def _stream(ctx: AppContext, clean: CleanInput, debug: dict | None = None) -> StreamingResponse:
     return StreamingResponse(
-        _analyze_events(ctx, clean), media_type="text/event-stream", headers=sse.SSE_HEADERS
+        _analyze_events(ctx, clean, debug), media_type="text/event-stream", headers=sse.SSE_HEADERS
     )
 
 
-async def _analyze_events(ctx: AppContext, clean: CleanInput) -> AsyncIterator[str]:
+async def _analyze_events(
+    ctx: AppContext, clean: CleanInput, debug: dict | None = None
+) -> AsyncIterator[str]:
     """Emit verdict, then explanation tokens, then done.
 
     The verdict event is produced entirely by tiers 1 and 2 and carries a
     complete AnalyzeResponse including a template explanation. Everything after
     it is an upgrade: if the connection or the provider dies here, the client
-    already has a correct answer.
+    already has a correct answer. `debug` (image path only) carries the OCR
+    timings, which the engine timing is folded into and mirrored onto the response.
     """
     started = time.perf_counter()
     cache_key = ctx.cache.key(clean.text, clean.lang) if ctx.cache is not None else None
@@ -42,6 +45,8 @@ async def _analyze_events(ctx: AppContext, clean: CleanInput) -> AsyncIterator[s
     try:
         if cache_key and (hit := ctx.cache.get(cache_key)) is not None:
             response, explanation, source = hit
+            if debug is not None:
+                response = response.model_copy(update={"debug": debug})
             yield sse.encode("verdict", response)
             for chunk in sse.replay_chunks(explanation):
                 yield sse.encode("token", {"text": chunk})
@@ -53,10 +58,13 @@ async def _analyze_events(ctx: AppContext, clean: CleanInput) -> AsyncIterator[s
             _log_analyze(ctx, clean, response.verdict, response.risk_score, "cache", elapsed_ms)
             return
 
+        engine_start = time.perf_counter()
         signals = await ctx.engine.analyze(clean.text, clean.lang)
+        engine_ms = int((time.perf_counter() - engine_start) * 1000)
         response = await ctx.explainer.baseline(signals)
         response.analyzed_text = clean.text
-        engine_ms = int((time.perf_counter() - started) * 1000)
+        if debug is not None:
+            response.debug = {**debug, "engine_ms": engine_ms}
         yield sse.encode("verdict", response)
 
         chunks: list[str] = []
@@ -144,16 +152,71 @@ async def _read_capped(upload: UploadFile, limit: int, label: str) -> bytes:
 
 
 async def _ocr_to_clean(ctx: AppContext, data: bytes, hint: LanguageHint) -> CleanInput:
+    """OCR for the base64 JSON path. The multipart image endpoint uses the
+    streaming `_image_events` instead, which reports failures without a dead-end."""
     if ctx.ocr is None or not ctx.ocr.available:
         raise HTTPException(
             status.HTTP_503_SERVICE_UNAVAILABLE,
             "Screenshot reading is not available on this server right now.",
         )
     try:
-        text = await ctx.ocr.extract(data)
+        result = await ctx.ocr.extract(data, hint)
     except OcrError as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(exc)) from exc
-    return normalize(text, hint, "image")
+    return normalize(result.text, hint, "image")
+
+
+async def _image_events(ctx: AppContext, data: bytes, hint: LanguageHint) -> AsyncIterator[str]:
+    """OCR a screenshot, then stream its analysis. OCR failures become a
+    structured `ocr_failed` error event (suggesting paste-text) instead of a
+    dead-end 422, so the UI can guide the user to the instant path."""
+    started = time.perf_counter()
+    if ctx.ocr is None or not ctx.ocr.available:
+        yield sse.encode(
+            "error",
+            ErrorPayload(
+                code="ocr_unavailable",
+                message="Screenshot reading is not available on this server right now.",
+                suggestion="paste_text",
+            ),
+        )
+        return
+
+    try:
+        result = await ctx.ocr.extract(data, hint)
+    except (OcrTimedOut, OcrEmpty, OcrError) as exc:
+        reason = (
+            "timeout"
+            if isinstance(exc, OcrTimedOut)
+            else "empty"
+            if isinstance(exc, OcrEmpty)
+            else "unreadable"
+        )
+        logger.info(
+            "ocr failed reason=%s langs=%s bytes=%d elapsed_ms=%d",
+            reason,
+            ctx.ocr.langs_for(hint),
+            len(data),
+            int((time.perf_counter() - started) * 1000),
+        )
+        yield sse.encode("error", ErrorPayload(code="ocr_failed", message=str(exc), suggestion="paste_text"))
+        return
+
+    debug = result.debug()
+    logger.info(
+        "ocr ok langs=%s bytes=%d dims=%dx%d decode_ms=%d preprocess_ms=%d ocr_ms=%d cached=%s",
+        result.langs,
+        result.bytes_in,
+        result.width,
+        result.height,
+        result.decode_ms,
+        result.preprocess_ms,
+        result.ocr_ms,
+        result.cached,
+    )
+    clean = normalize(result.text, hint, "image")
+    async for event in _analyze_events(ctx, clean, debug):
+        yield event
 
 
 async def _stt_to_clean(ctx: AppContext, data: bytes, filename: str, hint: LanguageHint) -> CleanInput:
@@ -198,15 +261,19 @@ async def analyze(
 
 
 @router.post("/analyze/image")
-@limiter.limit(_settings.rate_limit_analyze)
+@limiter.limit(_settings.rate_limit_image)
 async def analyze_image(
     request: Request,
     file: UploadFile = File(...),
     language_hint: LanguageHint = Form("auto"),
     ctx: AppContext = Depends(get_context),
 ) -> StreamingResponse:
+    # OCR runs inside the stream so a slow read or a failure is a structured event,
+    # not a pre-stream error the client cannot react to gracefully.
     data = await _read_capped(file, ctx.settings.max_image_bytes, "image")
-    return _stream(ctx, await _ocr_to_clean(ctx, data, language_hint))
+    return StreamingResponse(
+        _image_events(ctx, data, language_hint), media_type="text/event-stream", headers=sse.SSE_HEADERS
+    )
 
 
 @router.post("/analyze/audio")

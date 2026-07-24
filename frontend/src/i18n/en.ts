@@ -56,6 +56,11 @@ export const en = {
   "status.analyzing": "Reading the message",
   "status.reading": "Reading your screenshot",
   "status.listening": "Listening to your recording",
+  "status.preparing": "Preparing image…",
+  "status.uploading": "Uploading…",
+  "ocr.failedTitle": "We couldn't read this screenshot",
+  "ocr.failedBody": "Paste the message text instead — it's instant.",
+  "ocr.pasteText": "Paste the text instead",
 
   "verdict.safe": "Looks safe",
   "verdict.suspicious": "Be careful",
@@ -102,7 +107,7 @@ export const en = {
   "error.empty": "Please enter something to check.",
   "error.textTooLong": "That message is too long. Please shorten it to 10,000 characters.",
   "error.notImage": "Please choose an image file.",
-  "error.imageTooLarge": "That image is larger than 5 MB. Please choose a smaller one.",
+  "error.imageTooLarge": "That image is larger than 10 MB. Please choose a smaller one.",
   "error.audioTooLarge": "That recording is larger than 10 MB. Please send a shorter one.",
   "error.micDenied": "We could not use the microphone. You can upload a recording instead.",
 

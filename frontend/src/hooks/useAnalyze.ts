@@ -3,8 +3,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { localAnalyzer } from "@/lib/engine/client";
-import { PermanentApiError, streamAnalyzeFile, streamAnalyzeText } from "@/lib/api";
+import { PermanentApiError, pingHealth, streamAnalyzeFile, streamAnalyzeText } from "@/lib/api";
 import { serverPlan } from "@/lib/connectivity";
+import { prepareImage } from "@/lib/prepareImage";
 import { delay, isAbort } from "@/lib/retry";
 import type { AnalyzeResponse, ExplanationSource, LanguageHint, SSEEvent } from "@/lib/types";
 
@@ -27,9 +28,16 @@ const MATERIAL_RISK_GAP = 15;
 // Render instances sleep; if the first server byte is this slow, tell the user
 // it is waking - as a background note, never as a blocker over the local result.
 const WAKE_NOTE_AFTER_MS = 3_000;
+// OCR is inherently slower than text, so the image upload gets its own budget.
+const IMAGE_BUDGET_MS = 35_000;
+const HEALTH_PING_MS = 3_000;
+// How long the "Uploading..." copy shows before switching to "Reading...".
+const UPLOAD_STAGE_MS = 2_500;
 
-export type AnalyzePhase = "idle" | "local" | "serverPending" | "done" | "error";
+export type AnalyzePhase = "idle" | "preparing" | "local" | "serverPending" | "done" | "error";
 export type SourceChip = "instant" | "offline" | "serverAdded" | "serverChecked";
+/** Staged copy for the image path while it uploads then waits on server OCR. */
+export type ImageStage = "uploading" | "reading" | null;
 
 export type AnalyzeInput =
   | { kind: "text"; text: string }
@@ -51,6 +59,9 @@ interface InternalState {
   serverRisk: number | null;
   latencyMs: number | null;
   errorMessage: string | null;
+  /** OCR could not read the screenshot; the UI offers the paste-text path. */
+  ocrFailed: boolean;
+  imageStage: ImageStage;
 }
 
 const INITIAL: InternalState = {
@@ -67,6 +78,8 @@ const INITIAL: InternalState = {
   serverRisk: null,
   latencyMs: null,
   errorMessage: null,
+  ocrFailed: false,
+  imageStage: null,
 };
 
 export interface AnalyzeState extends InternalState {
@@ -97,6 +110,9 @@ export function useAnalyze(languageHint: LanguageHint) {
   const controllerRef = useRef<AbortController | null>(null);
   const inFlightSignatureRef = useRef<string | null>(null);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  // The prepared JPEG for the current screenshot, so a retry reuses it instead of
+  // re-preparing (and the user never has to re-pick the file).
+  const preparedRef = useRef<{ file: File; blob: Blob; filename: string } | null>(null);
 
   const clearTimers = useCallback(() => {
     for (const timer of timersRef.current) clearTimeout(timer);
@@ -114,6 +130,7 @@ export function useAnalyze(languageHint: LanguageHint) {
 
   const reset = useCallback(() => {
     cancel();
+    preparedRef.current = null;
     setState(INITIAL);
   }, [cancel]);
 
@@ -206,10 +223,10 @@ export function useAnalyze(languageHint: LanguageHint) {
     [languageHint, clearTimers],
   );
 
-  // --- server-only path (image / audio: no offline OCR/STT) --------------
+  // --- audio path (server-only: no offline STT) --------------------------
 
   const runServerOnly = useCallback(
-    async (input: AnalyzeInput, signal: AbortSignal) => {
+    async (file: Blob, filename: string, signal: AbortSignal) => {
       setState({ ...INITIAL, phase: "serverPending", serverPending: true, serverAttempted: true });
       const onEvent = (event: SSEEvent) => {
         if (event.type === "verdict") {
@@ -218,13 +235,14 @@ export function useAnalyze(languageHint: LanguageHint) {
           setState((prev) => ({ ...prev, streamed: prev.streamed + event.payload.text }));
         } else if (event.type === "done") {
           setState((prev) => ({ ...prev, finalExplanation: event.payload.explanation, explanationSource: event.payload.explanation_source, latencyMs: event.payload.latency_ms }));
+        } else if (event.type === "error") {
+          setState((prev) => ({ ...prev, errorMessage: event.payload.message ?? null }));
         }
       };
       const wakeTimer = setTimeout(() => setState((prev) => (prev.verdict ? prev : { ...prev, waking: true })), WAKE_NOTE_AFTER_MS);
       timersRef.current.push(wakeTimer);
       try {
-        if (input.kind === "image") await streamAnalyzeFile("image", input.file, input.file.name || "screenshot.png", languageHint, onEvent, signal);
-        else if (input.kind === "audio") await streamAnalyzeFile("audio", input.file, input.filename, languageHint, onEvent, signal);
+        await streamAnalyzeFile("audio", file, filename, languageHint, onEvent, signal);
       } catch (error) {
         if (isAbort(error) || signal.aborted) return;
         setState((prev) => ({ ...prev, phase: prev.verdict ? "done" : "error", errorMessage: error instanceof PermanentApiError ? error.message : null }));
@@ -233,6 +251,97 @@ export function useAnalyze(languageHint: LanguageHint) {
         clearTimers();
       }
       setState((prev) => ({ ...prev, phase: "done", serverPending: false, waking: false }));
+    },
+    [languageHint, clearTimers],
+  );
+
+  // --- image path (server OCR, with its own budget and cold-start handling) ---
+
+  const runImage = useCallback(
+    async (file: File, signal: AbortSignal) => {
+      // 1. Prepare (downscale + JPEG), reusing the result on a retry so the user
+      // never re-picks the file.
+      let prepared = preparedRef.current;
+      if (!prepared || prepared.file !== file) {
+        setState({ ...INITIAL, phase: "preparing" });
+        try {
+          const result = await prepareImage(file);
+          prepared = { file, blob: result.blob, filename: result.filename };
+          preparedRef.current = prepared;
+        } catch {
+          // Oversized originals are caught before run() by validateImage; anything
+          // else here is an unreadable file.
+          setState({ ...INITIAL, phase: "error", errorMessage: null });
+          return;
+        }
+      }
+      if (signal.aborted) return;
+
+      // 2. Wake the server FIRST, so the upload itself never absorbs the cold start.
+      if (!(await pingHealth(HEALTH_PING_MS))) {
+        if (signal.aborted) return;
+        setState({ ...INITIAL, phase: "serverPending", serverPending: true, serverAttempted: true, waking: true });
+        for (let i = 0; i < 18 && !(await pingHealth(HEALTH_PING_MS)); i += 1) {
+          if (signal.aborted) return;
+          try {
+            await delay(2_000, signal);
+          } catch {
+            return;
+          }
+        }
+      }
+      if (signal.aborted) return;
+
+      // 3. Upload with staged progress ("Uploading..." -> "Reading...") and a 35s budget.
+      setState({ ...INITIAL, phase: "serverPending", serverPending: true, serverAttempted: true, imageStage: "uploading" });
+      let gotVerdict = false;
+      let budgetHit = false;
+      let settled = false;
+      const stageTimer = setTimeout(
+        () => setState((prev) => (prev.verdict ? prev : { ...prev, imageStage: "reading" })),
+        UPLOAD_STAGE_MS,
+      );
+      const budgetTimer = setTimeout(() => {
+        budgetHit = true;
+        controllerRef.current?.abort();
+      }, IMAGE_BUDGET_MS);
+      timersRef.current.push(stageTimer, budgetTimer);
+
+      const onEvent = (event: SSEEvent) => {
+        if (event.type === "verdict") {
+          gotVerdict = true;
+          setState((prev) => ({ ...prev, verdict: event.payload, serverRisk: event.payload.risk_score, imageStage: null, waking: false }));
+        } else if (event.type === "token") {
+          setState((prev) => ({ ...prev, streamed: prev.streamed + event.payload.text }));
+        } else if (event.type === "done") {
+          setState((prev) => ({ ...prev, finalExplanation: event.payload.explanation, explanationSource: event.payload.explanation_source, latencyMs: event.payload.latency_ms }));
+        } else if (event.type === "error") {
+          settled = true;
+          if (event.payload.code === "ocr_failed" || event.payload.code === "ocr_unavailable") {
+            setState((prev) => ({ ...prev, ocrFailed: true, imageStage: null, waking: false }));
+          } else {
+            setState((prev) => ({ ...prev, errorMessage: event.payload.message ?? null, imageStage: null, waking: false }));
+          }
+        }
+      };
+
+      try {
+        await streamAnalyzeFile("image", prepared.blob, prepared.filename, languageHint, onEvent, signal);
+      } catch (error) {
+        clearTimers();
+        if (isAbort(error) || signal.aborted) {
+          // A budget timeout with nothing on screen is a retryable error (the
+          // prepared image is kept, so "Try again" does not re-pick the file).
+          if (budgetHit && !gotVerdict) {
+            setState((prev) => ({ ...prev, phase: "error", errorMessage: null, imageStage: null, waking: false }));
+          }
+          return;
+        }
+        setState((prev) => ({ ...prev, phase: prev.verdict ? "done" : "error", errorMessage: error instanceof PermanentApiError ? error.message : null, imageStage: null, waking: false }));
+        return;
+      }
+      clearTimers();
+      setState((prev) => ({ ...prev, phase: gotVerdict || settled ? "done" : "error", serverPending: false, waking: false, imageStage: null }));
     },
     [languageHint, clearTimers],
   );
@@ -248,13 +357,14 @@ export function useAnalyze(languageHint: LanguageHint) {
       controllerRef.current = controller;
       inFlightSignatureRef.current = signature;
 
-      // Screenshots and recordings need server OCR/STT; there is no offline path.
+      // Screenshots and recordings need the server (OCR/STT); no offline path.
       if (input.kind === "image" || input.kind === "audio") {
         if (!serverPlan().attempt) {
           setState({ ...INITIAL, phase: "error", errorMessage: null, ranOffline: true });
           return;
         }
-        await runServerOnly(input, controller.signal);
+        if (input.kind === "image") await runImage(input.file, controller.signal);
+        else await runServerOnly(input.file, input.filename, controller.signal);
         return;
       }
 
@@ -284,7 +394,7 @@ export function useAnalyze(languageHint: LanguageHint) {
       // 2. Optional server upgrade, in the background.
       if (plan.attempt) await runServerUpgrade(input, plan.budgetMs, local.risk_score, controller.signal);
     },
-    [cancel, languageHint, runServerOnly, runServerUpgrade],
+    [cancel, languageHint, runImage, runServerOnly, runServerUpgrade],
   );
 
   const derived = useMemo<AnalyzeState>(() => {
@@ -299,7 +409,7 @@ export function useAnalyze(languageHint: LanguageHint) {
       ...state,
       explanation,
       isRefining: state.phase === "serverPending" && streamedUsable,
-      isBusy: state.phase === "local" || state.phase === "serverPending",
+      isBusy: state.phase === "preparing" || state.phase === "local" || state.phase === "serverPending",
       chip: chipFor(state),
       divergent,
     };

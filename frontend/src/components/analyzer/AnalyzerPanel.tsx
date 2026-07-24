@@ -115,6 +115,13 @@ export function AnalyzerPanel() {
     if (lastInputRef.current) void run(lastInputRef.current);
   }, [run]);
 
+  // From the "we couldn't read this screenshot" card: jump to the instant path.
+  const pasteText = useCallback(() => {
+    reset();
+    setTab("message");
+    setValidationKey(null);
+  }, [reset]);
+
   const checkAnother = useCallback(() => {
     reset();
     setText("");
@@ -181,6 +188,9 @@ export function AnalyzerPanel() {
           onRetry={retry}
           waking={state.waking}
           hasVerdict={state.verdict !== null}
+          imageStage={state.imageStage}
+          ocrFailed={state.ocrFailed}
+          onPasteText={pasteText}
         />
         {state.verdict && <VerdictCard state={state} onCheckAnother={checkAnother} />}
       </div>

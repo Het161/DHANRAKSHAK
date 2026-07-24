@@ -54,6 +54,11 @@ export const gu: Dictionary = {
   "status.analyzing": "સંદેશ વાંચીએ છીએ",
   "status.reading": "તમારો સ્ક્રીનશોટ વાંચીએ છીએ",
   "status.listening": "તમારું રેકોર્ડિંગ સાંભળીએ છીએ",
+  "status.preparing": "ફોટો તૈયાર થાય છે…",
+  "status.uploading": "મોકલાય છે…",
+  "ocr.failedTitle": "આ સ્ક્રીનશોટ વાંચી શકાયો નહીં",
+  "ocr.failedBody": "સંદેશનો ટેક્સ્ટ પેસ્ટ કરો — તે તરત થાય છે.",
+  "ocr.pasteText": "ટેક્સ્ટ પેસ્ટ કરો",
 
   "verdict.safe": "સલામત લાગે છે",
   "verdict.suspicious": "સાવધાન રહો",
@@ -100,7 +105,7 @@ export const gu: Dictionary = {
   "error.empty": "તપાસવા માટે કંઈક લખો.",
   "error.textTooLong": "આ સંદેશ બહુ લાંબો છે. તેને 10,000 અક્ષર સુધી ટૂંકો કરો.",
   "error.notImage": "ફોટાની ફાઇલ પસંદ કરો.",
-  "error.imageTooLarge": "આ ફોટો 5 MB થી મોટો છે. નાનો ફોટો પસંદ કરો.",
+  "error.imageTooLarge": "આ ફોટો 10 MB થી મોટો છે. નાનો ફોટો પસંદ કરો.",
   "error.audioTooLarge": "આ રેકોર્ડિંગ 10 MB થી મોટું છે. ટૂંકું રેકોર્ડિંગ મોકલો.",
   "error.micDenied": "માઇક ચાલુ થઈ શક્યો નહીં. તમે રેકોર્ડિંગ મોકલી શકો છો.",
 

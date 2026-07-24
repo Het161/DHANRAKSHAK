@@ -8,7 +8,7 @@ import httpx
 
 from app.config import Settings
 from app.detection.engine import DetectionEngine
-from app.explain.providers import build_voice_provider
+from app.explain.providers import build_roleplay_provider, build_voice_provider
 from app.explain.service import ExplanationService
 from app.pipelines.audio import build_stt_provider
 from app.pipelines.ocr import OcrEngine
@@ -42,7 +42,7 @@ async def build_context(settings: Settings) -> AppContext:
         asyncio.to_thread(DetectionEngine.build, settings),
         asyncio.to_thread(ExplanationService.build, settings, client),
     )
-    simulator = SimulatorService.build(settings, explainer.provider)
+    simulator = SimulatorService.build(settings, build_roleplay_provider(settings, client))
     ctx = AppContext(
         settings=settings,
         http=client,

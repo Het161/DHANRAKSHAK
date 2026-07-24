@@ -8,6 +8,7 @@ import { VoiceCallScreen } from "@/components/simulator/VoiceCallScreen";
 import { Button } from "@/components/ui/Button";
 import { Card, CardTitle } from "@/components/ui/Card";
 import type { CallOptions } from "@/hooks/useVoiceCall";
+import { useOnline } from "@/hooks/useOnline";
 import { usePreferences } from "@/i18n/I18nProvider";
 import { fetchSpeech } from "@/lib/api";
 import type { Gender, PersonaId } from "@/lib/types";
@@ -50,12 +51,13 @@ function VoicePreview({ gender }: { gender: Gender }) {
 
 export function PracticeScreen({ debug }: { debug: boolean }) {
   const { t, lang } = usePreferences();
+  const online = useOnline();
   const [mode, setMode] = useState<Mode>("pick");
   const [persona, setPersona] = useState<PersonaId | null>(null);
   const [gender, setGender] = useState<Gender>("male");
   const [call, setCall] = useState<CallOptions | null>(null);
 
-  if (mode === "text") return <SimulatorScreen />;
+  if (mode === "text") return <SimulatorScreen debug={debug} />;
 
   if (mode === "voice-call" && call) {
     return (
@@ -133,16 +135,31 @@ export function PracticeScreen({ debug }: { debug: boolean }) {
       <Card className="space-y-4">
         <CardTitle>{t("practice.mode.title")}</CardTitle>
         <div className="grid gap-3 sm:grid-cols-2">
-          <button
-            type="button"
-            onClick={() => setMode("voice-setup")}
-            className="focus-ring rounded-2xl border border-brand bg-brand-tint p-5 text-left"
-          >
-            <p className="text-lg font-bold text-brand-dark">{t("practice.mode.voice")}</p>
-            <p className="mt-1 text-sm leading-relaxed text-ink-soft">
-              {t("practice.mode.voiceDesc")}
-            </p>
-          </button>
+          {online ? (
+            <button
+              type="button"
+              onClick={() => setMode("voice-setup")}
+              className="focus-ring rounded-2xl border border-brand bg-brand-tint p-5 text-left"
+            >
+              <p className="text-lg font-bold text-brand-dark">{t("practice.mode.voice")}</p>
+              <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                {t("practice.mode.voiceDesc")}
+              </p>
+            </button>
+          ) : (
+            // Voice calls need the LLM + server TTS. Offline, offer text instead -
+            // never a broken button.
+            <button
+              type="button"
+              onClick={() => setMode("text")}
+              className="focus-ring rounded-2xl border border-line bg-surface p-5 text-left"
+            >
+              <p className="text-lg font-bold text-ink">{t("practice.mode.voice")}</p>
+              <p className="mt-1 text-sm leading-relaxed text-suspicious">
+                {t("practice.voiceNeedsNet")}
+              </p>
+            </button>
+          )}
           <button
             type="button"
             onClick={() => setMode("text")}

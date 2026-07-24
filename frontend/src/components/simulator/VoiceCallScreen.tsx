@@ -71,6 +71,13 @@ function DebugOverlay({ state }: { state: VoiceCallState }) {
       </p>
       <p>recognition: {state.recognitionOn ? "ON" : "off"}</p>
       <p className={state.discardedEcho ? "text-amber-300" : ""}>echo: {state.discardedEcho ?? "-"}</p>
+      {state.plan && (
+        <>
+          <p className="mt-1 font-bold">plan (seed {state.plan.seed})</p>
+          <p>tactics: {state.plan.tactic_order.join(" > ")}</p>
+          <p>slots: {Object.entries(state.plan.slots).map(([k, v]) => `${k}=${v}`).join(", ")}</p>
+        </>
+      )}
       <p className="mt-1 font-bold">sentences (fetch/toPlay/play ms)</p>
       {state.timings.slice(-5).map((timing, index) => (
         <p key={`${timing.turnId}-${timing.seq}-${index}`}>

@@ -2,10 +2,14 @@ from __future__ import annotations
 
 import secrets
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING
 
 from cachetools import TTLCache
 
 from app.schemas.contracts import Language
+
+if TYPE_CHECKING:
+    from app.simulator.scenario import ScenarioPlan
 
 
 @dataclass(slots=True)
@@ -13,6 +17,8 @@ class Session:
     id: str
     persona_id: str
     lang: Language
+    seed: int
+    plan: ScenarioPlan
     turn: int = 0
     score: int = 0
     transcript: list[tuple[str, str]] = field(default_factory=list)
@@ -31,8 +37,14 @@ class SessionStore:
     def __init__(self, max_sessions: int, ttl_s: int) -> None:
         self._sessions: TTLCache[str, Session] = TTLCache(maxsize=max_sessions, ttl=ttl_s)
 
-    def create(self, persona_id: str, lang: Language) -> Session:
-        session = Session(id=secrets.token_urlsafe(12), persona_id=persona_id, lang=lang)
+    def create(self, persona_id: str, lang: Language, seed: int, plan: ScenarioPlan) -> Session:
+        session = Session(
+            id=secrets.token_urlsafe(12),
+            persona_id=persona_id,
+            lang=lang,
+            seed=seed,
+            plan=plan,
+        )
         self._sessions[session.id] = session
         return session
 

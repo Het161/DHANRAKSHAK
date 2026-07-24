@@ -8,29 +8,74 @@ import { PersonaPicker } from "@/components/simulator/PersonaPicker";
 import { Button } from "@/components/ui/Button";
 import { Card, CardTitle } from "@/components/ui/Card";
 import { flagTitle } from "@/components/verdict/EvidenceText";
-import { useSimulator, type Entry } from "@/hooks/useSimulator";
+import { useSimulator, type Entry, type SimulatorDebug } from "@/hooks/useSimulator";
 import { usePreferences } from "@/i18n/I18nProvider";
+import { speak, speechSupported } from "@/lib/practice/speech";
 import type { PersonaId } from "@/lib/types";
 
 const TOTAL_TURNS = 6;
 
-function Bubble({ entry }: { entry: Extract<Entry, { kind: "scammer" | "user" }> }) {
-  const { t } = usePreferences();
+function DebugPanel({ debug }: { debug: SimulatorDebug }) {
+  const { plan, sources } = debug;
+  return (
+    <div className="rounded-xl bg-ink/90 p-3 font-mono text-[11px] leading-snug text-white">
+      <p className="font-bold">text debug</p>
+      {plan ? (
+        <>
+          <p>seed: {plan.seed}</p>
+          <p>tactics: {plan.tactic_order.join(" > ")}</p>
+          <p>slots: {Object.entries(plan.slots).map(([k, v]) => `${k}=${v}`).join(", ")}</p>
+        </>
+      ) : (
+        <p>plan: (none — add ?debug=1)</p>
+      )}
+      <p>path per turn: {sources.length ? sources.join(", ") : "-"}</p>
+    </div>
+  );
+}
+
+function Bubble({
+  entry,
+  speakable,
+}: {
+  entry: Extract<Entry, { kind: "scammer" | "user" }>;
+  speakable: boolean;
+}) {
+  const { t, lang } = usePreferences();
   const mine = entry.kind === "user";
   return (
     <div className={`flex flex-col ${mine ? "items-end" : "items-start"}`}>
       <span className="mb-1 px-1 text-xs font-semibold tracking-wide text-ink-faint uppercase">
         {mine ? t("simulator.you") : t("simulator.caller")}
       </span>
-      <p
-        className={`animate-slide-up max-w-[85%] rounded-2xl px-4 py-3 leading-relaxed ${
-          mine
-            ? "rounded-br-sm bg-brand text-white"
-            : "rounded-bl-sm border border-line bg-surface text-ink"
-        }`}
-      >
-        {entry.text}
-      </p>
+      <div className={`flex max-w-[85%] items-end gap-1.5 ${mine ? "flex-row-reverse" : ""}`}>
+        <p
+          className={`animate-slide-up rounded-2xl px-4 py-3 leading-relaxed ${
+            mine
+              ? "rounded-br-sm bg-brand text-white"
+              : "rounded-bl-sm border border-line bg-surface text-ink"
+          }`}
+        >
+          {entry.text}
+        </p>
+        {/* Offline voice: on-device speechSynthesis, no server TTS needed. */}
+        {speakable && speechSupported() && (
+          <button
+            type="button"
+            onClick={() => speak(entry.text, lang)}
+            aria-label={t("simulator.listen")}
+            title={t("simulator.listen")}
+            className="focus-ring mb-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-ink-soft"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4">
+              <path
+                d="M4 9v6h4l5 5V4L8 9H4Zm12.5 3a4 4 0 0 0-2.5-3.7v7.4a4 4 0 0 0 2.5-3.7Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        )}
+      </div>
     </div>
   );
 }
@@ -109,7 +154,7 @@ function EndScreen({
   );
 }
 
-export function SimulatorScreen() {
+export function SimulatorScreen({ debug = false }: { debug?: boolean }) {
   const { t, lang } = usePreferences();
   const { state, start, send, reset } = useSimulator();
   const [persona, setPersona] = useState<PersonaId | null>(null);
@@ -183,10 +228,18 @@ export function SimulatorScreen() {
 
   return (
     <div className="space-y-4">
+      {debug && <DebugPanel debug={state.debug} />}
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="rounded-full bg-suspicious-tint px-3 py-1.5 text-sm font-semibold text-suspicious">
-          {t("simulator.notReal")}
-        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="rounded-full bg-suspicious-tint px-3 py-1.5 text-sm font-semibold text-suspicious">
+            {t("simulator.notReal")}
+          </p>
+          {state.offline && (
+            <p className="rounded-full bg-brand-tint px-3 py-1.5 text-sm font-semibold text-brand-dark">
+              {t("simulator.offlineBadge")}
+            </p>
+          )}
+        </div>
         <p className="text-sm font-semibold text-ink-soft">
           {t("simulator.score")}: {state.score}
           <span className="ml-3 text-ink-faint">
@@ -200,7 +253,7 @@ export function SimulatorScreen() {
           entry.kind === "coach" ? (
             <CoachCard key={entry.id} coach={entry.coach} />
           ) : (
-            <Bubble key={entry.id} entry={entry} />
+            <Bubble key={entry.id} entry={entry} speakable={state.offline && entry.kind === "scammer"} />
           ),
         )}
         <div ref={endRef} />

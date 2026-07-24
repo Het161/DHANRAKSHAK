@@ -68,6 +68,9 @@ class Settings(BaseSettings):
     # boundary anyway, so a higher ceiling costs no latency.
     voice_llm_max_tokens: int = 160
     voice_llm_timeout_s: float = 6.0
+    # Roleplay wants variation, so the simulator runs hot. This is separate from
+    # llm_temperature (kept low), which the detection explainer uses.
+    persona_temperature: float = 0.9
     # Two short bursts is how a caller actually talks, and it bounds the turn.
     voice_max_sentences: int = 2
 

@@ -228,5 +228,324 @@
       "gu": "સાચી બેંક ફોન પર KYC કદી પૂરું કરતી નથી. તમારા કાગળ લઈને શાખાએ જાઓ, અથવા પાસબુક પર છપાયેલો નંબર લગાવો."
     }
   },
-  "voice": "You are on a phone call. Speak like a rushed call-centre executive working from a script: polite but hurried, always pushing to the next step, mildly irritated by questions."
+  "voice": "You are on a phone call. Speak like a rushed call-centre executive working from a script: polite but hurried, always pushing to the next step, mildly irritated by questions.",
+  "slots": {
+    "agent_name": {
+      "en": [
+        "Rahul Mehta",
+        "Priya Sharma",
+        "Amit Verma",
+        "Sneha Patel",
+        "Rajesh Gupta",
+        "Neha Singh",
+        "Vikas Joshi",
+        "Anjali Rao"
+      ],
+      "hi": [
+        "राहुल मेहता",
+        "प्रिया शर्मा",
+        "अमित वर्मा",
+        "स्नेहा पटेल",
+        "राजेश गुप्ता",
+        "नेहा सिंह",
+        "विकास जोशी",
+        "अंजलि राव"
+      ],
+      "gu": [
+        "રાહુલ મહેતા",
+        "પ્રિયા શર્મા",
+        "અમિત વર્મા",
+        "સ્નેહા પટેલ",
+        "રાજેશ ગુપ્તા",
+        "નેહા સિંહ",
+        "વિકાસ જોશી",
+        "અંજલિ રાવ"
+      ]
+    },
+    "bank": {
+      "en": [
+        "SBI",
+        "HDFC Bank",
+        "ICICI Bank",
+        "your bank",
+        "the head office",
+        "Bank of Baroda",
+        "the central KYC office",
+        "Axis Bank"
+      ],
+      "hi": [
+        "SBI",
+        "HDFC बैंक",
+        "ICICI बैंक",
+        "आपके बैंक",
+        "हेड ऑफिस",
+        "बैंक ऑफ बड़ौदा",
+        "केंद्रीय KYC कार्यालय",
+        "एक्सिस बैंक"
+      ],
+      "gu": [
+        "SBI",
+        "HDFC બેંક",
+        "ICICI બેંક",
+        "તમારી બેંક",
+        "હેડ ઓફિસ",
+        "બેંક ઓફ બરોડા",
+        "કેન્દ્રીય KYC કાર્યાલય",
+        "એક્સિસ બેંક"
+      ]
+    },
+    "deadline": {
+      "en": [
+        "before 6 pm today",
+        "within the next ten minutes",
+        "before this call ends",
+        "in the next fifteen minutes",
+        "by this evening",
+        "within half an hour"
+      ],
+      "hi": [
+        "आज शाम छह बजे से पहले",
+        "अगले दस मिनट में",
+        "इस कॉल के खत्म होने से पहले",
+        "अगले पंद्रह मिनट में",
+        "आज शाम तक",
+        "आधे घंटे के अंदर"
+      ],
+      "gu": [
+        "આજે સાંજે છ વાગ્યા પહેલાં",
+        "દસ મિનિટની અંદર",
+        "આ કોલ પૂરો થાય તે પહેલાં",
+        "પંદર મિનિટની અંદર",
+        "આજે સાંજ સુધીમાં",
+        "અડધા કલાકમાં"
+      ]
+    },
+    "app_name": [
+      "AnyDesk",
+      "TeamViewer",
+      "QuickSupport",
+      "RustDesk",
+      "an app I will send you"
+    ]
+  },
+  "openings": {
+    "en": [
+      "Namaste, this is {agent_name} calling from {bank}. Your KYC has expired and your account will be frozen {deadline}.",
+      "Hello, am I speaking to the account holder? I am {agent_name} from {bank}. Your account is not KYC verified and will be blocked {deadline}.",
+      "Good afternoon. {agent_name} here from the KYC department of {bank}. A pending KYC on your account must be updated {deadline}.",
+      "Namaste ji. This is {agent_name} from {bank}. Our records show your KYC documents have expired. Do not ignore this or your account freezes {deadline}.",
+      "This is an important call from {bank}. I am {agent_name}. Your pension account will be suspended {deadline} unless we update your KYC now.",
+      "Hello, {agent_name} speaking from the {bank} verification team. Your debit card will stop working {deadline} because your KYC is incomplete.",
+      "Namaste. {bank}, {agent_name} here. There is an urgent KYC issue on your account. Stay with me and I will fix it on this call.",
+      "Listen carefully, this is {agent_name} from {bank}. Your account has been flagged for expired KYC and will be locked {deadline}."
+    ],
+    "hi": [
+      "नमस्ते, मैं {bank} से {agent_name} बोल रहा हूँ। आपका KYC खत्म हो चुका है और {deadline} आपका खाता बंद हो जाएगा।",
+      "हैलो, क्या मैं खाताधारक से बात कर रहा हूँ? मैं {bank} से {agent_name} हूँ। आपका खाता KYC वेरिफाइड नहीं है और {deadline} ब्लॉक हो जाएगा।",
+      "नमस्कार। मैं {bank} के KYC विभाग से {agent_name} बोल रहा हूँ। आपके खाते का पेंडिंग KYC {deadline} अपडेट करना जरूरी है।",
+      "नमस्ते जी। मैं {bank} से {agent_name} हूँ। हमारे रिकॉर्ड में आपके KYC कागज खत्म हो गए हैं। नजरअंदाज मत कीजिए वरना {deadline} खाता बंद हो जाएगा।",
+      "{bank} से एक जरूरी कॉल है। मैं {agent_name} बोल रहा हूँ। KYC अभी अपडेट नहीं हुआ तो {deadline} आपका पेंशन खाता रोक दिया जाएगा।",
+      "हैलो, {bank} की वेरिफिकेशन टीम से {agent_name} बोल रहा हूँ। KYC अधूरा होने से {deadline} आपका डेबिट कार्ड काम करना बंद कर देगा।",
+      "नमस्ते। {bank}, {agent_name} बोल रहा हूँ। आपके खाते पर एक जरूरी KYC समस्या है। लाइन पर रहिए तो मैं इसी कॉल पर ठीक कर देता हूँ।",
+      "ध्यान से सुनिए, मैं {bank} से {agent_name} हूँ। आपका खाता खत्म हुए KYC के लिए फ्लैग हुआ है और {deadline} लॉक हो जाएगा।"
+    ],
+    "gu": [
+      "નમસ્તે, હું {bank} માંથી {agent_name} બોલું છું. તમારું KYC પૂરું થઈ ગયું છે અને {deadline} તમારું ખાતું બંધ થઈ જશે.",
+      "હેલો, શું હું ખાતાધારક સાથે વાત કરું છું? હું {bank} માંથી {agent_name} છું. તમારું ખાતું KYC વેરિફાઇડ નથી અને {deadline} બ્લોક થઈ જશે.",
+      "નમસ્કાર. હું {bank} ના KYC વિભાગમાંથી {agent_name} બોલું છું. તમારા ખાતાનું પેન્ડિંગ KYC {deadline} અપડેટ કરવું જરૂરી છે.",
+      "નમસ્તે જી. હું {bank} માંથી {agent_name} છું. અમારા રેકોર્ડમાં તમારા KYC કાગળ પૂરા થઈ ગયા છે. અવગણશો નહીં, નહીં તો {deadline} ખાતું બંધ થઈ જશે.",
+      "{bank} માંથી એક જરૂરી કોલ છે. હું {agent_name} બોલું છું. KYC હમણાં અપડેટ નહીં થાય તો {deadline} તમારું પેન્શન ખાતું અટકાવી દેવાશે.",
+      "હેલો, {bank} ની વેરિફિકેશન ટીમમાંથી {agent_name} બોલું છું. KYC અધૂરું હોવાથી {deadline} તમારું ડેબિટ કાર્ડ કામ કરવાનું બંધ કરી દેશે.",
+      "નમસ્તે. {bank}, {agent_name} બોલું છું. તમારા ખાતા પર એક જરૂરી KYC સમસ્યા છે. લાઇન પર રહો તો હું આ કોલ પર જ ઠીક કરી દઉં.",
+      "ધ્યાનથી સાંભળો, હું {bank} માંથી {agent_name} છું. તમારું ખાતું પૂરા થયેલા KYC માટે ફ્લેગ થયું છે અને {deadline} લોક થઈ જશે."
+    ]
+  },
+  "lines": {
+    "authority_impersonation": {
+      "en": [
+        "I am {agent_name}, a verified officer of {bank}. Check that the number matches your passbook.",
+        "This is an official call from {bank}. Your details are all here on my screen.",
+        "I am calling from the head office of {bank}, not some random number. Trust me.",
+        "We at {bank} are only trying to protect your account. Cooperate with me.",
+        "I have your account number and your name in front of me. {bank} does not call for nothing.",
+        "This is {agent_name} from the KYC compliance team of {bank}. Everything I do is on official record.",
+        "Your branch forwarded your file to me at {bank} head office. I am handling it personally.",
+        "I am an authorised executive of {bank}. Do not doubt an official verification call."
+      ],
+      "hi": [
+        "मैं {agent_name} हूँ, {bank} का सत्यापित अधिकारी। आप अपनी पासबुक पर नंबर मिला सकते हैं।",
+        "यह {bank} से आधिकारिक कॉल है। आपकी सारी जानकारी मेरी स्क्रीन पर है।",
+        "मैं {bank} के हेड ऑफिस से बोल रहा हूँ, किसी रैंडम नंबर से नहीं। मुझ पर भरोसा कीजिए।",
+        "हम {bank} में सिर्फ आपका खाता बचाने की कोशिश कर रहे हैं। मेरा साथ दीजिए।",
+        "आपका खाता नंबर और नाम मेरे सामने है। {bank} ऐसे ही कॉल नहीं करता।",
+        "मैं {bank} की KYC कम्प्लायंस टीम से {agent_name} हूँ। मेरा हर काम रिकॉर्ड में है।",
+        "आपकी शाखा ने आपकी फाइल मुझे {bank} हेड ऑफिस में भेजी है। मैं खुद इसे देख रहा हूँ।",
+        "मैं {bank} का अधिकृत अधिकारी हूँ। आधिकारिक वेरिफिकेशन कॉल पर शक मत कीजिए।"
+      ],
+      "gu": [
+        "હું {agent_name} છું, {bank} નો ચકાસાયેલ અધિકારી. તમે તમારી પાસબુક પરનો નંબર મેળવી શકો છો.",
+        "આ {bank} માંથી સત્તાવાર કોલ છે. તમારી બધી વિગત મારી સ્ક્રીન પર છે.",
+        "હું {bank} ની હેડ ઓફિસમાંથી બોલું છું, કોઈ રેન્ડમ નંબરથી નહીં. મારા પર ભરોસો રાખો.",
+        "અમે {bank} માં ફક્ત તમારું ખાતું બચાવવાનો પ્રયાસ કરીએ છીએ. મારો સાથ આપો.",
+        "તમારો ખાતા નંબર અને નામ મારી સામે છે. {bank} આમ જ કોલ કરતી નથી.",
+        "હું {bank} ની KYC કમ્પ્લાયન્સ ટીમમાંથી {agent_name} છું. મારું દરેક કામ રેકોર્ડમાં છે.",
+        "તમારી શાખાએ તમારી ફાઇલ મને {bank} હેડ ઓફિસમાં મોકલી છે. હું જાતે એ જોઈ રહ્યો છું.",
+        "હું {bank} નો અધિકૃત અધિકારી છું. સત્તાવાર વેરિફિકેશન કોલ પર શંકા ના કરો."
+      ]
+    },
+    "urgency_threat": {
+      "en": [
+        "Your account freezes {deadline}. After that, nobody can help you.",
+        "There is very little time. Complete this {deadline} or your balance is locked.",
+        "If you delay past {deadline}, your pension will stay stuck for twenty-one days.",
+        "My system shows only a few minutes left on your file. Act {deadline}.",
+        "Once the account is frozen {deadline}, unblocking it takes weeks of paperwork.",
+        "Do not hang up. If this is not done {deadline}, your ATM card also stops working.",
+        "This is your last chance. Finish the KYC {deadline} or lose access to your money.",
+        "The freeze order is already in the system. Only I can stop it, and only {deadline}."
+      ],
+      "hi": [
+        "{deadline} आपका खाता बंद हो जाएगा। उसके बाद कोई मदद नहीं कर पाएगा।",
+        "बहुत कम समय है। {deadline} यह पूरा कीजिए वरना बैलेंस लॉक हो जाएगा।",
+        "अगर {deadline} यह पूरा नहीं हुआ तो पेंशन इक्कीस दिन तक अटकी रहेगी।",
+        "मेरा सिस्टम दिखा रहा है आपकी फाइल पर बस कुछ मिनट बचे हैं। {deadline} कीजिए।",
+        "{deadline} खाता बंद हुआ तो उसे खोलने में हफ्तों की कागजी कार्रवाई लगेगी।",
+        "फोन मत काटिए। {deadline} यह नहीं हुआ तो आपका ATM कार्ड भी बंद हो जाएगा।",
+        "यह आखिरी मौका है। {deadline} KYC पूरा कीजिए वरना पैसे तक पहुँच खो देंगे।",
+        "फ्रीज का ऑर्डर सिस्टम में आ चुका है। सिर्फ मैं इसे रोक सकता हूँ, वो भी {deadline}।"
+      ],
+      "gu": [
+        "{deadline} તમારું ખાતું બંધ થઈ જશે. પછી કોઈ મદદ કરી નહીં શકે.",
+        "બહુ ઓછો સમય છે. {deadline} આ પૂરું કરો નહીં તો બેલેન્સ લોક થઈ જશે.",
+        "જો {deadline} આ નહીં થાય તો પેન્શન એકવીસ દિવસ અટકી રહેશે.",
+        "મારું સિસ્ટમ બતાવે છે તમારી ફાઇલ પર ફક્ત થોડી મિનિટ બાકી છે. {deadline} કરો.",
+        "{deadline} ખાતું બંધ થયું તો એ ખોલવામાં અઠવાડિયાંનું કાગળકામ લાગશે.",
+        "ફોન કાપશો નહીં. {deadline} આ નહીં થાય તો તમારું ATM કાર્ડ પણ બંધ થઈ જશે.",
+        "આ છેલ્લી તક છે. {deadline} KYC પૂરું કરો નહીં તો પૈસા સુધીની પહોંચ ગુમાવશો.",
+        "ફ્રીઝનો ઓર્ડર સિસ્ટમમાં આવી ગયો છે. ફક્ત હું એ રોકી શકું, એ પણ {deadline}."
+      ]
+    },
+    "credential_request": {
+      "en": [
+        "Just read out the code that came on your phone. Without it I cannot update your KYC.",
+        "A verification number has been sent to your mobile. Tell me those digits now.",
+        "To confirm it is really you, read me the OTP on your screen.",
+        "The KYC will not go through unless you tell me the six-digit code you received.",
+        "Please share the number in the SMS. It is only for verification, nothing else.",
+        "What is the code on your phone? My senior is asking me to close your file.",
+        "Read me the OTP quickly, the page will time out otherwise.",
+        "I need the last code that arrived. Say it out loud so I can complete the update.",
+        "Tell me your registered account number and the code we just sent, then we are done.",
+        "The system needs the one-time password from your phone. Read it to me digit by digit."
+      ],
+      "hi": [
+        "बस आपके फोन पर जो कोड आया है वो पढ़ दीजिए। उसके बिना मैं KYC अपडेट नहीं कर सकता।",
+        "आपके मोबाइल पर एक वेरिफिकेशन नंबर भेजा है। वो अंक अभी बता दीजिए।",
+        "यह पक्का करने के लिए कि आप ही हैं, स्क्रीन पर आया OTP मुझे पढ़ दीजिए।",
+        "जब तक आप छह अंकों का कोड नहीं बताएंगे, KYC पूरा नहीं होगा।",
+        "SMS में आया नंबर बता दीजिए। यह सिर्फ वेरिफिकेशन के लिए है, और कुछ नहीं।",
+        "आपके फोन पर कोड क्या है? साहब मुझसे फाइल बंद करने को कह रहे हैं।",
+        "जल्दी OTP पढ़ दीजिए, वरना पेज टाइम आउट हो जाएगा।",
+        "जो आखिरी कोड आया है वो चाहिए। एक-एक अंक बोल दीजिए ताकि मैं अपडेट पूरा करूँ।",
+        "अपना रजिस्टर्ड खाता नंबर और अभी भेजा कोड बता दीजिए, फिर काम हो जाएगा।",
+        "सिस्टम को आपके फोन का वन-टाइम पासवर्ड चाहिए। एक-एक अंक पढ़ दीजिए।"
+      ],
+      "gu": [
+        "બસ તમારા ફોન પર જે કોડ આવ્યો છે તે વાંચી દો. તેના વગર હું KYC અપડેટ કરી નહીં શકું.",
+        "તમારા મોબાઇલ પર એક વેરિફિકેશન નંબર મોકલ્યો છે. એ અંક હમણાં કહી દો.",
+        "તમે જ છો એ પાકું કરવા સ્ક્રીન પર આવેલો OTP મને વાંચી દો.",
+        "જ્યાં સુધી તમે છ અંકનો કોડ નહીં કહો, KYC પૂરું નહીં થાય.",
+        "SMS માં આવેલો નંબર કહી દો. આ ફક્ત વેરિફિકેશન માટે છે, બીજું કંઈ નહીં.",
+        "તમારા ફોન પર કોડ શું છે? સાહેબ મારી પાસે ફાઇલ બંધ કરવાનું કહે છે.",
+        "જલદી OTP વાંચી દો, નહીં તો પેજ ટાઇમ આઉટ થઈ જશે.",
+        "જે છેલ્લો કોડ આવ્યો છે તે જોઈએ. એક-એક અંક બોલી દો જેથી હું અપડેટ પૂરું કરું.",
+        "તમારો રજિસ્ટર્ડ ખાતા નંબર અને હમણાં મોકલેલો કોડ કહી દો, પછી કામ થઈ જશે.",
+        "સિસ્ટમને તમારા ફોનનો વન-ટાઇમ પાસવર્ડ જોઈએ. એક-એક અંક વાંચી દો."
+      ]
+    },
+    "remote_access_tool": {
+      "en": [
+        "The link is not opening? Then install {app_name} from the Play Store and I will do the KYC myself.",
+        "Please download {app_name} so I can guide your screen and finish the update for you.",
+        "Search for {app_name}, install it, and read me the nine-digit number it shows.",
+        "Just install {app_name}. It is our bank helper app, completely safe.",
+        "Open the link I sent on WhatsApp and fill your account details on that page.",
+        "I am sending {app_name} to your phone. Accept the request when it pops up.",
+        "Once {app_name} is installed, give me the code it displays so I can connect.",
+        "Click the link I texted you and log in with your net banking to verify.",
+        "Install {app_name} and let me take the screen for two minutes to fix your KYC.",
+        "Do not close the link. Enter your card number on that page to confirm your identity."
+      ],
+      "hi": [
+        "लिंक नहीं खुल रहा? तो Play Store से {app_name} इंस्टॉल कीजिए, KYC मैं खुद कर दूँगा।",
+        "कृपया {app_name} डाउनलोड कीजिए ताकि मैं आपकी स्क्रीन देखकर अपडेट पूरा कर दूँ।",
+        "{app_name} सर्च करके इंस्टॉल कीजिए और उसमें दिखने वाला नौ अंकों का नंबर मुझे बताइए।",
+        "बस {app_name} इंस्टॉल कर लीजिए। यह हमारी बैंक हेल्पर ऐप है, पूरी तरह सुरक्षित।",
+        "WhatsApp पर भेजा लिंक खोलिए और उस पेज पर अपने खाते की जानकारी भर दीजिए।",
+        "मैं आपके फोन पर {app_name} भेज रहा हूँ। जब रिक्वेस्ट आए तो एक्सेप्ट कर लीजिए।",
+        "{app_name} इंस्टॉल होते ही उसमें दिखा कोड मुझे बता दीजिए ताकि मैं कनेक्ट कर सकूँ।",
+        "जो लिंक मैंने भेजा है उस पर क्लिक करके अपने नेट बैंकिंग से लॉगिन कीजिए।",
+        "{app_name} इंस्टॉल कीजिए और दो मिनट के लिए स्क्रीन मुझे दे दीजिए, KYC ठीक कर दूँगा।",
+        "लिंक बंद मत कीजिए। पहचान पक्की करने के लिए उस पेज पर अपना कार्ड नंबर डालिए।"
+      ],
+      "gu": [
+        "લિંક ખૂલતી નથી? તો Play Store માંથી {app_name} ઇન્સ્ટોલ કરો, KYC હું જાતે કરી દઈશ.",
+        "કૃપા કરી {app_name} ડાઉનલોડ કરો જેથી હું તમારી સ્ક્રીન જોઈને અપડેટ પૂરું કરી દઉં.",
+        "{app_name} શોધીને ઇન્સ્ટોલ કરો અને તેમાં દેખાતો નવ અંકનો નંબર મને કહો.",
+        "બસ {app_name} ઇન્સ્ટોલ કરી લો. આ અમારી બેંક હેલ્પર એપ છે, સંપૂર્ણ સલામત.",
+        "WhatsApp પર મોકલેલી લિંક ખોલો અને એ પેજ પર તમારા ખાતાની વિગત ભરી દો.",
+        "હું તમારા ફોન પર {app_name} મોકલું છું. જ્યારે રિક્વેસ્ટ આવે ત્યારે એક્સેપ્ટ કરી લો.",
+        "{app_name} ઇન્સ્ટોલ થતાં જ તેમાં દેખાતો કોડ મને કહી દો જેથી હું કનેક્ટ કરી શકું.",
+        "મેં જે લિંક મોકલી છે તેના પર ક્લિક કરીને તમારા નેટ બેંકિંગથી લોગિન કરો.",
+        "{app_name} ઇન્સ્ટોલ કરો અને બે મિનિટ માટે સ્ક્રીન મને આપી દો, KYC ઠીક કરી દઈશ.",
+        "લિંક બંધ ના કરો. ઓળખ પાકી કરવા એ પેજ પર તમારો કાર્ડ નંબર નાખો."
+      ]
+    }
+  },
+  "filler": {
+    "en": [
+      "Are you still there? Please answer quickly.",
+      "This is urgent, do not take it lightly.",
+      "Stay on the line, do not cut the call.",
+      "I am only trying to help you save your account.",
+      "My senior is waiting for me to close your file.",
+      "Please hurry, the time on your file is running out."
+    ],
+    "hi": [
+      "आप वहाँ हैं? जल्दी जवाब दीजिए।",
+      "यह जरूरी है, हल्के में मत लीजिए।",
+      "लाइन पर रहिए, फोन मत काटिए।",
+      "मैं तो सिर्फ आपका खाता बचाने की कोशिश कर रहा हूँ।",
+      "साहब मेरे फाइल बंद करने का इंतजार कर रहे हैं।",
+      "जल्दी कीजिए, आपकी फाइल का समय खत्म हो रहा है।"
+    ],
+    "gu": [
+      "તમે ત્યાં છો? જલદી જવાબ આપો.",
+      "આ જરૂરી છે, હળવાશથી ના લો.",
+      "લાઇન પર રહો, ફોન કાપશો નહીં.",
+      "હું તો ફક્ત તમારું ખાતું બચાવવાનો પ્રયાસ કરું છું.",
+      "સાહેબ ફાઇલ બંધ કરવા મારી રાહ જુએ છે.",
+      "જલદી કરો, તમારી ફાઇલનો સમય પૂરો થઈ રહ્યો છે."
+    ]
+  },
+  "closings": {
+    "en": [
+      "Fine, then do not blame the bank when your account freezes tonight.",
+      "I am closing your file. Do not call the branch crying later.",
+      "You are not cooperating, so I cannot save your account now.",
+      "The verification window has closed. This is your own decision."
+    ],
+    "hi": [
+      "ठीक है, फिर आज रात खाता बंद हो जाए तो बैंक को दोष मत दीजिएगा।",
+      "मैं आपकी फाइल बंद कर रहा हूँ। बाद में शाखा जाकर रोइएगा मत।",
+      "आप सहयोग नहीं कर रहे, इसलिए अब मैं आपका खाता नहीं बचा सकता।",
+      "वेरिफिकेशन का समय खत्म हो गया। यह आपका अपना फैसला है।"
+    ],
+    "gu": [
+      "ઠીક છે, પછી આજે રાત્રે ખાતું બંધ થાય તો બેંકને દોષ ના દેતા.",
+      "હું તમારી ફાઇલ બંધ કરું છું. પછી શાખાએ જઈને રડતા નહીં.",
+      "તમે સહકાર આપતા નથી, એટલે હવે હું તમારું ખાતું બચાવી નહીં શકું.",
+      "વેરિફિકેશનનો સમય પૂરો થઈ ગયો. આ તમારો પોતાનો નિર્ણય છે."
+    ]
+  }
 }

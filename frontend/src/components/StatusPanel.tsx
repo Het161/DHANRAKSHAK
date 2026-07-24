@@ -17,24 +17,29 @@ function ShimmerLines() {
 }
 
 /**
- * A sleeping free-tier instance takes most of a minute to answer. Saying so
- * plainly, with visible progress, reads as reliability; an unexplained spinner
- * reads as broken.
+ * Local-first means the text path shows a verdict almost instantly, so this panel
+ * only ever fills the gap for the server-only inputs (screenshot, recording),
+ * which must wait on OCR/STT and a possibly-sleeping instance. Once a verdict is
+ * on screen, every wait becomes a quiet note inside the card, never a blocker.
  */
 export function StatusPanel({
   phase,
   busyKey,
   errorMessage,
   onRetry,
+  waking,
+  hasVerdict,
 }: {
   phase: AnalyzePhase;
   busyKey: MessageKey;
   errorMessage: string | null;
   onRetry: () => void;
+  waking: boolean;
+  hasVerdict: boolean;
 }) {
   const { t } = usePreferences();
 
-  if (phase === "error") {
+  if (phase === "error" && !hasVerdict) {
     return (
       <Card className="border-scam/20 bg-scam-tint">
         <p className="text-lg font-bold text-scam">{t("error.title")}</p>
@@ -46,20 +51,12 @@ export function StatusPanel({
     );
   }
 
-  if (phase === "waking") {
+  // Only the server-only inputs reach here with nothing on screen yet.
+  if ((phase === "local" || phase === "serverPending") && !hasVerdict) {
     return (
       <Card aria-live="polite">
-        <p className="text-lg font-bold text-ink">{t("status.wakingTitle")}</p>
-        <p className="mt-1 leading-relaxed text-ink-soft">{t("status.wakingBody")}</p>
-        <ShimmerLines />
-      </Card>
-    );
-  }
-
-  if (phase === "connecting") {
-    return (
-      <Card aria-live="polite">
-        <p className="text-lg font-semibold text-ink">{t(busyKey)}</p>
+        <p className="text-lg font-bold text-ink">{waking ? t("status.wakingTitle") : t(busyKey)}</p>
+        {waking && <p className="mt-1 leading-relaxed text-ink-soft">{t("status.wakingBody")}</p>}
         <ShimmerLines />
       </Card>
     );

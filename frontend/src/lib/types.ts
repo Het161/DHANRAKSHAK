@@ -10,7 +10,9 @@ export type InputType = "text" | "url" | "image" | "audio";
 export type Language = "gu" | "hi" | "en";
 export type LanguageHint = Language | "auto";
 export type Verdict = "safe" | "suspicious" | "scam";
-export type ExplanationSource = "llm" | "template";
+// "on-device" is produced only by the offline engine in src/lib/engine; the
+// server emits "llm" or "template". The chip shown to the user keys off this.
+export type ExplanationSource = "llm" | "template" | "on-device";
 export type FlagKind = "tactic" | "url" | "upi";
 export type Gender = "male" | "female";
 
@@ -79,12 +81,22 @@ export interface StartRequest {
   lang: Language;
 }
 
+export interface ScenarioPlanDebug {
+  seed: number;
+  opening: string;
+  tactic_order: string[];
+  slots: Record<string, string>;
+}
+
 export interface StartResponse {
   session_id: string;
   scammer_text: string;
   persona: PersonaId;
   lang: Language;
   turn: number;
+  /** Debug only (?debug=1): the session seed and scenario plan. */
+  seed?: number | null;
+  plan?: ScenarioPlanDebug | null;
 }
 
 export interface TurnRequest {
@@ -104,6 +116,8 @@ export interface TurnResponse {
   finished: boolean;
   score: number;
   turn: number;
+  /** Which path produced this line, for the ?debug=1 overlay. */
+  source?: "llm" | "fallback";
 }
 
 export interface TTSRequest {

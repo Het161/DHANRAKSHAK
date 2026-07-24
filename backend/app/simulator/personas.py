@@ -18,6 +18,35 @@ def _localized(payload: dict | None) -> LocalizedText:
     return LocalizedText(**{lang: str(payload.get(lang, "")) for lang in _LANGUAGES})
 
 
+def _localized_list(payload: dict | None) -> dict[Language, tuple[str, ...]]:
+    """A {en:[...], hi:[...], gu:[...]} block into a per-language tuple map."""
+    payload = payload or {}
+    return {
+        lang: tuple(str(item) for item in payload.get(lang, []) if str(item).strip())
+        for lang in _LANGUAGES
+    }
+
+
+def _slot_pools(payload: dict | None) -> dict[str, dict[Language, tuple[str, ...]]]:
+    """Slot value pools. A slot is either language-neutral (a flat list, reused
+    across languages) or per-language (a {en/hi/gu} block)."""
+    payload = payload or {}
+    slots: dict[str, dict[Language, tuple[str, ...]]] = {}
+    for name, value in payload.items():
+        if isinstance(value, list):
+            shared = tuple(str(item) for item in value if str(item).strip())
+            slots[name] = dict.fromkeys(_LANGUAGES, shared)
+        elif isinstance(value, dict):
+            slots[name] = _localized_list(value)
+    return slots
+
+
+def _line_pools(payload: dict | None) -> dict[str, dict[Language, tuple[str, ...]]]:
+    """Per-tactic line variant pools: tactic -> {en/hi/gu} -> variants."""
+    payload = payload or {}
+    return {str(tactic): _localized_list(block) for tactic, block in payload.items()}
+
+
 @dataclass(frozen=True, slots=True)
 class EvaluationRule:
     id: str
@@ -37,6 +66,11 @@ class Persona:
     system_prompt: str
     voice_prompt: str
     scripted_turns: dict[Language, tuple[str, ...]]
+    openings: dict[Language, tuple[str, ...]]
+    lines: dict[str, dict[Language, tuple[str, ...]]]
+    slots: dict[str, dict[Language, tuple[str, ...]]]
+    filler: dict[Language, tuple[str, ...]]
+    closings: dict[Language, tuple[str, ...]]
     good: tuple[EvaluationRule, ...]
     bad: tuple[EvaluationRule, ...]
     neutral_tip: LocalizedText
@@ -89,6 +123,11 @@ def _build_persona(payload: dict, origin: str) -> Persona:
         system_prompt=str(payload.get("system_prompt", "")),
         voice_prompt=str(payload.get("voice", "")),
         scripted_turns={lang: turns for lang, turns in scripted.items() if turns},
+        openings=_localized_list(payload.get("openings")),
+        lines=_line_pools(payload.get("lines")),
+        slots=_slot_pools(payload.get("slots")),
+        filler=_localized_list(payload.get("filler")),
+        closings=_localized_list(payload.get("closings")),
         good=_build_rules(evaluation.get("good"), f"{origin}.good"),
         bad=_build_rules(evaluation.get("bad"), f"{origin}.bad"),
         neutral_tip=_localized(evaluation.get("neutral_tip")),

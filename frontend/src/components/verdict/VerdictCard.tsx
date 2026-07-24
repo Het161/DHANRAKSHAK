@@ -6,8 +6,39 @@ import { RiskMeter } from "@/components/verdict/RiskMeter";
 import { VerdictPill } from "@/components/verdict/VerdictPill";
 import { Card, CardTitle } from "@/components/ui/Card";
 import { usePreferences } from "@/i18n/I18nProvider";
-import type { AnalyzeState } from "@/hooks/useAnalyze";
+import type { AnalyzeState, SourceChip } from "@/hooks/useAnalyze";
+import type { MessageKey } from "@/i18n/dictionary";
 import type { Flag } from "@/lib/types";
+
+const CHIP_LABEL: Record<SourceChip, MessageKey> = {
+  instant: "verdict.chipInstant",
+  offline: "verdict.chipOffline",
+  serverAdded: "verdict.chipServerAdded",
+  serverChecked: "verdict.chipServerChecked",
+};
+
+/** Honesty chip: says exactly which engine produced what is on screen. */
+function SourceChip({ state }: { state: AnalyzeState }) {
+  const { t } = usePreferences();
+  const onDevice = state.chip === "instant" || state.chip === "offline";
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span
+        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold ${
+          onDevice ? "bg-brand-tint text-brand-dark" : "bg-safe-tint text-safe"
+        }`}
+      >
+        <span aria-hidden className={`h-2 w-2 rounded-full ${onDevice ? "bg-brand" : "bg-safe"}`} />
+        {t(CHIP_LABEL[state.chip])}
+      </span>
+      {state.serverPending && (
+        <span className="text-sm text-ink-faint">
+          {state.waking ? t("verdict.serverWaking") : t("verdict.serverPending")}
+        </span>
+      )}
+    </div>
+  );
+}
 
 function FlagList({ flags }: { flags: Flag[] }) {
   const { t } = usePreferences();
@@ -49,6 +80,12 @@ export function VerdictCard({
       <Card className="space-y-5">
         <VerdictPill verdict={response.verdict} />
         <RiskMeter score={response.risk_score} verdict={response.verdict} />
+        <SourceChip state={state} />
+        {state.divergent && state.serverRisk !== null && state.localRisk !== null && (
+          <p className="rounded-xl bg-suspicious-tint px-3 py-2 text-sm leading-relaxed text-suspicious">
+            {t("verdict.serverAdjusted", { serverRisk: state.serverRisk, localRisk: state.localRisk })}
+          </p>
+        )}
       </Card>
 
       {response.analyzed_text && (
@@ -74,7 +111,9 @@ export function VerdictCard({
             ? t("verdict.refining")
             : state.explanationSource === "llm"
               ? t("verdict.sourceLlm")
-              : t("verdict.sourceTemplate")}
+              : state.explanationSource === "on-device"
+                ? t("verdict.sourceOnDevice")
+                : t("verdict.sourceTemplate")}
         </p>
       </Card>
 

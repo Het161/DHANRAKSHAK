@@ -11,7 +11,12 @@ from app.explain.providers import LLMProvider, ProviderError
 from app.schemas.contracts import Gender, Language, SentencePayload, VoiceDonePayload
 from app.simulator.coach import evaluate
 from app.simulator.personas import Persona
-from app.simulator.service import PersonaNotFound, SessionNotFound, SimulatorService
+from app.simulator.service import (
+    _TACTIC_FOCUS,
+    PersonaNotFound,
+    SessionNotFound,
+    SimulatorService,
+)
 from app.simulator.session import Session
 from app.util.sentences import take_sentence
 
@@ -28,6 +33,7 @@ _VOICE_RULES = """This is a live phone call and your words are read aloud immedi
 - One or two short sentences. Never more. A real caller talks in short pressured bursts.
 - Spoken register only: no lists, no bullet points, no formatting, no emoji, no stage directions.
 - Do not repeat what you just said. Add pressure, or react to what the person just told you.
+- Vary your wording; do not fall back on a stock line.
 - Never break character and never give safety advice."""
 
 
@@ -47,16 +53,12 @@ class VoiceCallService:
     unchanged; only the delivery differs.
     """
 
-    def __init__(
-        self, settings: Settings, simulator: SimulatorService, provider: LLMProvider | None
-    ) -> None:
+    def __init__(self, settings: Settings, simulator: SimulatorService, provider: LLMProvider | None) -> None:
         self.settings = settings
         self.simulator = simulator
         self.provider = provider
 
-    async def stream_turn(
-        self, session_id: str, message: str, gender: Gender
-    ) -> AsyncIterator[VoiceEvent]:
+    async def stream_turn(self, session_id: str, message: str, gender: Gender) -> AsyncIterator[VoiceEvent]:
         started = time.perf_counter()
         session = self.simulator.sessions.get(session_id)
         if session is None:
@@ -71,11 +73,10 @@ class VoiceCallService:
         session.turn += 1
         finished = session.turn >= self.settings.simulator_max_turns
 
-        scripted = (
-            persona.closing.get(session.lang)
-            if finished
-            else persona.scripted_turn(session.lang, session.turn - 1)
-        )
+        # The instant first line is the session's randomized scripted line (already
+        # cached), so the call stays sub-second AND differs every session. The LLM
+        # reaction that follows adds the tailored, varied part.
+        scripted = session.plan.closing if finished else session.plan.scripted_line(session.turn - 1)
 
         seq = 0
         spoken: list[str] = []
@@ -135,12 +136,22 @@ class VoiceCallService:
         if self.provider is None:
             return
 
+        plan = session.plan
+        tactic = plan.tactic_for_turn(session.turn - 1)
+        facts = (
+            f"Fixed details for this call, use them exactly: {plan.facts_for_prompt()}."
+            if plan.facts_for_prompt()
+            else ""
+        )
+        focus = f"Right now, {_TACTIC_FOCUS[tactic]}." if tactic in _TACTIC_FOCUS else ""
         system = "\n\n".join(
             part
             for part in (
                 persona.system_prompt,
                 persona.voice_prompt,
                 _VOICE_RULES,
+                facts,
+                focus,
                 _LANGUAGE_INSTRUCTION.get(session.lang, ""),
             )
             if part

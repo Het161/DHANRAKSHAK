@@ -42,7 +42,7 @@ async def start(
     # By the time they answer, every scripted reply is already on disk.
     if ctx.speech is not None and ctx.settings.tts_prewarm_enabled:
         for gender in ("male", "female"):
-            lines = ctx.simulator.call_lines(started.persona, started.lang, gender)
+            lines = ctx.simulator.plan_lines(started.session_id, gender)
             _background(ctx.speech.prewarm(lines))
     return started
 

@@ -1,0 +1,54 @@
+{
+  "engine_version": "8d88f7fe29ca",
+  "generated_from": "scripts/export_client_model.py",
+  "files": [
+    "rules.json",
+    "url_config.json",
+    "upi_config.json",
+    "templates.json",
+    "advisories.json",
+    "model.json",
+    "config.json",
+    "personas.json"
+  ],
+  "sizes": {
+    "rules.json": {
+      "raw": 61002,
+      "gzip": 16134
+    },
+    "url_config.json": {
+      "raw": 2213,
+      "gzip": 923
+    },
+    "upi_config.json": {
+      "raw": 5863,
+      "gzip": 2069
+    },
+    "templates.json": {
+      "raw": 22822,
+      "gzip": 6026
+    },
+    "advisories.json": {
+      "raw": 35648,
+      "gzip": 9533
+    },
+    "model.json": {
+      "raw": 806114,
+      "gzip": 200342
+    },
+    "config.json": {
+      "raw": 123,
+      "gzip": 103
+    },
+    "personas.json": {
+      "raw": 169545,
+      "gzip": 45280
+    }
+  },
+  "thresholds": {
+    "risk_suspicious_threshold": 35,
+    "risk_scam_threshold": 65,
+    "classifier_weight": 0.5,
+    "classifier_min_prob": 0.85
+  }
+}

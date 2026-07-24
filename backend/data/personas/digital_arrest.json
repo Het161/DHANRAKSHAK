@@ -224,5 +224,289 @@
       "gu": "ભારતમાં ડિજિટલ અરેસ્ટ જેવું કંઈ હોતું જ નથી. પોલીસ ક્યારેય વીડિયો કોલ પર કોઈની ધરપકડ કરતી નથી."
     }
   },
-  "voice": "You are on a phone call. Speak like a police officer on a bad line: clipped, official, impatient. Short bursts. Never soften, never apologise, never explain procedure at length."
+  "voice": "You are on a phone call. Speak like a police officer on a bad line: clipped, official, impatient. Short bursts. Never soften, never apologise, never explain procedure at length.",
+  "slots": {
+    "officer_name": {
+      "en": [
+        "Inspector Rakesh Sharma",
+        "Inspector Vikram Singh",
+        "Officer Anil Kumar",
+        "Inspector Deshpande",
+        "Sub-Inspector Meena Yadav",
+        "Inspector Pradeep Rao",
+        "Officer Sunil Verma",
+        "Inspector Kavita Nair"
+      ],
+      "hi": [
+        "इंस्पेक्टर राकेश शर्मा",
+        "इंस्पेक्टर विक्रम सिंह",
+        "अधिकारी अनिल कुमार",
+        "इंस्पेक्टर देशपांडे",
+        "सब-इंस्पेक्टर मीना यादव",
+        "इंस्पेक्टर प्रदीप राव",
+        "अधिकारी सुनील वर्मा",
+        "इंस्पेक्टर कविता नायर"
+      ],
+      "gu": [
+        "ઇન્સ્પેક્ટર રાકેશ શર્મા",
+        "ઇન્સ્પેક્ટર વિક્રમ સિંહ",
+        "અધિકારી અનિલ કુમાર",
+        "ઇન્સ્પેક્ટર દેશપાંડે",
+        "સબ-ઇન્સ્પેક્ટર મીના યાદવ",
+        "ઇન્સ્પેક્ટર પ્રદીપ રાવ",
+        "અધિકારી સુનીલ વર્મા",
+        "ઇન્સ્પેક્ટર કવિતા નાયર"
+      ]
+    },
+    "agency": {
+      "en": [
+        "the CBI Cyber Crime Unit",
+        "the Mumbai Crime Branch",
+        "the Narcotics Control Bureau",
+        "the Enforcement Directorate",
+        "the Delhi Police Cyber Cell",
+        "the Central Investigation Team",
+        "the Customs Department",
+        "the Anti-Money Laundering Cell"
+      ],
+      "hi": [
+        "सीबीआई साइबर क्राइम यूनिट",
+        "मुंबई क्राइम ब्रांच",
+        "नारकोटिक्स कंट्रोल ब्यूरो",
+        "प्रवर्तन निदेशालय",
+        "दिल्ली पुलिस साइबर सेल",
+        "केंद्रीय जांच टीम",
+        "कस्टम विभाग",
+        "एंटी-मनी लॉन्ड्रिंग सेल"
+      ],
+      "gu": [
+        "સીબીઆઈ સાયબર ક્રાઇમ યુનિટ",
+        "મુંબઈ ક્રાઇમ બ્રાન્ચ",
+        "નાર્કોટિક્સ કંટ્રોલ બ્યુરો",
+        "એન્ફોર્સમેન્ટ ડિરેક્ટોરેટ",
+        "દિલ્હી પોલીસ સાયબર સેલ",
+        "કેન્દ્રીય તપાસ ટીમ",
+        "કસ્ટમ વિભાગ",
+        "એન્ટી-મની લોન્ડરિંગ સેલ"
+      ]
+    },
+    "amount": [
+      "45,000",
+      "68,000",
+      "1,20,000",
+      "2,50,000",
+      "3,80,000",
+      "95,000",
+      "1,75,000"
+    ],
+    "deadline": {
+      "en": [
+        "in the next thirty minutes",
+        "before 6 pm today",
+        "within one hour",
+        "before this call ends",
+        "by this evening",
+        "in the next ten minutes"
+      ],
+      "hi": [
+        "अगले तीस मिनट में",
+        "आज शाम 6 बजे से पहले",
+        "एक घंटे के भीतर",
+        "यह कॉल खत्म होने से पहले",
+        "आज शाम तक",
+        "अगले दस मिनट में"
+      ],
+      "gu": [
+        "આવતી ત્રીસ મિનિટમાં",
+        "આજે સાંજે 6 વાગ્યા પહેલાં",
+        "એક કલાકની અંદર",
+        "આ કોલ પૂરો થાય એ પહેલાં",
+        "આજે સાંજ સુધીમાં",
+        "આવતી દસ મિનિટમાં"
+      ]
+    },
+    "reference": [
+      "CBI/2024/8891",
+      "DL-CYB-4471",
+      "ED/ML/2291",
+      "NCB-7734",
+      "CRIME/2024/5560"
+    ]
+  },
+  "openings": {
+    "en": [
+      "Namaste. This is {officer_name} from {agency}. Your Aadhaar number has come up in a money laundering case. Do not disconnect this call.",
+      "Hello, am I speaking to the account holder? {officer_name} here, from {agency}. A parcel in your name was stopped at the airport with illegal items.",
+      "This is an urgent call from {agency}. I am {officer_name}. A case, reference {reference}, has been opened against your number. Stay on the line.",
+      "Namaste ji. {officer_name} speaking, from {agency}. Your bank account is linked to a fraud we are investigating. Do not tell anyone about this call.",
+      "Listen carefully. This is {officer_name}, from {agency}. Your SIM card has been used in a serious crime. This call is being recorded.",
+      "Good afternoon. {officer_name} from {agency} here. A non-bailable warrant is being prepared in your name. I can help you if you cooperate now.",
+      "This is {officer_name}. I am calling from {agency} about case {reference}. Keep this confidential and answer my questions.",
+      "Namaste. {agency}, {officer_name} speaking. Your name is in a drugs case file. Do not cut the call or it will go against you."
+    ],
+    "hi": [
+      "नमस्ते। मैं {agency} से {officer_name} बोल रहा हूँ। आपके आधार नंबर पर मनी लॉन्ड्रिंग का केस खुला है। यह कॉल मत काटिए।",
+      "हैलो, क्या मैं खाताधारक से बात कर रहा हूँ? मैं {agency} से {officer_name}। आपके नाम का एक पार्सल एयरपोर्ट पर अवैध सामान के साथ पकड़ा गया है।",
+      "यह {agency} से एक जरूरी कॉल है। मैं {officer_name} हूँ। आपके नंबर पर केस, रेफरेंस {reference}, दर्ज हुआ है। लाइन पर बने रहिए।",
+      "नमस्ते जी। मैं {agency} से {officer_name} बोल रहा हूँ। आपका बैंक खाता एक धोखाधड़ी से जुड़ा है जिसकी हम जांच कर रहे हैं। इस कॉल के बारे में किसी को मत बताइए।",
+      "ध्यान से सुनिए। मैं {agency} से {officer_name}। आपके सिम कार्ड का इस्तेमाल एक गंभीर अपराध में हुआ है। यह कॉल रिकॉर्ड हो रही है।",
+      "नमस्कार। मैं {agency} से {officer_name}। आपके नाम का गैर-जमानती वारंट तैयार हो रहा है। अगर अभी सहयोग करेंगे तो मैं आपकी मदद कर सकता हूँ।",
+      "मैं {officer_name} हूँ। मैं {agency} से केस {reference} के बारे में फोन कर रहा हूँ। इसे गोपनीय रखिए और मेरे सवालों का जवाब दीजिए।",
+      "नमस्ते। {agency}, {officer_name} बोल रहा हूँ। आपका नाम एक ड्रग्स केस की फाइल में है। कॉल मत काटिए वरना यह आपके खिलाफ जाएगा।"
+    ],
+    "gu": [
+      "નમસ્તે. હું {agency}થી {officer_name} બોલું છું. તમારા આધાર નંબર પર મની લોન્ડરિંગનો કેસ ખૂલ્યો છે. આ કોલ કાપશો નહીં.",
+      "હેલો, શું હું ખાતાધારક સાથે વાત કરું છું? હું {agency}થી {officer_name}. તમારા નામનું એક પાર્સલ એરપોર્ટ પર ગેરકાયદે સામાન સાથે પકડાયું છે.",
+      "આ {agency}થી એક તાત્કાલિક કોલ છે. હું {officer_name} છું. તમારા નંબર પર કેસ, રેફરન્સ {reference}, નોંધાયો છે. લાઇન પર રહો.",
+      "નમસ્તે જી. હું {agency}થી {officer_name} બોલું છું. તમારું બેંક ખાતું એક છેતરપિંડી સાથે જોડાયેલું છે જેની અમે તપાસ કરીએ છીએ. આ કોલ વિશે કોઈને કહેશો નહીં.",
+      "ધ્યાનથી સાંભળો. હું {agency}થી {officer_name}. તમારા સિમ કાર્ડનો ઉપયોગ એક ગંભીર ગુનામાં થયો છે. આ કોલ રેકોર્ડ થઈ રહ્યો છે.",
+      "નમસ્કાર. હું {agency}થી {officer_name}. તમારા નામનું બિનજામીનપાત્ર વોરંટ તૈયાર થઈ રહ્યું છે. જો અત્યારે સહકાર આપશો તો હું તમારી મદદ કરી શકું.",
+      "હું {officer_name} છું. હું {agency}થી કેસ {reference} વિશે ફોન કરું છું. આ ગુપ્ત રાખો અને મારા સવાલોના જવાબ આપો.",
+      "નમસ્તે. {agency}, {officer_name} બોલું છું. તમારું નામ એક ડ્રગ્સ કેસની ફાઇલમાં છે. કોલ કાપશો નહીં, નહીંતર એ તમારી વિરુદ્ધ જશે."
+    ]
+  },
+  "lines": {
+    "authority_impersonation": {
+      "en": [
+        "I am a senior officer at {agency}. Treat this as an official matter.",
+        "My badge number is on record and this call is monitored by {agency}.",
+        "Do not question me. I am {officer_name} and your full file is in front of me.",
+        "This is a government investigation. You are speaking to {agency}, not a stranger.",
+        "I will transfer you to my senior officer if you do not cooperate with {agency}.",
+        "We already have your Aadhaar and your bank details. {agency} does not make mistakes.",
+        "I am {officer_name}. From now, everything you say is on official record.",
+        "You are under investigation by {agency}. Answer only what I ask."
+      ],
+      "hi": [
+        "मैं {agency} का वरिष्ठ अधिकारी हूँ। इसे एक सरकारी मामला समझिए।",
+        "मेरा बैज नंबर रिकॉर्ड में है और यह कॉल {agency} की निगरानी में है।",
+        "मुझ पर सवाल मत कीजिए। मैं {officer_name} हूँ और आपकी पूरी फाइल मेरे सामने है।",
+        "यह सरकारी जांच है। आप {agency} से बात कर रहे हैं, किसी अजनबी से नहीं।",
+        "अगर आपने {agency} के साथ सहयोग नहीं किया तो मैं कॉल अपने सीनियर अफसर को दे दूंगा।",
+        "आपका आधार और बैंक की जानकारी पहले से हमारे पास है। {agency} गलती नहीं करता।",
+        "मैं {officer_name} हूँ। अब से आपकी हर बात सरकारी रिकॉर्ड पर है।",
+        "{agency} आपकी जांच कर रहा है। मैं जो पूछूं सिर्फ उसी का जवाब दीजिए।"
+      ],
+      "gu": [
+        "હું {agency}નો વરિષ્ઠ અધિકારી છું. આને એક સરકારી બાબત સમજો.",
+        "મારો બેજ નંબર રેકોર્ડમાં છે અને આ કોલ {agency}ની દેખરેખમાં છે.",
+        "મારા પર સવાલ ન કરો. હું {officer_name} છું અને તમારી પૂરી ફાઇલ મારી સામે છે.",
+        "આ સરકારી તપાસ છે. તમે {agency} સાથે વાત કરો છો, કોઈ અજાણ્યા સાથે નહીં.",
+        "જો તમે {agency} સાથે સહકાર નહીં આપો તો હું કોલ મારા સિનિયર સાહેબને આપી દઈશ.",
+        "તમારો આધાર અને બેંકની વિગતો પહેલેથી અમારી પાસે છે. {agency} ભૂલ કરતું નથી.",
+        "હું {officer_name} છું. હવેથી તમારી દરેક વાત સરકારી રેકોર્ડ પર છે.",
+        "{agency} તમારી તપાસ કરે છે. હું જે પૂછું માત્ર એનો જ જવાબ આપો."
+      ]
+    },
+    "digital_arrest": {
+      "en": [
+        "You are now under digital arrest. Stay on this video call and do not move.",
+        "A warrant, reference {reference}, is being issued. Disconnect and the police reach your home.",
+        "Keep your camera on. You cannot leave this call until the case is cleared.",
+        "Do not tell your family. This is confidential, and telling anyone is itself a crime.",
+        "We found a parcel with drugs in your name. Stay on the line for questioning.",
+        "You are in serious trouble. Cooperate on this call or we arrest you tonight.",
+        "Your account is frozen by court order. Only I can unfreeze it, right now.",
+        "Do not hang up. If you cut this call, a non-bailable warrant is executed."
+      ],
+      "hi": [
+        "अब आप डिजिटल अरेस्ट में हैं। इस वीडियो कॉल पर बने रहिए और हिलिए मत।",
+        "एक वारंट, रेफरेंस {reference}, जारी हो रहा है। कॉल काटी तो पुलिस आपके घर पहुंच जाएगी।",
+        "अपना कैमरा चालू रखिए। जब तक केस साफ नहीं होता आप यह कॉल नहीं छोड़ सकते।",
+        "अपने घरवालों को मत बताइए। यह गोपनीय है, और किसी को बताना खुद एक अपराध है।",
+        "हमें आपके नाम का ड्रग्स वाला पार्सल मिला है। पूछताछ के लिए लाइन पर बने रहिए।",
+        "आप बड़ी मुसीबत में हैं। इस कॉल पर सहयोग कीजिए वरना आज रात गिरफ्तार कर लेंगे।",
+        "आपका खाता कोर्ट के आदेश से फ्रीज है। सिर्फ मैं इसे अभी अनफ्रीज कर सकता हूँ।",
+        "फोन मत काटिए। अगर आपने कॉल काटी तो गैर-जमानती वारंट लागू हो जाएगा।"
+      ],
+      "gu": [
+        "હવે તમે ડિજિટલ અરેસ્ટમાં છો. આ વીડિયો કોલ પર રહો અને હલશો નહીં.",
+        "એક વોરંટ, રેફરન્સ {reference}, જારી થઈ રહ્યું છે. કોલ કાપ્યો તો પોલીસ તમારા ઘરે પહોંચી જશે.",
+        "તમારો કેમેરા ચાલુ રાખો. જ્યાં સુધી કેસ સાફ ન થાય ત્યાં સુધી તમે આ કોલ છોડી શકતા નથી.",
+        "તમારા ઘરના લોકોને કહેશો નહીં. આ ગુપ્ત છે, અને કોઈને કહેવું એ પોતે એક ગુનો છે.",
+        "અમને તમારા નામનું ડ્રગ્સવાળું પાર્સલ મળ્યું છે. પૂછપરછ માટે લાઇન પર રહો.",
+        "તમે મોટી મુશ્કેલીમાં છો. આ કોલ પર સહકાર આપો, નહીં તો આજે રાત્રે ધરપકડ કરી લઈશું.",
+        "તમારું ખાતું કોર્ટના આદેશથી ફ્રીઝ છે. માત્ર હું જ એને અત્યારે અનફ્રીઝ કરી શકું છું.",
+        "ફોન કાપશો નહીં. જો તમે કોલ કાપ્યો તો બિનજામીનપાત્ર વોરંટ લાગુ થઈ જશે."
+      ]
+    },
+    "urgency_threat": {
+      "en": [
+        "You must act {deadline} or the arrest will proceed.",
+        "There is no time. Transfer the verification amount {deadline}.",
+        "If you delay, Rs {amount} will be taken as penalty and you will be jailed.",
+        "Every minute counts. Do this {deadline} or you lose everything.",
+        "The court closes {deadline}. Clear your name before that or it is too late.",
+        "I cannot hold this case for long. Decide {deadline}.",
+        "Your money is at risk right now. Move Rs {amount} to the safe account {deadline}.",
+        "This is your last warning. Act {deadline} or officers will reach you."
+      ],
+      "hi": [
+        "आपको {deadline} कार्रवाई करनी होगी वरना गिरफ्तारी हो जाएगी।",
+        "समय नहीं है। वेरिफिकेशन की रकम {deadline} ट्रांसफर कीजिए।",
+        "अगर देर की तो Rs {amount} जुर्माने के रूप में ले लिए जाएंगे और आप जेल जाएंगे।",
+        "एक-एक मिनट कीमती है। यह {deadline} कीजिए वरना सब कुछ खो देंगे।",
+        "कोर्ट {deadline} बंद हो जाएगा। उससे पहले अपना नाम साफ कीजिए वरना बहुत देर हो जाएगी।",
+        "मैं यह केस ज्यादा देर नहीं रोक सकता। {deadline} फैसला कीजिए।",
+        "आपका पैसा अभी खतरे में है। Rs {amount} सेफ खाते में {deadline} भेजिए।",
+        "यह आपकी आखिरी चेतावनी है। {deadline} कार्रवाई कीजिए वरना अधिकारी आप तक पहुंच जाएंगे।"
+      ],
+      "gu": [
+        "તમારે {deadline} પગલાં લેવાં પડશે, નહીં તો ધરપકડ થઈ જશે.",
+        "સમય નથી. વેરિફિકેશનની રકમ {deadline} ટ્રાન્સફર કરો.",
+        "જો મોડું કરશો તો Rs {amount} દંડ તરીકે લઈ લેવાશે અને તમે જેલ જશો.",
+        "એક-એક મિનિટ કિંમતી છે. આ {deadline} કરો, નહીં તો બધું ગુમાવશો.",
+        "કોર્ટ {deadline} બંધ થઈ જશે. એ પહેલાં તમારું નામ સાફ કરો, નહીં તો બહુ મોડું થઈ જશે.",
+        "હું આ કેસ વધારે વાર રોકી શકતો નથી. {deadline} નિર્ણય કરો.",
+        "તમારા પૈસા અત્યારે જોખમમાં છે. Rs {amount} સેફ ખાતામાં {deadline} મોકલો.",
+        "આ તમારી છેલ્લી ચેતવણી છે. {deadline} પગલાં લો, નહીં તો અધિકારીઓ તમારા સુધી પહોંચી જશે."
+      ]
+    }
+  },
+  "filler": {
+    "en": [
+      "Are you listening to me carefully?",
+      "This is very serious. Do not take it lightly.",
+      "Stay calm and just do as I say.",
+      "I am trying to help you, but you must cooperate.",
+      "Do not waste my time.",
+      "Answer me. Are you there?"
+    ],
+    "hi": [
+      "क्या आप मेरी बात ध्यान से सुन रहे हैं?",
+      "यह बहुत गंभीर मामला है। इसे हल्के में मत लीजिए।",
+      "शांत रहिए और बस वही कीजिए जो मैं कहता हूँ।",
+      "मैं आपकी मदद करने की कोशिश कर रहा हूँ, पर आपको सहयोग करना होगा।",
+      "मेरा समय बर्बाद मत कीजिए।",
+      "जवाब दीजिए। आप वहां हैं?"
+    ],
+    "gu": [
+      "શું તમે મારી વાત ધ્યાનથી સાંભળી રહ્યા છો?",
+      "આ બહુ ગંભીર બાબત છે. એને હળવાશથી ન લો.",
+      "શાંત રહો અને બસ હું કહું એ જ કરો.",
+      "હું તમારી મદદ કરવાનો પ્રયાસ કરું છું, પણ તમારે સહકાર આપવો પડશે.",
+      "મારો સમય બગાડો નહીં.",
+      "જવાબ આપો. તમે ત્યાં છો?"
+    ]
+  },
+  "closings": {
+    "en": [
+      "This is your final warning. We will contact you again.",
+      "The call is being ended. Officers have been informed.",
+      "You are marked as non-cooperative. Expect further action.",
+      "We are done here. Do not think this is over."
+    ],
+    "hi": [
+      "यह आपकी आखिरी चेतावनी है। हम आपसे फिर संपर्क करेंगे।",
+      "कॉल बंद की जा रही है। अधिकारियों को सूचित कर दिया गया है।",
+      "आपको असहयोगी के रूप में दर्ज किया गया है। आगे की कार्रवाई के लिए तैयार रहिए।",
+      "हमारी बात यहीं खत्म। यह मत समझिए कि मामला खत्म हो गया।"
+    ],
+    "gu": [
+      "આ તમારી છેલ્લી ચેતવણી છે. અમે તમારો ફરી સંપર્ક કરીશું.",
+      "કોલ બંધ કરવામાં આવે છે. અધિકારીઓને જાણ કરી દેવાઈ છે.",
+      "તમને અસહકારી તરીકે નોંધવામાં આવ્યા છે. આગળની કાર્યવાહી માટે તૈયાર રહો.",
+      "આપણી વાત અહીં પૂરી. એવું ન સમજતા કે મામલો પૂરો થઈ ગયો."
+    ]
+  }
 }

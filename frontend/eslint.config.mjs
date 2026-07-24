@@ -4,7 +4,8 @@ import nextTypescript from "eslint-config-next/typescript";
 // eslint-config-next ships flat config as arrays, so these spread directly.
 // The typescript entry is what registers the @typescript-eslint plugin.
 const config = [
-  { ignores: [".next/**", "node_modules/**", "public/sw.js"] },
+  // public/sw.js has build-time placeholders; engine-worker.js is a generated bundle.
+  { ignores: [".next/**", "node_modules/**", "out/**", "public/sw.js", "public/engine-worker.js"] },
   ...nextCoreWebVitals,
   ...nextTypescript,
   {

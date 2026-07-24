@@ -179,6 +179,8 @@ export function AnalyzerPanel() {
           busyKey={BUSY_KEY[tab]}
           errorMessage={state.errorMessage}
           onRetry={retry}
+          waking={state.waking}
+          hasVerdict={state.verdict !== null}
         />
         {state.verdict && <VerdictCard state={state} onCheckAnother={checkAnother} />}
       </div>

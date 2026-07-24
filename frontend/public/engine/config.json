@@ -1,0 +1,1 @@
+{"thresholds":{"risk_suspicious_threshold":35,"risk_scam_threshold":65,"classifier_weight":0.5,"classifier_min_prob":0.85}}

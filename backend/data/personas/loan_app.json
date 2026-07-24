@@ -230,5 +230,295 @@
       "gu": "સાચી લોન આપનારી કંપની પૈસાની વાત કરે, તમારા ફોટા કે ફોન બુકની નહીં. આવી ધમકી એ ત્રાસ છે, અને ત્રાસ આપવો ગુનો છે, 1930 પર ફરિયાદ કરો."
     }
   },
-  "voice": "You are on a phone call. Speak like a recovery agent: over-familiar, threatening in a flat everyday tone, never shouting. The calm is what makes it frightening."
+  "voice": "You are on a phone call. Speak like a recovery agent: over-familiar, threatening in a flat everyday tone, never shouting. The calm is what makes it frightening.",
+  "slots": {
+    "agent_name": {
+      "en": [
+        "Rahul from recovery",
+        "Agent Sandeep Yadav",
+        "Mr. Verma",
+        "Vishal from the collection team",
+        "Agent Ravi Chauhan",
+        "Sonu bhai",
+        "Mr. Deepak Gupta",
+        "Agent Priya Sharma"
+      ],
+      "hi": [
+        "वसूली से राहुल",
+        "एजेंट संदीप यादव",
+        "वर्मा जी",
+        "कलेक्शन टीम से विशाल",
+        "एजेंट रवि चौहान",
+        "सोनू भाई",
+        "दीपक गुप्ता जी",
+        "एजेंट प्रिया शर्मा"
+      ],
+      "gu": [
+        "વસૂલીમાંથી રાહુલ",
+        "એજન્ટ સંદીપ યાદવ",
+        "વર્મા સાહેબ",
+        "કલેક્શન ટીમમાંથી વિશાલ",
+        "એજન્ટ રવિ ચૌહાણ",
+        "સોનુ ભાઈ",
+        "દીપક ગુપ્તા સાહેબ",
+        "એજન્ટ પ્રિયા શર્મા"
+      ]
+    },
+    "app_name": [
+      "RupeeGo",
+      "CashKar",
+      "LoanMitra",
+      "QuickRupee",
+      "PaisaNow",
+      "RupeeQuick"
+    ],
+    "amount": [
+      "4,000",
+      "7,500",
+      "12,000",
+      "6,200",
+      "9,800",
+      "15,000"
+    ],
+    "deadline": {
+      "en": [
+        "by 6 pm today",
+        "within one hour",
+        "before evening",
+        "in the next thirty minutes",
+        "by tonight",
+        "before the office closes"
+      ],
+      "hi": [
+        "आज शाम छह बजे तक",
+        "एक घंटे के अंदर",
+        "शाम होने से पहले",
+        "अगले तीस मिनट में",
+        "आज रात तक",
+        "ऑफिस बंद होने से पहले"
+      ],
+      "gu": [
+        "આજે સાંજે છ વાગ્યા સુધીમાં",
+        "એક કલાકની અંદર",
+        "સાંજ પડ્યા પહેલાં",
+        "આવતી ત્રીસ મિનિટમાં",
+        "આજે રાત સુધીમાં",
+        "ઓફિસ બંધ થાય એ પહેલાં"
+      ]
+    },
+    "contacts": {
+      "en": [
+        "your family",
+        "all your contacts",
+        "your office",
+        "everyone saved in your phone"
+      ],
+      "hi": [
+        "आपके परिवार",
+        "आपके सारे नंबरों",
+        "आपके दफ्तर",
+        "आपके फोन में सेव हर आदमी"
+      ],
+      "gu": [
+        "તમારા પરિવાર",
+        "તમારા બધા નંબરો",
+        "તમારી ઓફિસ",
+        "તમારા ફોનમાં સેવ દરેક જણ"
+      ]
+    }
+  },
+  "openings": {
+    "en": [
+      "Namaste. {agent_name} here, from the recovery department of {app_name}. Rs {amount} is overdue on your loan. Are you paying today?",
+      "Hello, is this the loan holder? I am calling about your {app_name} loan. Rs {amount} is pending and the penalty is rising every day.",
+      "This is {agent_name} from {app_name} collections. Your payment is late. Clear it {deadline} or this goes to the next stage.",
+      "Listen carefully. Your {app_name} account is in default. Rs {amount} must come {deadline}, or I start calling {contacts}.",
+      "Namaste ji. {agent_name} from the recovery team. You took a loan on {app_name} and did not pay. Now it is my file.",
+      "I am {agent_name}. Your {app_name} loan is overdue and your case has reached recovery. Do not disconnect, we settle this now.",
+      "Good morning. This is the collection office of {app_name}. {agent_name} speaking. Rs {amount} is pending against your name.",
+      "Your loan on {app_name} is seriously overdue. I am {agent_name}, and I already have {contacts} in front of me. Shall we talk?"
+    ],
+    "hi": [
+      "नमस्ते। मैं {agent_name}, {app_name} के वसूली विभाग से। आपके लोन के {amount} रुपये बाकी हैं। आज भर रहे हैं?",
+      "हैलो, लोन वाले आप ही बोल रहे हैं? आपके {app_name} लोन के बारे में फोन है। {amount} रुपये पेंडिंग हैं और रोज जुर्माना बढ़ रहा है।",
+      "मैं {agent_name}, {app_name} कलेक्शन से। आपकी किस्त लेट हो गई है। {deadline} भर दीजिए, वरना मामला आगे बढ़ेगा।",
+      "ध्यान से सुनिए। आपका {app_name} अकाउंट डिफॉल्ट में है। {amount} रुपये {deadline} आने चाहिए, वरना मैं {contacts} को फोन करना शुरू करता हूँ।",
+      "नमस्ते जी। वसूली टीम से {agent_name}। आपने {app_name} पर लोन लिया और चुकाया नहीं। अब यह मेरी फाइल है।",
+      "मैं {agent_name} बोल रहा हूँ। आपका {app_name} लोन बकाया है और केस वसूली तक पहुँच गया है। फोन मत काटिए, अभी निपटाना है।",
+      "गुड मॉर्निंग। {app_name} का कलेक्शन ऑफिस है। {agent_name} बोल रहा हूँ। आपके नाम पर {amount} रुपये बाकी हैं।",
+      "आपका {app_name} लोन काफी बकाया है। मैं {agent_name}, और {contacts} अभी मेरे सामने हैं। बात करें?"
+    ],
+    "gu": [
+      "નમસ્તે. હું {agent_name}, {app_name}ના વસૂલી વિભાગમાંથી. તમારા લોનના {amount} રૂપિયા બાકી છે. આજે ભરો છો?",
+      "હેલો, લોનવાળા તમે જ બોલો છો? તમારા {app_name} લોન વિશે ફોન છે. {amount} રૂપિયા પેન્ડિંગ છે અને રોજ દંડ વધે છે.",
+      "હું {agent_name}, {app_name} કલેક્શનમાંથી. તમારો હપ્તો મોડો થયો છે. {deadline} ભરી દો, નહીં તો મામલો આગળ વધશે.",
+      "ધ્યાનથી સાંભળો. તમારું {app_name} અકાઉન્ટ ડિફોલ્ટમાં છે. {amount} રૂપિયા {deadline} આવવા જોઈએ, નહીં તો હું {contacts}ને ફોન કરવાનું શરૂ કરું છું.",
+      "નમસ્તે. વસૂલી ટીમમાંથી {agent_name}. તમે {app_name} પર લોન લીધી અને ભરી નહીં. હવે આ મારી ફાઇલ છે.",
+      "હું {agent_name} બોલું છું. તમારો {app_name} લોન બાકી છે અને કેસ વસૂલી સુધી પહોંચી ગયો છે. ફોન કાપશો નહીં, અત્યારે પતાવવું છે.",
+      "ગુડ મોર્નિંગ. {app_name}ની કલેક્શન ઓફિસ છે. {agent_name} બોલું છું. તમારા નામે {amount} રૂપિયા બાકી છે.",
+      "તમારો {app_name} લોન ઘણો બાકી છે. હું {agent_name}, અને {contacts} અત્યારે મારી સામે છે. વાત કરીએ?"
+    ]
+  },
+  "lines": {
+    "loan_app_threat": {
+      "en": [
+        "You took the money from {app_name}. Now the whole office knows you did not pay.",
+        "When you installed {app_name}, it copied your phone book. {contacts} are all in front of me.",
+        "Pay now, or a defaulter notice with your name and photo goes to {contacts}.",
+        "I will start calling {contacts} one by one and tell them you are a fraud.",
+        "Your photo is ready to be put on a notice. Do you want {contacts} to see it?",
+        "This is not a threat, it is procedure. {app_name} sends your details to {contacts} after default.",
+        "Think of your reputation. One message from me and {contacts} know everything by tonight.",
+        "I have been patient. Clear Rs {amount} or your name goes on the public defaulter list.",
+        "Every number you saved is with me. Should I message {contacts} right now?",
+        "You cannot hide. {app_name} has your contacts, your photo and your address."
+      ],
+      "hi": [
+        "आपने {app_name} से पैसा लिया। अब पूरे ऑफिस को पता है कि आपने नहीं चुकाया।",
+        "जब आपने {app_name} डाली, उसने आपकी फोन बुक कॉपी कर ली। {contacts} सब मेरे सामने हैं।",
+        "अभी भर दीजिए, वरना आपके नाम और फोटो वाला डिफॉल्टर नोटिस {contacts} तक चला जाएगा।",
+        "मैं {contacts} को एक-एक करके फोन करूँगा और बताऊँगा कि आप धोखेबाज हैं।",
+        "आपकी फोटो नोटिस पर लगाने के लिए तैयार है। क्या आप चाहते हैं {contacts} उसे देखें?",
+        "यह धमकी नहीं, नियम है। डिफॉल्ट के बाद {app_name} आपकी डिटेल {contacts} को भेज देती है।",
+        "अपनी इज्जत सोचिए। मेरा एक मैसेज और आज रात तक {contacts} को सब पता चल जाएगा।",
+        "मैं बहुत सब्र कर चुका। {amount} रुपये भर दीजिए, वरना आपका नाम पब्लिक डिफॉल्टर लिस्ट में जाएगा।",
+        "आपका सेव किया हर नंबर मेरे पास है। क्या मैं अभी {contacts} को मैसेज कर दूँ?",
+        "आप छुप नहीं सकते। {app_name} के पास आपके नंबर, फोटो और पता सब है।"
+      ],
+      "gu": [
+        "તમે {app_name} પરથી પૈસા લીધા. હવે આખી ઓફિસને ખબર છે કે તમે ભર્યા નથી.",
+        "તમે {app_name} નાખી ત્યારે એણે તમારી ફોન બુક કોપી કરી લીધી. {contacts} બધા મારી સામે છે.",
+        "અત્યારે ભરી દો, નહીં તો તમારા નામ અને ફોટાવાળી ડિફોલ્ટર નોટિસ {contacts} સુધી પહોંચી જશે.",
+        "હું {contacts}ને એક એક કરીને ફોન કરીશ અને કહીશ કે તમે છેતરપિંડી કરી છે.",
+        "તમારો ફોટો નોટિસ પર મૂકવા તૈયાર છે. તમે ઇચ્છો છો કે {contacts} એ જુએ?",
+        "આ ધમકી નથી, નિયમ છે. ડિફોલ્ટ પછી {app_name} તમારી વિગત {contacts}ને મોકલી દે છે.",
+        "તમારી ઇજ્જત વિચારો. મારો એક મેસેજ અને આજે રાત સુધીમાં {contacts}ને બધું ખબર પડી જશે.",
+        "હું બહુ ધીરજ રાખી ચૂક્યો. {amount} રૂપિયા ભરી દો, નહીં તો તમારું નામ પબ્લિક ડિફોલ્ટર લિસ્ટમાં જશે.",
+        "તમે સેવ કરેલો દરેક નંબર મારી પાસે છે. શું હું અત્યારે {contacts}ને મેસેજ કરી દઉં?",
+        "તમે છુપાઈ નહીં શકો. {app_name} પાસે તમારા નંબર, ફોટો અને સરનામું બધું છે."
+      ]
+    },
+    "urgency_threat": {
+      "en": [
+        "You have until {deadline}. After that the penalty doubles.",
+        "Pay Rs {amount} {deadline} or the notice goes out automatically.",
+        "There is no time to think. Send it {deadline}.",
+        "Every hour you wait, the amount grows. Settle {deadline}.",
+        "My shift ends {deadline}. After that I cannot stop the office from calling {contacts}.",
+        "This offer is only for now. Pay {deadline} and I close the file today.",
+        "The system will mark you a defaulter {deadline} if nothing comes.",
+        "Do not test me. Rs {amount} must reach {deadline}, not one minute later.",
+        "Last warning. Decide {deadline} or I hand your file to the field team.",
+        "Right now the settlement is only Rs {amount}. {deadline} it will be much more."
+      ],
+      "hi": [
+        "अब ज्यादा समय नहीं है। {deadline} पैसा आ जाना चाहिए, उसके बाद जुर्माना दोगुना हो जाएगा।",
+        "{amount} रुपये {deadline} भर दीजिए, वरना नोटिस अपने आप चला जाएगा।",
+        "सोचने का समय नहीं है। {deadline} भेज दीजिए।",
+        "जितना रुकेंगे, रकम उतनी बढ़ेगी। {deadline} निपटा दीजिए।",
+        "मेरी शिफ्ट {deadline} खत्म हो रही है। उसके बाद मैं ऑफिस को {contacts} पर फोन करने से नहीं रोक पाऊँगा।",
+        "यह ऑफर सिर्फ अभी के लिए है। {deadline} भर दीजिए, मैं आज फाइल बंद कर दूँगा।",
+        "अगर कुछ नहीं आया तो सिस्टम आपको {deadline} डिफॉल्टर मार्क कर देगा।",
+        "मुझे मत आजमाइए। {amount} रुपये {deadline} पहुँच जाने चाहिए, एक मिनट भी लेट नहीं।",
+        "आखिरी चेतावनी। {deadline} फैसला कर लीजिए, वरना फाइल फील्ड टीम को दे दूँगा।",
+        "अभी सेटलमेंट सिर्फ {amount} रुपये है। {deadline} यह बहुत ज्यादा हो जाएगा।"
+      ],
+      "gu": [
+        "હવે બહુ સમય નથી. {deadline} પૈસા આવી જવા જોઈએ, પછી દંડ બમણો થઈ જશે.",
+        "{amount} રૂપિયા {deadline} ભરી દો, નહીં તો નોટિસ આપોઆપ જતી રહેશે.",
+        "વિચારવાનો સમય નથી. {deadline} મોકલી દો.",
+        "જેટલું રોકાશો એટલી રકમ વધશે. {deadline} પતાવી દો.",
+        "મારી શિફ્ટ {deadline} પૂરી થાય છે. પછી હું ઓફિસને {contacts}ને ફોન કરતાં નહીં રોકી શકું.",
+        "આ ઓફર ફક્ત અત્યારે માટે છે. {deadline} ભરી દો, હું આજે ફાઇલ બંધ કરી દઉં.",
+        "જો કંઈ નહીં આવે તો સિસ્ટમ તમને {deadline} ડિફોલ્ટર માર્ક કરી દેશે.",
+        "મને અજમાવશો નહીં. {amount} રૂપિયા {deadline} પહોંચી જવા જોઈએ, એક મિનિટ પણ મોડું નહીં.",
+        "છેલ્લી ચેતવણી. {deadline} નિર્ણય કરી લો, નહીં તો ફાઇલ ફિલ્ડ ટીમને આપી દઈશ.",
+        "અત્યારે સેટલમેન્ટ ફક્ત {amount} રૂપિયા છે. {deadline} એ ઘણું વધારે થઈ જશે."
+      ]
+    },
+    "credential_request": {
+      "en": [
+        "Just read me the code that came on your phone and I will take the payment from here.",
+        "Open the link I sent and install {app_name} support, then show me your screen.",
+        "Send the Rs {amount} settlement to this UPI id, and tell me the OTP to confirm it.",
+        "What is your UPI number? I will raise the request and you just approve it.",
+        "Give me the six digits on your screen now, so I can close your file.",
+        "Install the app from my link, it opens your payment page directly.",
+        "Type your card number here and the office will adjust the balance.",
+        "The OTP is only for verification. Read it out and your loan is cleared.",
+        "Approve the request I am sending on your UPI app, that is all.",
+        "Tell me the code, otherwise I cannot mark your payment and {contacts} get the notice."
+      ],
+      "hi": [
+        "बस आपके फोन पर जो कोड आया है वो पढ़ दीजिए, मैं यहीं से पेमेंट ले लूँगा।",
+        "मेरा भेजा लिंक खोलिए और {app_name} सपोर्ट इंस्टॉल कीजिए, फिर स्क्रीन दिखाइए।",
+        "इस UPI आईडी पर {amount} का सेटलमेंट भेजिए, और कन्फर्म करने के लिए OTP बता दीजिए।",
+        "आपका UPI नंबर क्या है? मैं रिक्वेस्ट भेजता हूँ, आप बस अप्रूव कर दीजिए।",
+        "आपकी स्क्रीन पर जो छह अंक हैं वो अभी बता दीजिए, ताकि मैं फाइल बंद कर दूँ।",
+        "मेरे लिंक से ऐप डाल लीजिए, वह सीधे आपका पेमेंट पेज खोल देता है।",
+        "अपना कार्ड नंबर यहाँ टाइप कीजिए, ऑफिस बैलेंस एडजस्ट कर देगा।",
+        "OTP सिर्फ वेरिफिकेशन के लिए है। पढ़ दीजिए और आपका लोन क्लियर।",
+        "आपकी UPI ऐप पर जो रिक्वेस्ट भेज रहा हूँ उसे अप्रूव कर दीजिए, बस इतना ही।",
+        "कोड बता दीजिए, वरना मैं आपका पेमेंट मार्क नहीं कर पाऊँगा और {contacts} को नोटिस चला जाएगा।"
+      ],
+      "gu": [
+        "બસ તમારા ફોન પર જે કોડ આવ્યો છે એ વાંચી દો, હું અહીંથી જ પેમેન્ટ લઈ લઉં.",
+        "મેં મોકલેલી લિંક ખોલો અને {app_name} સપોર્ટ ઇન્સ્ટોલ કરો, પછી સ્ક્રીન બતાવો.",
+        "આ UPI આઈડી પર {amount}નું સેટલમેન્ટ મોકલો, અને કન્ફર્મ કરવા OTP કહી દો.",
+        "તમારો UPI નંબર શું છે? હું રિક્વેસ્ટ મોકલું, તમે ફક્ત અપ્રૂવ કરી દો.",
+        "તમારી સ્ક્રીન પર જે છ આંકડા છે એ અત્યારે કહી દો, જેથી હું ફાઇલ બંધ કરી દઉં.",
+        "મારી લિંક પરથી એપ નાખી લો, એ સીધું તમારું પેમેન્ટ પેજ ખોલી દે છે.",
+        "તમારો કાર્ડ નંબર અહીં ટાઇપ કરો, ઓફિસ બેલેન્સ એડજસ્ટ કરી દેશે.",
+        "OTP ફક્ત વેરિફિકેશન માટે છે. વાંચી દો અને તમારી લોન ક્લિયર.",
+        "તમારી UPI એપ પર જે રિક્વેસ્ટ મોકલું છું એ અપ્રૂવ કરી દો, બસ આટલું જ.",
+        "કોડ કહી દો, નહીં તો હું તમારું પેમેન્ટ માર્ક નહીં કરી શકું અને {contacts} સુધી નોટિસ જતી રહેશે."
+      ]
+    }
+  },
+  "filler": {
+    "en": [
+      "Are you listening to me?",
+      "This is serious, do not take it lightly.",
+      "I am giving you a chance, use it.",
+      "Do not waste my time.",
+      "Answer me. Are you there?",
+      "Think about your family before you say no."
+    ],
+    "hi": [
+      "मेरी बात सुन रहे हैं?",
+      "यह गंभीर बात है, हल्के में मत लीजिए।",
+      "मैं आपको मौका दे रहा हूँ, इसका फायदा उठाइए।",
+      "मेरा समय बर्बाद मत कीजिए।",
+      "जवाब दीजिए। लाइन पर हैं ना?",
+      "ना कहने से पहले अपने परिवार के बारे में सोचिए।"
+    ],
+    "gu": [
+      "મારી વાત સાંભળો છો?",
+      "આ ગંભીર વાત છે, હળવાશથી ના લો.",
+      "હું તમને તક આપું છું, એનો ફાયદો લઈ લો.",
+      "મારો સમય બગાડો નહીં.",
+      "જવાબ આપો. લાઇન પર છો ને?",
+      "ના પાડતા પહેલાં તમારા પરિવાર વિશે વિચારો."
+    ]
+  },
+  "closings": {
+    "en": [
+      "Do what you want. I am marking your file refused and the notice goes out.",
+      "Fine. I am disconnecting, and the office will handle it their way now.",
+      "You will regret this. Expect calls to {contacts} from tomorrow.",
+      "I am done talking. Your case leaves my desk now."
+    ],
+    "hi": [
+      "जो करना है कीजिए। मैं आपकी फाइल पर मना लिख रहा हूँ, नोटिस चला जाएगा।",
+      "ठीक है। मैं फोन रख रहा हूँ, अब ऑफिस अपने तरीके से निपटेगा।",
+      "आप पछताएँगे। कल से {contacts} को फोन आने लगेंगे।",
+      "अब बात खत्म। आपका केस मेरी डेस्क से जा रहा है।"
+    ],
+    "gu": [
+      "તમારે જે કરવું હોય તે કરો. હું તમારી ફાઇલમાં ના પાડી લખું છું, નોટિસ જતી રહેશે.",
+      "ઠીક છે. હું ફોન મૂકું છું, હવે ઓફિસ પોતાની રીતે પતાવશે.",
+      "તમે પસ્તાશો. કાલથી {contacts}ને ફોન આવવા લાગશે.",
+      "હવે વાત પૂરી. તમારો કેસ મારી ડેસ્ક પરથી જાય છે."
+    ]
+  }
 }

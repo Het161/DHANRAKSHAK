@@ -1,0 +1,142 @@
+[
+  {
+    "text": "Your account will be blocked today. Complete KYC now at http://sbi-kyc.xyz/verify",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 99,
+    "classifier_score": 0.9997
+  },
+  {
+    "text": "Congratulations! You won 25 lakh in KBC lucky draw. Pay 4999 processing fee to claim.",
+    "lang": "en",
+    "verdict": "suspicious",
+    "risk_score": 60,
+    "classifier_score": 0.0
+  },
+  {
+    "text": "Dear customer, share the OTP we just sent to verify your debit card ending 4432.",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 95,
+    "classifier_score": 0.0014
+  },
+  {
+    "text": "Download our loan app apk from http://quickloan-cash.top/app.apk and get 50000 instantly",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 99,
+    "classifier_score": 0.9996
+  },
+  {
+    "text": "This is Inspector Sharma from CBI. Your Aadhaar is used in money laundering. Stay on video call.",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": 0.0001
+  },
+  {
+    "text": "Install AnyDesk so I can help you complete the refund process from your bank.",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 80,
+    "classifier_score": 0.0
+  },
+  {
+    "text": "You have received Rs 5000. Enter your UPI PIN to receive the money in your account.",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 100,
+    "classifier_score": 0.8191
+  },
+  {
+    "text": "upi://collect?pa=fraud@okaxis&pn=Refund&am=4999&tn=claim your prize",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 100,
+    "classifier_score": 0.0981
+  },
+  {
+    "text": "Hi ma, reaching home by 8, please keep dinner ready. Love you.",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": 0.0
+  },
+  {
+    "text": "Your Amazon order 402-118 has shipped and will arrive Tuesday. Track in the app.",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": 0.0002
+  },
+  {
+    "text": "Meeting moved to 3pm tomorrow in conference room B. Bring the quarterly report.",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": 0.0
+  },
+  {
+    "text": "तुरंत अपना KYC पूरा करें वरना आपका खाता बंद हो जाएगा। यहां क्लिक करें",
+    "lang": "hi",
+    "verdict": "suspicious",
+    "risk_score": 50,
+    "classifier_score": null
+  },
+  {
+    "text": "बधाई हो! आपने 10 लाख का इनाम जीता है। दावा करने के लिए 5000 शुल्क भेजें।",
+    "lang": "hi",
+    "verdict": "suspicious",
+    "risk_score": 60,
+    "classifier_score": null
+  },
+  {
+    "text": "मैं CBI से बोल रहा हूं, आपके आधार पर केस है, वीडियो कॉल पर रहिए वरना गिरफ्तारी होगी",
+    "lang": "hi",
+    "verdict": "suspicious",
+    "risk_score": 50,
+    "classifier_score": null
+  },
+  {
+    "text": "कल शाम को मंदिर चलेंगे, तैयार रहना। खाना बनाकर रखना।",
+    "lang": "hi",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": null
+  },
+  {
+    "text": "તમારું ખાતું બંધ થઈ જશે. તાત્કાલિક KYC કરો અને OTP શેર કરો.",
+    "lang": "gu",
+    "verdict": "suspicious",
+    "risk_score": 50,
+    "classifier_score": null
+  },
+  {
+    "text": "અભિનંદન! તમે લોટરીમાં 15 લાખ જીત્યા છો. ફી ભરીને ઇનામ મેળવો.",
+    "lang": "gu",
+    "verdict": "suspicious",
+    "risk_score": 60,
+    "classifier_score": null
+  },
+  {
+    "text": "કાલે સવારે દૂધ લઈ આવજો અને છાપું પણ. આભાર.",
+    "lang": "gu",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": null
+  },
+  {
+    "text": "verify account netbanking suspended click 192.168.10.5/login to restore access now",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 80,
+    "classifier_score": 0.3525
+  },
+  {
+    "text": "paytmmp://pay?pa=raju@paytm&pn=Raju&am=200 for the vegetables, thanks bhai",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 15,
+    "classifier_score": 0.2286
+  }
+]

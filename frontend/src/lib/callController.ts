@@ -9,7 +9,7 @@ import {
   type SpeechRecognitionEventLike,
   type SpeechRecognitionLike,
 } from "@/lib/speech";
-import type { Coach, Gender, Language, PersonaId } from "@/lib/types";
+import type { Coach, Gender, Language, PersonaId, ScenarioPlanDebug } from "@/lib/types";
 
 /**
  * A phone call is half duplex: exactly one side holds the microphone at a time.
@@ -66,6 +66,7 @@ export interface VoiceCallState {
   discardedEcho: string | null;
   audio: AudioQueueSnapshot;
   timings: SentenceTiming[];
+  plan: ScenarioPlanDebug | null;
 }
 
 export interface CallOptions {
@@ -101,6 +102,7 @@ export const INITIAL_STATE: VoiceCallState = {
   discardedEcho: null,
   audio: IDLE_AUDIO,
   timings: [],
+  plan: null,
 };
 
 type Emit = (updater: (prev: VoiceCallState) => VoiceCallState) => void;
@@ -183,6 +185,7 @@ export class CallController {
       );
       this.sessionId = started.session_id;
       opening = started.scammer_text;
+      this.emit((prev) => ({ ...prev, plan: started.plan ?? null }));
     } catch {
       if (!request.signal.aborted) this.setPhase("error");
       return;

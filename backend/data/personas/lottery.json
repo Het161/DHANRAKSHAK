@@ -239,5 +239,352 @@
       "gu": "તમારી જાતને એક સવાલ પૂછો: શું મેં ક્યારેય આ લકી ડ્રોમાં ભાગ લીધો હતો? ના લીધો હોય તો ઇનામ પણ નથી."
     }
   },
-  "voice": "You are on a phone call. Start warm and congratulatory, almost celebratory, then turn businesslike the moment money comes up. Keep the excitement in your phrasing."
+  "voice": "You are on a phone call. Start warm and congratulatory, almost celebratory, then turn businesslike the moment money comes up. Keep the excitement in your phrasing.",
+  "slots": {
+    "caller_name": {
+      "en": [
+        "Rajiv Verma",
+        "Manager Amit Khanna",
+        "Officer Sanjay Gupta",
+        "Priya Malhotra",
+        "Rahul Saxena",
+        "Manager Deepak Joshi",
+        "Neha Kapoor",
+        "Vikas Agarwal"
+      ],
+      "hi": [
+        "राजीव वर्मा",
+        "मैनेजर अमित खन्ना",
+        "अफसर संजय गुप्ता",
+        "प्रिया मल्होत्रा",
+        "राहुल सक्सेना",
+        "मैनेजर दीपक जोशी",
+        "नेहा कपूर",
+        "विकास अग्रवाल"
+      ],
+      "gu": [
+        "રાજીવ વર્મા",
+        "મેનેજર અમિત ખન્ના",
+        "ઓફિસર સંજય ગુપ્તા",
+        "પ્રિયા મલ્હોત્રા",
+        "રાહુલ સક્સેના",
+        "મેનેજર દીપક જોષી",
+        "નેહા કપૂર",
+        "વિકાસ અગ્રવાલ"
+      ]
+    },
+    "company": {
+      "en": [
+        "the KBC lucky draw",
+        "the KBC head office",
+        "the Kaun Banega Crorepati prize department",
+        "the national lottery board",
+        "the Jio lucky draw team",
+        "the prize claim department"
+      ],
+      "hi": [
+        "केबीसी लकी ड्रॉ",
+        "केबीसी हेड ऑफिस",
+        "कौन बनेगा करोड़पति प्राइज विभाग",
+        "नेशनल लॉटरी बोर्ड",
+        "जियो लकी ड्रॉ टीम",
+        "प्राइज क्लेम विभाग"
+      ],
+      "gu": [
+        "કેબીસી લકી ડ્રો",
+        "કેબીસી હેડ ઓફિસ",
+        "કૌન બનેગા કરોડપતિ પ્રાઇઝ વિભાગ",
+        "નેશનલ લોટરી બોર્ડ",
+        "જિયો લકી ડ્રો ટીમ",
+        "પ્રાઇઝ ક્લેમ વિભાગ"
+      ]
+    },
+    "prize": {
+      "en": [
+        "twenty five lakh rupees",
+        "a brand new Tata Safari car",
+        "ten lakh rupees and a motorcycle",
+        "a fifteen lakh rupee prize",
+        "twenty lakh rupees and a gold coin",
+        "a car and five lakh rupees"
+      ],
+      "hi": [
+        "पच्चीस लाख रुपये",
+        "एक नई टाटा सफारी कार",
+        "दस लाख रुपये और एक मोटरसाइकिल",
+        "पंद्रह लाख रुपये का इनाम",
+        "बीस लाख रुपये और एक सोने का सिक्का",
+        "एक कार और पांच लाख रुपये"
+      ],
+      "gu": [
+        "પચીસ લાખ રૂપિયા",
+        "એક નવી ટાટા સફારી કાર",
+        "દસ લાખ રૂપિયા અને એક મોટરસાઇકલ",
+        "પંદર લાખ રૂપિયાનું ઇનામ",
+        "વીસ લાખ રૂપિયા અને એક સોનાનો સિક્કો",
+        "એક કાર અને પાંચ લાખ રૂપિયા"
+      ]
+    },
+    "fee": [
+      "4,500",
+      "8,500",
+      "9,999",
+      "15,000",
+      "6,750",
+      "12,500"
+    ],
+    "deadline": {
+      "en": [
+        "before 5 pm today",
+        "within one hour",
+        "before this call ends",
+        "by this evening",
+        "in the next thirty minutes",
+        "today itself"
+      ],
+      "hi": [
+        "आज शाम पांच बजे से पहले",
+        "एक घंटे के अंदर",
+        "यह कॉल खत्म होने से पहले",
+        "आज शाम तक",
+        "अगले तीस मिनट में",
+        "आज ही"
+      ],
+      "gu": [
+        "આજે સાંજે પાંચ વાગ્યા પહેલાં",
+        "એક કલાકની અંદર",
+        "આ કોલ પૂરો થાય એ પહેલાં",
+        "આજે સાંજ સુધીમાં",
+        "આવતી ત્રીસ મિનિટમાં",
+        "આજે જ"
+      ]
+    },
+    "reference": [
+      "KBC/2024/7781",
+      "KBC-9902",
+      "LUCKY/2024/3345",
+      "JIO-KBC-5521",
+      "WIN/2024/6610"
+    ]
+  },
+  "openings": {
+    "en": [
+      "Congratulations sir! Your mobile number has won {prize} in {company}. I am {caller_name} calling from the head office.",
+      "Bahut bahut badhai! This is {caller_name} from {company}. Your number came out in today's lucky draw for {prize}.",
+      "Hello sir, am I speaking to the winner? {caller_name} here from {company}. You have won {prize}, file number {reference}.",
+      "Sir, wonderful news. Your SIM has been selected in {company} for {prize}. I am {caller_name}, your prize manager.",
+      "Congratulations! {caller_name} from {company} speaking. Your winning file {reference} is open and the prize is {prize}.",
+      "Namaste ji. This is {caller_name}. Out of lakhs of numbers, yours won {prize} in {company}. Listen carefully.",
+      "Sir, today is your lucky day. {company} has picked your number for {prize}. My name is {caller_name}.",
+      "Hello, this is a prize call from {company}. I am {caller_name}. You have won {prize} and I will help you claim it."
+    ],
+    "hi": [
+      "बहुत बहुत बधाई साहब! आपका मोबाइल नंबर {company} में {prize} जीता है। मैं {caller_name} हेड ऑफिस से बोल रहा हूं।",
+      "बधाई हो! मैं {caller_name} {company} से। आज के लकी ड्रॉ में आपका नंबर {prize} के लिए निकला है।",
+      "हैलो साहब, क्या मैं विजेता से बात कर रहा हूं? {caller_name} बोल रहा हूं {company} से। आपने {prize} जीता है, फाइल नंबर {reference}।",
+      "साहब, बड़ी खुशखबरी। आपकी सिम {company} में {prize} के लिए चुनी गई है। मैं {caller_name}, आपका प्राइज मैनेजर।",
+      "बधाई हो! {caller_name} {company} से बोल रहा हूं। आपकी विनिंग फाइल {reference} खुली है और इनाम है {prize}।",
+      "नमस्ते जी। मैं {caller_name}। लाखों नंबरों में से आपका नंबर {company} में {prize} जीता है। ध्यान से सुनिए।",
+      "साहब, आज आपका लकी दिन है। {company} ने आपका नंबर {prize} के लिए चुना है। मेरा नाम {caller_name} है।",
+      "हैलो, यह {company} से इनाम वाला फोन है। मैं {caller_name}। आपने {prize} जीता है और मैं इसे दिलाने में मदद करूंगा।"
+    ],
+    "gu": [
+      "ખૂબ ખૂબ અભિનંદન સાહેબ! તમારો મોબાઈલ નંબર {company}માં {prize} જીત્યો છે. હું {caller_name} હેડ ઓફિસથી બોલું છું.",
+      "અભિનંદન! હું {caller_name} {company}થી. આજના લકી ડ્રોમાં તમારો નંબર {prize} માટે નીકળ્યો છે.",
+      "હેલો સાહેબ, શું હું વિજેતા સાથે વાત કરું છું? {caller_name} બોલું છું {company}થી. તમે {prize} જીત્યા છે, ફાઇલ નંબર {reference}.",
+      "સાહેબ, મોટા સમાચાર. તમારી સિમ {company}માં {prize} માટે પસંદ થઈ છે. હું {caller_name}, તમારો પ્રાઇઝ મેનેજર.",
+      "અભિનંદન! {caller_name} {company}થી બોલું છું. તમારી વિનિંગ ફાઇલ {reference} ખૂલી છે અને ઇનામ છે {prize}.",
+      "નમસ્તે જી. હું {caller_name}. લાખો નંબરોમાંથી તમારો નંબર {company}માં {prize} જીત્યો છે. ધ્યાનથી સાંભળો.",
+      "સાહેબ, આજે તમારો લકી દિવસ છે. {company}એ તમારો નંબર {prize} માટે પસંદ કર્યો છે. મારું નામ {caller_name}.",
+      "હેલો, આ {company}થી ઇનામનો ફોન છે. હું {caller_name}. તમે {prize} જીત્યા છે અને હું એ અપાવવામાં મદદ કરીશ."
+    ]
+  },
+  "lines": {
+    "prize_bait": {
+      "en": [
+        "You have won {prize}. The full amount comes straight to your bank account.",
+        "Your winning file {reference} is ready in my computer, sir. Just a small step is left.",
+        "Out of lakhs of customers, {company} picked your number for {prize}. You are very lucky.",
+        "The prize is {prize}, tax free. I will personally make sure it reaches you.",
+        "Sir, imagine {prize} in your account by tonight. Your family will be so happy.",
+        "This is a genuine draw by {company}. Winners like you get {prize} every month.",
+        "Your name is at the top of the winners list for {prize}. Do not lose this chance.",
+        "I am sending your winning certificate on WhatsApp. The prize is {prize}, confirmed.",
+        "Once we finish the formalities, {prize} is yours. Nothing can stop it now."
+      ],
+      "hi": [
+        "आपने {prize} जीता है। पूरी रकम सीधे आपके बैंक खाते में आएगी।",
+        "आपकी विनिंग फाइल {reference} मेरे कंप्यूटर में तैयार है साहब। बस एक छोटा सा काम बाकी है।",
+        "लाखों ग्राहकों में से {company} ने आपका नंबर {prize} के लिए चुना। आप बहुत किस्मत वाले हैं।",
+        "इनाम है {prize}, पूरी तरह टैक्स फ्री। मैं खुद इसे आप तक पहुंचाऊंगा।",
+        "साहब, सोचिए आज रात आपके खाते में {prize}। आपका परिवार कितना खुश होगा।",
+        "यह {company} का असली ड्रॉ है। आप जैसे विजेताओं को हर महीने {prize} मिलता है।",
+        "विजेताओं की लिस्ट में आपका नाम सबसे ऊपर है {prize} के लिए। यह मौका मत गंवाइए।",
+        "मैं आपका विनिंग सर्टिफिकेट व्हाट्सएप पर भेज रहा हूं। इनाम {prize}, पक्का।",
+        "बस फॉर्मैलिटी पूरी होते ही {prize} आपका है। अब इसे कोई नहीं रोक सकता।"
+      ],
+      "gu": [
+        "તમે {prize} જીત્યા છે. આખી રકમ સીધી તમારા બેંક ખાતામાં આવશે.",
+        "તમારી વિનિંગ ફાઇલ {reference} મારા કમ્પ્યુટરમાં તૈયાર છે સાહેબ. બસ એક નાનું કામ બાકી છે.",
+        "લાખો ગ્રાહકોમાંથી {company}એ તમારો નંબર {prize} માટે પસંદ કર્યો. તમે બહુ નસીબદાર છો.",
+        "ઇનામ છે {prize}, સંપૂર્ણ ટેક્સ ફ્રી. હું જાતે એ તમારા સુધી પહોંચાડીશ.",
+        "સાહેબ, વિચારો આજ રાત્રે તમારા ખાતામાં {prize}. તમારો પરિવાર કેટલો ખુશ થશે.",
+        "આ {company}નો સાચો ડ્રો છે. તમારા જેવા વિજેતાઓને દર મહિને {prize} મળે છે.",
+        "વિજેતાઓની લિસ્ટમાં તમારું નામ સૌથી ઉપર છે {prize} માટે. આ તક ગુમાવશો નહીં.",
+        "હું તમારું વિનિંગ સર્ટિફિકેટ વોટ્સએપ પર મોકલું છું. ઇનામ {prize}, પાક્કું.",
+        "બસ ફોર્માલિટી પૂરી થતાં જ {prize} તમારું છે. હવે એને કોઈ રોકી શકે નહીં."
+      ]
+    },
+    "urgency_threat": {
+      "en": [
+        "You must complete this {deadline} or the prize goes to the next name in the list.",
+        "Other winners are waiting, sir. If you delay past {deadline}, your file is cancelled.",
+        "The prize department closes {deadline}. After that I cannot help you.",
+        "Hurry sir, only {deadline} is left to claim {prize}.",
+        "If the fee of {fee} does not reach us {deadline}, the offer expires.",
+        "There is a queue of winners. Decide {deadline} or you lose everything.",
+        "This offer is only valid {deadline}. Do not think too long.",
+        "My manager is asking me to close the file. Confirm {deadline} please.",
+        "Every minute the next winner moves up. Act {deadline}."
+      ],
+      "hi": [
+        "यह काम {deadline} पूरा करना होगा, वरना इनाम लिस्ट के अगले नाम पर चला जाएगा।",
+        "और भी विजेता इंतजार कर रहे हैं साहब। {deadline} पूरा नहीं किया तो आपकी फाइल रद्द हो जाएगी।",
+        "प्राइज विभाग {deadline} बंद हो जाएगा। उसके बाद मैं मदद नहीं कर पाऊंगा।",
+        "जल्दी कीजिए साहब, {prize} लेने के लिए बस {deadline} बचा है।",
+        "अगर {fee} की फीस {deadline} नहीं पहुंची तो ऑफर खत्म हो जाएगा।",
+        "विजेताओं की लाइन लगी है। {deadline} फैसला कीजिए वरना सब खो देंगे।",
+        "यह ऑफर सिर्फ {deadline} के लिए है। ज्यादा मत सोचिए।",
+        "मेरे मैनेजर फाइल बंद करने को कह रहे हैं। {deadline} पुष्टि कर दीजिए।",
+        "हर मिनट अगला विजेता आगे बढ़ रहा है। {deadline} कदम उठाइए।"
+      ],
+      "gu": [
+        "આ કામ {deadline} પૂરું કરવું પડશે, નહીં તો ઇનામ લિસ્ટના પછીના નામ પર જતું રહેશે.",
+        "બીજા વિજેતાઓ પણ રાહ જુએ છે સાહેબ. {deadline} પૂરું નહીં કરો તો તમારી ફાઇલ રદ થઈ જશે.",
+        "પ્રાઇઝ વિભાગ {deadline} બંધ થઈ જશે. એ પછી હું મદદ કરી શકીશ નહીં.",
+        "જલદી કરો સાહેબ, {prize} લેવા માટે બસ {deadline} બાકી છે.",
+        "જો {fee}ની ફી {deadline} નહીં પહોંચે તો ઓફર પૂરી થઈ જશે.",
+        "વિજેતાઓની લાઇન લાગી છે. {deadline} નિર્ણય કરો નહીં તો બધું ગુમાવશો.",
+        "આ ઓફર માત્ર {deadline} માટે છે. વધારે વિચારશો નહીં.",
+        "મારા મેનેજર ફાઇલ બંધ કરવાનું કહે છે. {deadline} પુષ્ટિ કરી દો.",
+        "દર મિનિટે પછીનો વિજેતા આગળ વધે છે. {deadline} પગલું લો."
+      ]
+    },
+    "authority_impersonation": {
+      "en": [
+        "I am {caller_name}, the official prize manager at {company}. Trust me.",
+        "This call is from the {company} head office in Mumbai. It is fully genuine.",
+        "My name and ID are registered with {company}. I am an authorised officer.",
+        "Do not doubt me, sir. {company} has been running this draw for many years.",
+        "I am calling on the official line of {company}. Your file number is {reference}.",
+        "The RBI and the income tax department both approve this prize, sir.",
+        "I am a senior manager, not a random caller. {company} appointed me for your case.",
+        "You can see {company} on television. That is the office I am calling from.",
+        "Everything is legal and government registered. I am {caller_name}, your case officer."
+      ],
+      "hi": [
+        "मैं {caller_name}, {company} का आधिकारिक प्राइज मैनेजर। मुझ पर भरोसा कीजिए।",
+        "यह फोन {company} के मुंबई हेड ऑफिस से है। पूरी तरह असली है।",
+        "मेरा नाम और आईडी {company} में दर्ज है। मैं अधिकृत अफसर हूं।",
+        "मुझ पर शक मत कीजिए साहब। {company} यह ड्रॉ कई सालों से चला रहा है।",
+        "मैं {company} की आधिकारिक लाइन से फोन कर रहा हूं। आपकी फाइल नंबर {reference} है।",
+        "इस इनाम को आरबीआई और इनकम टैक्स विभाग दोनों की मंजूरी है साहब।",
+        "मैं सीनियर मैनेजर हूं, कोई ऐसा वैसा फोन करने वाला नहीं। {company} ने मुझे आपके केस पर लगाया है।",
+        "आप {company} को टीवी पर देख सकते हैं। मैं उसी ऑफिस से बोल रहा हूं।",
+        "सब कुछ कानूनी और सरकारी रजिस्टर्ड है। मैं {caller_name}, आपका केस अफसर।"
+      ],
+      "gu": [
+        "હું {caller_name}, {company}નો સત્તાવાર પ્રાઇઝ મેનેજર. મારા પર ભરોસો રાખો.",
+        "આ ફોન {company}ની મુંબઈ હેડ ઓફિસથી છે. સંપૂર્ણ સાચો છે.",
+        "મારું નામ અને આઈડી {company}માં નોંધાયેલ છે. હું અધિકૃત અધિકારી છું.",
+        "મારા પર શંકા ન કરો સાહેબ. {company} આ ડ્રો ઘણા વર્ષોથી ચલાવે છે.",
+        "હું {company}ની સત્તાવાર લાઇનથી ફોન કરું છું. તમારી ફાઇલ નંબર {reference} છે.",
+        "આ ઇનામને આરબીઆઈ અને ઇન્કમ ટેક્સ વિભાગ બંનેની મંજૂરી છે સાહેબ.",
+        "હું સિનિયર મેનેજર છું, કોઈ એવો તેવો ફોન કરનાર નહીં. {company}એ મને તમારા કેસ પર મૂક્યો છે.",
+        "તમે {company}ને ટીવી પર જોઈ શકો છો. હું એ જ ઓફિસથી બોલું છું.",
+        "બધું કાયદેસર અને સરકારી રજિસ્ટર્ડ છે. હું {caller_name}, તમારો કેસ અધિકારી."
+      ]
+    },
+    "credential_request": {
+      "en": [
+        "First pay the GST of {fee} on the prize. It comes back with your winnings.",
+        "I am sending a UPI request now. Just enter your UPI PIN to receive {prize}.",
+        "Give me your card number and the OTP so I can credit {prize} to your account.",
+        "The processing fee is {fee}. Send it on this UPI ID and the prize is released.",
+        "Tell me the code you just got on your phone, so I can confirm your account.",
+        "To transfer {prize}, I need your bank account number and IFSC, sir.",
+        "Approve the request on your screen and put the PIN. That opens your prize.",
+        "Just the small fee of {fee} first, then share the OTP to unlock the transfer.",
+        "Read me the six digits on the back of your card to verify the winner."
+      ],
+      "hi": [
+        "पहले इनाम पर {fee} की जीएसटी भरिए। यह आपकी जीत के साथ वापस आ जाएगी।",
+        "मैं अभी यूपीआई रिक्वेस्ट भेज रहा हूं। {prize} पाने के लिए बस यूपीआई पिन डालिए।",
+        "मुझे अपना कार्ड नंबर और ओटीपी बताइए ताकि मैं {prize} आपके खाते में डाल सकूं।",
+        "प्रोसेसिंग फीस {fee} है। इस यूपीआई आईडी पर भेजिए और इनाम रिलीज हो जाएगा।",
+        "अभी जो कोड आपके फोन पर आया है वह बताइए, ताकि मैं आपका खाता कन्फर्म कर सकूं।",
+        "{prize} ट्रांसफर करने के लिए मुझे आपका बैंक खाता नंबर और आईएफएससी चाहिए साहब।",
+        "स्क्रीन पर आई रिक्वेस्ट को मंजूर करके पिन डालिए। इससे आपका इनाम खुलेगा।",
+        "पहले बस {fee} की छोटी फीस, फिर ओटीपी बताइए ताकि ट्रांसफर खुल जाए।",
+        "अपने कार्ड के पीछे छपे छह अंक बताइए, विजेता की पुष्टि के लिए।"
+      ],
+      "gu": [
+        "પહેલાં ઇનામ પર {fee}ની જીએસટી ભરો. એ તમારી જીત સાથે પાછી આવી જશે.",
+        "હું અત્યારે યુપીઆઈ રિક્વેસ્ટ મોકલું છું. {prize} મેળવવા બસ યુપીઆઈ પિન નાખો.",
+        "મને તમારો કાર્ડ નંબર અને ઓટીપી કહો જેથી હું {prize} તમારા ખાતામાં નાખી શકું.",
+        "પ્રોસેસિંગ ફી {fee} છે. આ યુપીઆઈ આઈડી પર મોકલો અને ઇનામ રિલીઝ થઈ જશે.",
+        "અત્યારે જે કોડ તમારા ફોન પર આવ્યો છે એ કહો, જેથી હું તમારું ખાતું કન્ફર્મ કરી શકું.",
+        "{prize} ટ્રાન્સફર કરવા મને તમારો બેંક ખાતા નંબર અને આઈએફએસસી જોઈએ સાહેબ.",
+        "સ્ક્રીન પર આવેલી રિક્વેસ્ટ મંજૂર કરીને પિન નાખો. એનાથી તમારું ઇનામ ખૂલશે.",
+        "પહેલાં બસ {fee}ની નાની ફી, પછી ઓટીપી કહો જેથી ટ્રાન્સફર ખૂલે.",
+        "તમારા કાર્ડની પાછળ છપાયેલા છ આંકડા કહો, વિજેતાની પુષ્ટિ માટે."
+      ]
+    }
+  },
+  "filler": {
+    "en": [
+      "Are you listening, sir?",
+      "This is a genuine call, believe me.",
+      "Do not be so suspicious.",
+      "Hello, are you there?",
+      "Just do this one small thing.",
+      "Trust me, sir, this is your lucky day."
+    ],
+    "hi": [
+      "सुन रहे हैं ना साहब?",
+      "यह असली कॉल है, यकीन कीजिए।",
+      "इतना शक मत कीजिए।",
+      "हैलो, लाइन पर हैं ना?",
+      "बस यह एक छोटा काम कर दीजिए।",
+      "भरोसा रखिए साहब, आज आपका लकी दिन है।"
+    ],
+    "gu": [
+      "સાંભળો છો ને સાહેબ?",
+      "આ સાચો કોલ છે, ભરોસો રાખો.",
+      "આટલી શંકા ન કરો.",
+      "હેલો, લાઇન પર છો ને?",
+      "બસ આ એક નાનું કામ કરી દો.",
+      "ભરોસો રાખો સાહેબ, આજે તમારો લકી દિવસ છે."
+    ]
+  },
+  "closings": {
+    "en": [
+      "You are wasting a golden chance. The prize goes to the next winner now.",
+      "Fine, I am cancelling your file. Do not call back later.",
+      "The lucky draw is closed for you. Goodbye.",
+      "You lost {prize} today because of your doubts."
+    ],
+    "hi": [
+      "आप सुनहरा मौका गंवा रहे हैं। इनाम अब अगले विजेता के पास जा रहा है।",
+      "ठीक है, मैं आपकी फाइल रद्द कर रहा हूं। बाद में फोन मत कीजिएगा।",
+      "आपके लिए लकी ड्रॉ बंद। नमस्ते।",
+      "आपने अपने शक की वजह से आज {prize} खो दिया।"
+    ],
+    "gu": [
+      "તમે સોનેરી તક ગુમાવો છો. ઇનામ હવે પછીના વિજેતા પાસે જાય છે.",
+      "ઠીક છે, હું તમારી ફાઇલ રદ કરું છું. પછી ફોન કરશો નહીં.",
+      "તમારા માટે લકી ડ્રો બંધ. નમસ્તે.",
+      "તમે તમારી શંકાને કારણે આજે {prize} ગુમાવ્યું."
+    ]
+  }
 }

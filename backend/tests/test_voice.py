@@ -115,12 +115,15 @@ def test_personas_expose_a_voice_prompt() -> None:
         assert persona.voice_prompt.strip(), persona.id
 
 
-def test_speakable_lines_cover_every_persona_language_and_gender() -> None:
-    from app.explain.providers import build_llm_provider  # noqa: F401  (import cycle guard)
+def test_speakable_lines_are_warmable_and_slot_free() -> None:
     from app.simulator.service import SimulatorService
 
     simulator = SimulatorService.build(get_settings(), None)
     lines = simulator.speakable_lines()
-    # Four personas, three languages, two voices.
-    assert len(lines) == 4 * 3 * 2
-    assert all(text.strip() for text, _, _ in lines)
+    assert lines
+    for text, lang, gender in lines:
+        assert text.strip()
+        # Slotted openings vary per session, so they are warmed per call, not here.
+        assert "{" not in text
+        assert lang in ("gu", "hi", "en")
+        assert gender in ("male", "female")

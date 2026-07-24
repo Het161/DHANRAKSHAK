@@ -248,9 +248,26 @@ def build_voice_provider(settings: Settings, client: httpx.AsyncClient) -> LLMPr
         update={
             "groq_model": settings.groq_voice_model,
             "llm_max_tokens": settings.voice_llm_max_tokens,
+            "llm_temperature": settings.persona_temperature,
         }
     )
     return GroqProvider(client, voice_settings)
+
+
+def build_roleplay_provider(settings: Settings, client: httpx.AsyncClient) -> LLMProvider | None:
+    """Text-chat simulator provider: the main model, but hot for variety.
+
+    The detection explainer keeps its own cold provider; this one only ever
+    voices the scammer, so a high temperature is exactly what we want.
+    """
+    if settings.llm_provider != "groq":
+        return build_llm_provider(settings, client)
+    if not settings.groq_api_key:
+        return None
+    roleplay_settings = settings.model_copy(
+        update={"llm_temperature": settings.persona_temperature}
+    )
+    return GroqProvider(client, roleplay_settings)
 
 
 def build_llm_provider(settings: Settings, client: httpx.AsyncClient) -> LLMProvider | None:

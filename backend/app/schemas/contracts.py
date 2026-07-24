@@ -163,6 +163,10 @@ class StartResponse(BaseModel):
     persona: PersonaId
     lang: Language
     turn: int = 0
+    # Debug only (populated for ?debug=1): the session seed and scenario plan,
+    # so a tester can see that two sessions really were planned differently.
+    seed: int | None = None
+    plan: dict[str, Any] | None = None
 
 
 class TTSRequest(BaseModel):
@@ -203,6 +207,8 @@ class TurnResponse(BaseModel):
     finished: bool = False
     score: int = 0
     turn: int = 0
+    # Which path produced this line, for the ?debug=1 overlay.
+    source: Literal["llm", "fallback"] = "fallback"
 
 
 class ProviderHealth(BaseModel):

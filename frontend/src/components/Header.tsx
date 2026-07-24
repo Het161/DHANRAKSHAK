@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
+import { useOnline } from "@/hooks/useOnline";
 import { LANGUAGE_ORDER } from "@/i18n/dictionary";
 import { usePreferences } from "@/i18n/I18nProvider";
 import type { Language } from "@/lib/types";
@@ -93,6 +94,22 @@ function HelpButton() {
   );
 }
 
+/** Quiet reassurance when the network drops: instant checks still work offline. */
+function OfflineDot() {
+  const { t } = usePreferences();
+  const online = useOnline();
+  if (online) return null;
+  return (
+    <span
+      role="status"
+      className="inline-flex items-center gap-1.5 rounded-full bg-suspicious-tint px-2.5 py-1 text-xs font-semibold text-suspicious"
+    >
+      <span aria-hidden className="h-2 w-2 rounded-full bg-suspicious" />
+      {t("status.offlineDot")}
+    </span>
+  );
+}
+
 /** One-time nudge toward the simulator, shown after the first real analysis. */
 function PracticeTip() {
   const { t, dismissPracticeTip } = usePreferences();
@@ -140,6 +157,7 @@ export function Header() {
           <span className="text-lg font-bold tracking-tight">{t("app.name")}</span>
         </Link>
         <div className="ml-auto flex items-center gap-2">
+          <OfflineDot />
           <HelpButton />
           <ElderToggle />
           <LanguageSwitcher />

@@ -7,7 +7,9 @@
  * strips all metadata (EXIF, location) - only the pixels leave the device.
  */
 
-const MAX_EDGE = 1600;
+// Kept at 1400 (not 1600): OCR on the free-tier 0.1 vCPU is pixel-bound, and a
+// tall screenshot at 1600px overran the budget. Text stays readable at 1400.
+const MAX_EDGE = 1400;
 const JPEG_QUALITY = 0.8;
 // A belt-and-braces cap; the user-facing 10MB gate is validateImage(), before run().
 const MAX_ORIGINAL_BYTES = 10 * 1024 * 1024;

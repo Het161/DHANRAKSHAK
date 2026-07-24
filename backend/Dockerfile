@@ -1,8 +1,12 @@
 FROM python:3.11-slim
 
+# OMP_THREAD_LIMIT=1: Tesseract's OpenMP otherwise spawns one thread per HOST
+# core, which on a fractional-vCPU instance (Render 0.1 vCPU) thrash each other
+# and make OCR 5-10x slower. Pinning it to one thread is the biggest OCR speedup.
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    OMP_THREAD_LIMIT=1
 
 # tesseract-ocr-hin and -guj are what make screenshot analysis work for the
 # languages this product exists for. libgomp1 is LightGBM's OpenMP runtime.

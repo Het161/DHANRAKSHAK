@@ -4,6 +4,7 @@ import asyncio
 import hashlib
 import io
 import logging
+import os
 import time
 from collections import OrderedDict
 from dataclasses import dataclass
@@ -13,8 +14,16 @@ from app.schemas.contracts import LanguageHint
 
 logger = logging.getLogger(__name__)
 
+# Belt-and-braces for non-Docker hosts: keep Tesseract's OpenMP single-threaded so
+# it does not spawn one thread per host core and thrash a fractional vCPU. The
+# Dockerfile sets this too; setdefault means a real override still wins.
+os.environ.setdefault("OMP_THREAD_LIMIT", "1")
+
 _FALLBACK_PACK = "eng"
-_MAX_EDGE_PX = 1600
+# Capped below 1600 as well: OCR time scales with pixel count, and on a 0.1 vCPU a
+# tall phone screenshot at 1600px still overran the budget. 1400 keeps text
+# readable while cutting ~25% of the pixels.
+_MAX_EDGE_PX = 1400
 # Tesseract LSTM engine, "assume a uniform block of text" - the right mode for a
 # screenshot of an SMS/chat, and far faster than the default layout analysis.
 _TESSERACT_CONFIG = "--oem 1 --psm 6"

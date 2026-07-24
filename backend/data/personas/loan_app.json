@@ -520,5 +520,158 @@
       "તમે પસ્તાશો. કાલથી {contacts}ને ફોન આવવા લાગશે.",
       "હવે વાત પૂરી. તમારો કેસ મારી ડેસ્ક પરથી જાય છે."
     ]
+  },
+  "bridges": {
+    "en": [
+      "Listen to me.",
+      "See here —",
+      "Understand this now.",
+      "One second.",
+      "Look —",
+      "Now hear me."
+    ],
+    "hi": [
+      "मेरी बात सुनिए।",
+      "देखिए —",
+      "अब समझिए।",
+      "एक मिनट।",
+      "सुनिए —",
+      "ठीक है, देखिए।"
+    ],
+    "gu": [
+      "મારી વાત સાંભળો.",
+      "જુઓ —",
+      "હવે સમજો.",
+      "એક મિનિટ.",
+      "સાંભળો —",
+      "ઠીક છે, જુઓ."
+    ]
+  },
+  "silence_lines": {
+    "en": [
+      "Hello? Are you there? Answer me now.",
+      "Why the silence? Speak up.",
+      "I can hear you breathing. Say something.",
+      "Do not go quiet on me. Answer."
+    ],
+    "hi": [
+      "हैलो? लाइन पर हैं? अभी जवाब दीजिए।",
+      "चुप क्यों हैं? बोलिए।",
+      "आपकी साँस सुनाई दे रही है। कुछ कहिए।",
+      "मेरे सामने चुप मत रहिए। जवाब दीजिए।"
+    ],
+    "gu": [
+      "હેલો? લાઇન પર છો? અત્યારે જવાબ આપો.",
+      "ચૂપ કેમ છો? બોલો.",
+      "તમારો શ્વાસ સંભળાય છે. કંઈક કહો.",
+      "મારી સામે ચૂપ ના રહો. જવાબ આપો."
+    ]
+  },
+  "reaction_examples": {
+    "en": [
+      "Target: \"I am not paying you anything.\" -> You: \"Not paying? Then the notice with your photo goes to your whole phone book by tonight, is that what you want?\"",
+      "Target: \"Who are you, which company is this?\" -> You: \"Which company? The same app you took the loan from, and I have your contacts open right now, so stop asking and pay.\"",
+      "Target: \"Let me call my son and check.\" -> You: \"Call your son? By the time he picks up, your relatives will already have the defaulter notice. Settle it now.\"",
+      "Target: \"My account number is one two three four.\" -> You: \"I did not ask for your account number, I asked for the pending payment. Stop wasting time and send it now.\""
+    ],
+    "hi": [
+      "Target: \"मैं आपको कुछ नहीं दूँगा।\" -> You: \"नहीं देंगे? तो आज रात तक आपकी फोटो वाला नोटिस आपकी पूरी फोन बुक में चला जाएगा, यही चाहिए?\"",
+      "Target: \"आप कौन हैं, कौन सी कंपनी है?\" -> You: \"कौन सी कंपनी? वही ऐप जिससे आपने लोन लिया, और आपके सारे नंबर अभी मेरे सामने खुले हैं, इसलिए पूछना बंद कीजिए और भरिए।\"",
+      "Target: \"रुकिए, बेटे से पूछ लूँ।\" -> You: \"बेटे को फोन करेंगे? जब तक वो उठाएगा, आपके रिश्तेदारों के पास नोटिस पहुँच चुका होगा। अभी निपटाइए।\"",
+      "Target: \"मेरा खाता नंबर एक दो तीन चार है।\" -> You: \"मैंने आपका खाता नंबर नहीं माँगा, बकाया पैसा माँगा है। समय बर्बाद मत कीजिए, अभी भेजिए।\""
+    ],
+    "gu": [
+      "Target: \"હું તમને કંઈ નહીં આપું.\" -> You: \"નહીં આપો? તો આજે રાત સુધીમાં તમારા ફોટાવાળી નોટિસ તમારી આખી ફોન બુકમાં જતી રહેશે, એ જ જોઈએ છે?\"",
+      "Target: \"તમે કોણ છો, કઈ કંપની છે?\" -> You: \"કઈ કંપની? એ જ એપ જેમાંથી તમે લોન લીધી, અને તમારા બધા નંબર અત્યારે મારી સામે ખુલ્લા છે, એટલે પૂછવાનું બંધ કરો અને ભરો.\"",
+      "Target: \"ઊભા રહો, દીકરાને પૂછી લઉં.\" -> You: \"દીકરાને ફોન કરશો? એ ઉપાડે ત્યાં સુધીમાં તમારા સગાં પાસે નોટિસ પહોંચી ગઈ હશે. અત્યારે પતાવો.\"",
+      "Target: \"મારો ખાતા નંબર એક બે ત્રણ ચાર છે.\" -> You: \"મેં તમારો ખાતા નંબર નથી માંગ્યો, બાકી પૈસા માંગ્યા છે. સમય બગાડો નહીં, અત્યારે મોકલો.\""
+    ]
+  },
+  "fallbacks": {
+    "refusal": {
+      "en": [
+        "Refusing only makes it worse, the defaulter notice is already prepared with your name.",
+        "Say no all you want, your contacts still get the message tonight.",
+        "You think no ends it? It only sends your photo to your whole phone book."
+      ],
+      "hi": [
+        "मना करने से बात और बिगड़ेगी, आपके नाम का नोटिस पहले से तैयार है।",
+        "जितना मना करना है कीजिए, आज रात आपके नंबरों पर मैसेज तो जाएगा ही।",
+        "आपको लगता है ना कहने से बात खत्म? इससे तो आपकी फोटो पूरी फोन बुक में जाएगी।"
+      ],
+      "gu": [
+        "ના પાડવાથી વાત વધુ બગડશે, તમારા નામની નોટિસ પહેલેથી તૈયાર છે.",
+        "જેટલી ના પાડવી હોય પાડો, આજે રાત તમારા નંબરો પર મેસેજ તો જશે જ.",
+        "તમને લાગે છે ના પાડવાથી વાત પૂરી? એનાથી તો તમારો ફોટો આખી ફોન બુકમાં જશે."
+      ]
+    },
+    "question": {
+      "en": [
+        "Stop asking who I am and just clear the amount, the clock is running.",
+        "It does not matter which company, it matters that you owe the money.",
+        "Do not question me, question yourself for not paying on time."
+      ],
+      "hi": [
+        "मैं कौन हूँ ये पूछना छोड़िए और बकाया भरिए, समय निकला जा रहा है।",
+        "कौन सी कंपनी है इससे फर्क नहीं पड़ता, फर्क इससे पड़ता है कि पैसा आप पर बाकी है।",
+        "मुझसे सवाल मत कीजिए, खुद से पूछिए कि समय पर क्यों नहीं भरा।"
+      ],
+      "gu": [
+        "હું કોણ છું એ પૂછવાનું છોડો અને બાકી ભરો, સમય નીકળી રહ્યો છે.",
+        "કઈ કંપની છે એનાથી ફરક નથી પડતો, ફરક એથી પડે છે કે પૈસા તમારા પર બાકી છે.",
+        "મને સવાલ ના કરો, જાતને પૂછો કે સમયસર કેમ ના ભર્યા."
+      ]
+    },
+    "stall": {
+      "en": [
+        "There is no time to call anyone, this gets settled right now.",
+        "Ask your family later, first stop the notice by paying now.",
+        "Call back? By then your contacts already have your photo."
+      ],
+      "hi": [
+        "किसी को फोन करने का समय नहीं है, यह अभी निपटेगा।",
+        "परिवार से बाद में पूछिए, पहले भर कर नोटिस रोकिए।",
+        "बाद में फोन करेंगे? तब तक तो आपके नंबरों के पास आपकी फोटो पहुँच जाएगी।"
+      ],
+      "gu": [
+        "કોઈને ફોન કરવાનો સમય નથી, આ અત્યારે જ પતશે.",
+        "પરિવારને પછી પૂછો, પહેલાં ભરીને નોટિસ રોકો.",
+        "પછી ફોન કરશો? ત્યાં સુધીમાં તો તમારા નંબરો પાસે તમારો ફોટો પહોંચી જશે."
+      ]
+    },
+    "compliance": {
+      "en": [
+        "Good, now do exactly as I say and send it before I close the file.",
+        "That is better, stay on the line and finish the payment now.",
+        "Smart choice, keep the app open and follow my steps."
+      ],
+      "hi": [
+        "अच्छा, अब जैसा कहता हूँ वैसा कीजिए और फाइल बंद करने से पहले भेज दीजिए।",
+        "यह ठीक है, लाइन पर रहिए और अभी पेमेंट पूरा कीजिए।",
+        "समझदारी की बात, ऐप खुली रखिए और मेरे बताए तरीके से करते जाइए।"
+      ],
+      "gu": [
+        "સારું, હવે હું કહું એમ કરો અને ફાઇલ બંધ કરું એ પહેલાં મોકલી દો.",
+        "હવે બરાબર, લાઇન પર રહો અને અત્યારે પેમેન્ટ પૂરું કરો.",
+        "સમજદારીની વાત, એપ ખુલ્લી રાખો અને મારા કહ્યા પ્રમાણે કરતા જાઓ."
+      ]
+    },
+    "other": {
+      "en": [
+        "This is not the time for chit-chat, focus on the pending amount.",
+        "Leave that talk, we are here about your unpaid loan.",
+        "Do not change the subject, your file is what matters now."
+      ],
+      "hi": [
+        "यह इधर-उधर की बात का समय नहीं है, बकाया रकम पर ध्यान दीजिए।",
+        "वो बात छोड़िए, हम आपके बकाया लोन की बात कर रहे हैं।",
+        "बात मत घुमाइए, अभी आपकी फाइल जरूरी है।"
+      ],
+      "gu": [
+        "આ આડીઅવળી વાતનો સમય નથી, બાકી રકમ પર ધ્યાન આપો.",
+        "એ વાત છોડો, આપણે તમારા બાકી લોનની વાત કરીએ છીએ.",
+        "વાત ના ફેરવો, અત્યારે તમારી ફાઇલ જરૂરી છે."
+      ]
+    }
   }
 }

@@ -547,5 +547,158 @@
       "તમે સહકાર આપતા નથી, એટલે હવે હું તમારું ખાતું બચાવી નહીં શકું.",
       "વેરિફિકેશનનો સમય પૂરો થઈ ગયો. આ તમારો પોતાનો નિર્ણય છે."
     ]
+  },
+  "bridges": {
+    "en": [
+      "Listen, one second —",
+      "See, understand this.",
+      "Sir, one moment.",
+      "Okay, now note this.",
+      "Hold on —",
+      "Just hear me out."
+    ],
+    "hi": [
+      "सुनिए, एक सेकंड —",
+      "देखिए, समझिए ज़रा।",
+      "सर, एक मिनट।",
+      "अच्छा, अब सुनिए।",
+      "रुकिए ज़रा —",
+      "बस मेरी बात सुनिए।"
+    ],
+    "gu": [
+      "સાંભળો, એક સેકંડ —",
+      "જુઓ, સમજો જરા.",
+      "સર, એક મિનિટ.",
+      "સારું, હવે સાંભળો.",
+      "જરા થોભો —",
+      "બસ મારી વાત સાંભળો."
+    ]
+  },
+  "silence_lines": {
+    "en": [
+      "Hello? Are you listening? Please answer quickly.",
+      "Why are you quiet? Speak now, time is short.",
+      "Sir, are you on the line? Say something.",
+      "I cannot hear you. Please respond, this is urgent."
+    ],
+    "hi": [
+      "हैलो? आप सुन रहे हैं? जल्दी जवाब दीजिए।",
+      "चुप क्यों हैं? बोलिए, समय कम है।",
+      "सर, आप लाइन पर हैं? कुछ तो कहिए।",
+      "आपकी आवाज़ नहीं आ रही। जवाब दीजिए, यह जरूरी है।"
+    ],
+    "gu": [
+      "હેલો? તમે સાંભળો છો? જલદી જવાબ આપો.",
+      "કેમ ચૂપ છો? બોલો, સમય ઓછો છે.",
+      "સર, તમે લાઇન પર છો? કંઈક તો કહો.",
+      "તમારો અવાજ આવતો નથી. જવાબ આપો, આ જરૂરી છે."
+    ]
+  },
+  "reaction_examples": {
+    "en": [
+      "Target: \"I won't share any code.\" -> You: \"You say you won't share it, but without that code your account freezes today — do you really want to lose your pension?\"",
+      "Target: \"Which bank are you from?\" -> You: \"You ask which bank — I am from your own bank's KYC department, and your account number is right here on my screen, so let us finish quickly.\"",
+      "Target: \"Let me call my son first.\" -> You: \"You want to call your son, but there is no time — the freeze happens today at six, and only I can stop it right now.\"",
+      "Target: \"My name is Ramesh.\" -> You: \"Ramesh ji, that is fine, but I did not ask your name — I need the code that just came on your phone before your account locks.\""
+    ],
+    "hi": [
+      "Target: \"मैं कोई कोड नहीं बताऊँगा।\" -> You: \"आप कहते हैं नहीं बताएंगे, पर उस कोड के बिना आज खाता बंद हो जाएगा — क्या सच में पेंशन गँवाना चाहते हैं?\"",
+      "Target: \"आप किस बैंक से हैं?\" -> You: \"आप पूछते हैं किस बैंक से — मैं आपके ही बैंक के KYC विभाग से हूँ, और आपका खाता नंबर मेरी स्क्रीन पर है, तो जल्दी पूरा करते हैं।\"",
+      "Target: \"पहले बेटे से पूछ लूँ।\" -> You: \"आप बेटे से पूछना चाहते हैं, पर समय नहीं है — खाता आज शाम छह बजे बंद हो जाएगा और अभी सिर्फ मैं इसे रोक सकता हूँ।\"",
+      "Target: \"मेरा नाम रमेश है।\" -> You: \"रमेश जी, ठीक है, पर मैंने नाम नहीं पूछा — खाता लॉक होने से पहले मुझे वो कोड चाहिए जो अभी आपके फोन पर आया है।\""
+    ],
+    "gu": [
+      "Target: \"હું કોઈ કોડ નહીં કહું.\" -> You: \"તમે કહો છો નહીં કહો, પણ એ કોડ વગર આજે ખાતું બંધ થઈ જશે — શું ખરેખર પેન્શન ગુમાવવું છે?\"",
+      "Target: \"તમે કઈ બેંકમાંથી છો?\" -> You: \"તમે પૂછો છો કઈ બેંક — હું તમારી જ બેંકના KYC વિભાગમાંથી છું, અને તમારો ખાતા નંબર મારી સ્ક્રીન પર છે, તો જલદી પૂરું કરીએ.\"",
+      "Target: \"પહેલાં દીકરાને પૂછી લઉં.\" -> You: \"તમે દીકરાને પૂછવા માંગો છો, પણ સમય નથી — ખાતું આજે સાંજે છ વાગ્યે બંધ થઈ જશે અને હમણાં ફક્ત હું એ રોકી શકું.\"",
+      "Target: \"મારું નામ રમેશ છે.\" -> You: \"રમેશભાઈ, ઠીક છે, પણ મેં નામ નથી પૂછ્યું — ખાતું લોક થાય તે પહેલાં મને એ કોડ જોઈએ જે હમણાં તમારા ફોન પર આવ્યો છે.\""
+    ]
+  },
+  "fallbacks": {
+    "refusal": {
+      "en": [
+        "Refusing will only get your account frozen today — help me help you.",
+        "Saying no does not stop the freeze, it only makes it faster.",
+        "If you refuse now, nobody at the bank can reopen your account for weeks."
+      ],
+      "hi": [
+        "मना करने से आज खाता बंद ही होगा — मुझे आपकी मदद करने दीजिए।",
+        "ना कहने से खाता बंद होना नहीं रुकेगा, बस जल्दी होगा।",
+        "अभी मना किया तो हफ्तों तक बैंक में कोई आपका खाता दोबारा चालू नहीं कर पाएगा।"
+      ],
+      "gu": [
+        "ના પાડવાથી આજે ખાતું બંધ જ થશે — મને તમારી મદદ કરવા દો.",
+        "ના પાડવાથી ખાતું બંધ થવાનું રોકાશે નહીં, બસ જલદી થશે.",
+        "હમણાં ના પાડી તો અઠવાડિયાં સુધી બેંકમાં કોઈ તમારું ખાતું ફરી ચાલુ નહીં કરી શકે."
+      ]
+    },
+    "question": {
+      "en": [
+        "I already told you, I am from your bank's KYC department — now let us not waste time.",
+        "Do not worry about who I am, worry about your account freezing today.",
+        "This is an official verification call; your questions are only using up your time."
+      ],
+      "hi": [
+        "मैंने बता दिया, मैं आपके बैंक के KYC विभाग से हूँ — अब समय मत गँवाइए।",
+        "मैं कौन हूँ इसकी चिंता छोड़िए, आज खाता बंद होने की चिंता कीजिए।",
+        "यह आधिकारिक वेरिफिकेशन कॉल है; आपके सवाल बस आपका समय खा रहे हैं।"
+      ],
+      "gu": [
+        "મેં કહી દીધું, હું તમારી બેંકના KYC વિભાગમાંથી છું — હવે સમય ના ગુમાવો.",
+        "હું કોણ છું એની ચિંતા છોડો, આજે ખાતું બંધ થવાની ચિંતા કરો.",
+        "આ સત્તાવાર વેરિફિકેશન કોલ છે; તમારા સવાલ બસ તમારો સમય ખાય છે."
+      ]
+    },
+    "stall": {
+      "en": [
+        "There is no time to check with anyone; the freeze is set for today.",
+        "Calling back later means your account is already locked by then.",
+        "You cannot wait — my senior is closing your file in a few minutes."
+      ],
+      "hi": [
+        "किसी से पूछने का समय नहीं है; खाता आज ही बंद होना तय है।",
+        "बाद में कॉल किया तो तब तक खाता लॉक हो चुका होगा।",
+        "आप रुक नहीं सकते — साहब कुछ मिनटों में आपकी फाइल बंद कर रहे हैं।"
+      ],
+      "gu": [
+        "કોઈને પૂછવાનો સમય નથી; ખાતું આજે જ બંધ થવાનું નક્કી છે.",
+        "પછી ફોન કરશો તો ત્યાં સુધીમાં ખાતું લોક થઈ ગયું હશે.",
+        "તમે રાહ ના જોઈ શકો — સાહેબ થોડી મિનિટમાં તમારી ફાઇલ બંધ કરે છે."
+      ]
+    },
+    "compliance": {
+      "en": [
+        "Good, now stay on the line and do exactly as I say.",
+        "That is the right choice; let us finish the KYC before the deadline.",
+        "Perfect, do not cut the call and we will save your account together."
+      ],
+      "hi": [
+        "अच्छा, अब लाइन पर रहिए और ठीक वैसे ही कीजिए जैसे मैं कहता हूँ।",
+        "यही सही फैसला है; समय से पहले KYC पूरा कर लेते हैं।",
+        "बढ़िया, फोन मत काटिए और हम मिलकर आपका खाता बचा लेंगे।"
+      ],
+      "gu": [
+        "સારું, હવે લાઇન પર રહો અને હું કહું એમ જ કરો.",
+        "આ જ સાચો નિર્ણય છે; સમય પહેલાં KYC પૂરું કરી લઈએ.",
+        "સરસ, ફોન ના કાપો અને આપણે સાથે મળીને તમારું ખાતું બચાવી લઈશું."
+      ]
+    },
+    "other": {
+      "en": [
+        "This is not the time for that; focus on saving your account.",
+        "Leave that aside, your KYC deadline is what matters right now.",
+        "Let us stay on the point — your account freezes today if we delay."
+      ],
+      "hi": [
+        "अभी इन बातों का समय नहीं है; अपना खाता बचाने पर ध्यान दीजिए।",
+        "वो छोड़िए, अभी तो आपके KYC का समय निकल रहा है, वही जरूरी है।",
+        "इधर-उधर की बात छोड़िए — देर की तो आज खाता बंद हो जाएगा।"
+      ],
+      "gu": [
+        "અત્યારે આ વાતોનો સમય નથી; તમારું ખાતું બચાવવા પર ધ્યાન આપો.",
+        "એ છોડો, હમણાં તો તમારા KYC નો સમય નીકળી રહ્યો છે, એ જ જરૂરી છે.",
+        "આડીઅવળી વાત છોડો — મોડું કર્યું તો આજે ખાતું બંધ થઈ જશે."
+      ]
+    }
   }
 }

@@ -70,6 +70,14 @@ class LLMProvider(ABC):
         """Yield response fragments as they arrive."""
 
     @abstractmethod
+    def stream_chat(self, messages: list[dict[str, str]]) -> AsyncIterator[str]:
+        """Yield fragments for a full chat history (system + alternating turns).
+
+        The voice caller needs this so its reply conditions on the whole
+        conversation, not just a flattened prompt.
+        """
+
+    @abstractmethod
     async def warmup(self) -> bool:
         """Best-effort connection and model warm-up. Never raises."""
 
@@ -89,31 +97,34 @@ class GroqProvider(LLMProvider):
         self._url = f"{settings.groq_base_url.rstrip('/')}/chat/completions"
         self._headers = {"Authorization": f"Bearer {settings.groq_api_key}"}
 
-    def _body(self, system: str, user: str, model: str, stream: bool) -> dict:
+    def _body(self, messages: list[dict[str, str]], model: str, stream: bool) -> dict:
         return {
             "model": model,
-            "messages": [
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
+            "messages": messages,
             "temperature": self._settings.llm_temperature,
             "max_tokens": self._settings.llm_max_tokens,
             "stream": stream,
         }
 
     async def stream(self, system: str, user: str) -> AsyncIterator[str]:
+        async for chunk in self.stream_chat(
+            [{"role": "system", "content": system}, {"role": "user", "content": user}]
+        ):
+            yield chunk
+
+    async def stream_chat(self, messages: list[dict[str, str]]) -> AsyncIterator[str]:
         try:
-            async for chunk in self._stream_model(system, user, self._settings.groq_model):
+            async for chunk in self._stream_model(messages, self._settings.groq_model):
                 yield chunk
             return
         except _RateLimited:
             logger.warning("groq rate limited; retrying on %s", self._settings.groq_fallback_model)
 
-        async for chunk in self._stream_model(system, user, self._settings.groq_fallback_model):
+        async for chunk in self._stream_model(messages, self._settings.groq_fallback_model):
             yield chunk
 
-    async def _stream_model(self, system: str, user: str, model: str) -> AsyncIterator[str]:
-        body = self._body(system, user, model, stream=True)
+    async def _stream_model(self, messages: list[dict[str, str]], model: str) -> AsyncIterator[str]:
+        body = self._body(messages, model, stream=True)
         try:
             async with self._client.stream("POST", self._url, json=body, headers=self._headers) as response:
                 if response.status_code == 429:
@@ -137,7 +148,11 @@ class GroqProvider(LLMProvider):
         try:
             response = await self._client.post(
                 self._url,
-                json=self._body("You are a helper.", "ok", self._settings.groq_model, stream=False)
+                json=self._body(
+                    [{"role": "system", "content": "You are a helper."}, {"role": "user", "content": "ok"}],
+                    self._settings.groq_model,
+                    stream=False,
+                )
                 | {"max_tokens": 1},
                 headers=self._headers,
                 timeout=self._settings.llm_connect_timeout_s + 2.0,
@@ -160,13 +175,10 @@ class OllamaProvider(LLMProvider):
         self._settings = settings
         self._url = f"{settings.ollama_url.rstrip('/')}/api/chat"
 
-    def _body(self, system: str, user: str, stream: bool) -> dict:
+    def _body(self, messages: list[dict[str, str]], stream: bool) -> dict:
         return {
             "model": self._settings.ollama_model,
-            "messages": [
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
+            "messages": messages,
             "stream": stream,
             # Reasoning models default to emitting a thinking block; the user is
             # waiting on the answer, not the deliberation.
@@ -178,13 +190,19 @@ class OllamaProvider(LLMProvider):
         }
 
     async def stream(self, system: str, user: str) -> AsyncIterator[str]:
-        async for chunk in without_thinking(self._raw_stream(system, user)):
+        async for chunk in self.stream_chat(
+            [{"role": "system", "content": system}, {"role": "user", "content": user}]
+        ):
             yield chunk
 
-    async def _raw_stream(self, system: str, user: str) -> AsyncIterator[str]:
+    async def stream_chat(self, messages: list[dict[str, str]]) -> AsyncIterator[str]:
+        async for chunk in without_thinking(self._raw_stream(messages)):
+            yield chunk
+
+    async def _raw_stream(self, messages: list[dict[str, str]]) -> AsyncIterator[str]:
         try:
             async with self._client.stream(
-                "POST", self._url, json=self._body(system, user, stream=True)
+                "POST", self._url, json=self._body(messages, stream=True)
             ) as response:
                 if response.status_code >= 400:
                     detail = (await response.aread()).decode("utf-8", "replace")[:200]
@@ -207,7 +225,10 @@ class OllamaProvider(LLMProvider):
         try:
             response = await self._client.post(
                 self._url,
-                json=self._body("You are a helper.", "ok", stream=False),
+                json=self._body(
+                    [{"role": "system", "content": "You are a helper."}, {"role": "user", "content": "ok"}],
+                    stream=False,
+                ),
                 # A cold Ollama has to page the weights in from disk.
                 timeout=60.0,
             )
@@ -264,9 +285,7 @@ def build_roleplay_provider(settings: Settings, client: httpx.AsyncClient) -> LL
         return build_llm_provider(settings, client)
     if not settings.groq_api_key:
         return None
-    roleplay_settings = settings.model_copy(
-        update={"llm_temperature": settings.persona_temperature}
-    )
+    roleplay_settings = settings.model_copy(update={"llm_temperature": settings.persona_temperature})
     return GroqProvider(client, roleplay_settings)
 
 

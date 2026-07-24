@@ -73,6 +73,9 @@ class Settings(BaseSettings):
     persona_temperature: float = 0.9
     # Two short bursts is how a caller actually talks, and it bounds the turn.
     voice_max_sentences: int = 2
+    # How many prior turns of the call to send the LLM as history, so its reply
+    # conditions on the whole conversation. Trimmed to the last N messages.
+    voice_history_messages: int = 12
 
     tts_enabled: bool = True
     tts_timeout_s: float = 5.0

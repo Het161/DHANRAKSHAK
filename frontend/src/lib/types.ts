@@ -138,11 +138,24 @@ export interface SentencePayload {
   source: "script" | "llm";
 }
 
+/** Per-turn voice debug, populated for the ?debug=1 overlay. */
+export interface VoiceTurnDebug {
+  transcript: string;
+  class: string;
+  bridge: string;
+  path: "llm" | "fallback" | "silence";
+  /** Size of the chat array sent to the LLM (system + history + framing). */
+  messages_len: number;
+  history_len: number;
+  reply: string;
+}
+
 export interface VoiceDonePayload {
   full_text: string;
   finished: boolean;
   score: number;
   turn: number;
+  debug?: VoiceTurnDebug | null;
 }
 
 export type VoiceEvent =

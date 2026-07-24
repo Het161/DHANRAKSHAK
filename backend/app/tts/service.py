@@ -105,8 +105,7 @@ class SpeechService:
         pending = [
             (text, lang, gender, voice)
             for text, lang, gender in items
-            if (voice := self.voice_for(lang, gender)) is not None
-            and self.cache.get(text, voice) is None
+            if (voice := self.voice_for(lang, gender)) is not None and self.cache.get(text, voice) is None
         ]
         if not pending:
             return 0

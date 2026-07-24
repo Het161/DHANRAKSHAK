@@ -9,7 +9,7 @@ import {
   type SpeechRecognitionEventLike,
   type SpeechRecognitionLike,
 } from "@/lib/speech";
-import type { Coach, Gender, Language, PersonaId, ScenarioPlanDebug } from "@/lib/types";
+import type { Coach, Gender, Language, PersonaId, ScenarioPlanDebug, VoiceTurnDebug } from "@/lib/types";
 
 /**
  * A phone call is half duplex: exactly one side holds the microphone at a time.
@@ -32,6 +32,11 @@ export type CallPhase =
 const GUARD_MS = 350;
 const CALLER_HISTORY = 4;
 const MAX_TIMINGS = 8;
+// If the mic hears nothing for this long on the user's turn, the caller prods
+// them (a silence turn) rather than waiting forever.
+const SILENCE_MS = 8_000;
+// A final result shorter than this is noise, not an answer; treat it as silence.
+const MIN_TRANSCRIPT_CHARS = 2;
 
 export interface Caption {
   seq: number;
@@ -67,6 +72,7 @@ export interface VoiceCallState {
   audio: AudioQueueSnapshot;
   timings: SentenceTiming[];
   plan: ScenarioPlanDebug | null;
+  turnDebug: VoiceTurnDebug | null;
 }
 
 export interface CallOptions {
@@ -103,6 +109,7 @@ export const INITIAL_STATE: VoiceCallState = {
   audio: IDLE_AUDIO,
   timings: [],
   plan: null,
+  turnDebug: null,
 };
 
 type Emit = (updater: (prev: VoiceCallState) => VoiceCallState) => void;
@@ -140,6 +147,7 @@ export class CallController {
   private finished = false;
 
   private guardTimer: ReturnType<typeof setTimeout> | null = null;
+  private silenceTimer: ReturnType<typeof setTimeout> | null = null;
   private secondsTimer: ReturnType<typeof setInterval> | null = null;
   private callerHistory: string[] = [];
   private readonly timings = new Map<string, Timing>();
@@ -222,6 +230,7 @@ export class CallController {
   teardown = (): void => {
     this.active = false;
     this.clearGuard();
+    this.clearSilence();
     if (this.secondsTimer !== null) {
       clearInterval(this.secondsTimer);
       this.secondsTimer = null;
@@ -283,7 +292,10 @@ export class CallController {
     this.emit((prev) => ({
       ...prev,
       userSpeaking: false,
-      captions: [...prev.captions, { seq: -1, text: transcript, source: "user" }],
+      // A silence turn (empty transcript) leaves no user caption.
+      captions: transcript
+        ? [...prev.captions, { seq: -1, text: transcript, source: "user" }]
+        : prev.captions,
     }));
 
     const turnId = (this.turnCounter += 1);
@@ -323,6 +335,7 @@ export class CallController {
               score: event.payload.score,
               turn: event.payload.turn,
               finished: event.payload.finished,
+              turnDebug: event.payload.debug ?? prev.turnDebug,
             }));
             // Audio may already be drained (all sentences played before done
             // arrived); resolve completion here too.
@@ -427,12 +440,14 @@ export class CallController {
     this.listening = true;
 
     recognition.onspeechstart = () => {
+      this.clearSilence(); // they are talking; the silence prod is no longer due
       if (!this.muted) this.emit((prev) => ({ ...prev, userSpeaking: true }));
     };
     recognition.onspeechend = () => this.emit((prev) => ({ ...prev, userSpeaking: false }));
 
     recognition.onresult = (event: SpeechRecognitionEventLike) => {
       if (this.muted) return;
+      this.clearSilence(); // any recognition activity cancels the silence prod
       for (let i = event.resultIndex; i < event.results.length; i += 1) {
         const result = event.results[i];
         if (!result?.isFinal) continue;
@@ -443,7 +458,9 @@ export class CallController {
           this.emit((prev) => ({ ...prev, discardedEcho: `${transcript} (${echo.toFixed(2)})` }));
           continue;
         }
-        this.runTurn(transcript);
+        // Too short to be a real answer: react to it as silence, never advance
+        // the script as if they had answered.
+        this.runTurn(transcript.length < MIN_TRANSCRIPT_CHARS ? "" : transcript);
         return;
       }
     };
@@ -468,6 +485,7 @@ export class CallController {
 
     try {
       recognition.start();
+      this.armSilence();
       this.emit((prev) => ({ ...prev, recognitionOn: true, discardedEcho: null }));
     } catch {
       this.emit((prev) => ({ ...prev, pushToTalk: true }));
@@ -476,6 +494,7 @@ export class CallController {
 
   private stopListening(): void {
     this.listening = false;
+    this.clearSilence();
     const recognition = this.recognition;
     if (recognition) {
       // Null every handler before aborting: a stray result must not land.
@@ -505,6 +524,23 @@ export class CallController {
       clearTimeout(this.guardTimer);
       this.guardTimer = null;
     }
+  }
+
+  private clearSilence(): void {
+    if (this.silenceTimer !== null) {
+      clearTimeout(this.silenceTimer);
+      this.silenceTimer = null;
+    }
+  }
+
+  // Waiting on the user's turn: if nothing is heard, send a silence turn so the
+  // caller prods in character instead of the call stalling.
+  private armSilence(): void {
+    this.clearSilence();
+    this.silenceTimer = setTimeout(() => {
+      this.silenceTimer = null;
+      if (this.active && !this.muted && this.listening) this.runTurn("");
+    }, SILENCE_MS);
   }
 
   private finalizeTiming(turnId: number, seq: number, ended: number): void {

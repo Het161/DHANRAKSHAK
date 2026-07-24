@@ -47,9 +47,7 @@ async def synthesize(
         raise HTTPException(status.HTTP_502_BAD_GATEWAY, "Speech synthesis returned nothing.") from None
     except TTSUnavailable as exc:
         logger.warning("tts unavailable lang=%s gender=%s reason=%s", payload.lang, payload.gender, exc)
-        raise HTTPException(
-            status.HTTP_503_SERVICE_UNAVAILABLE, "Speech synthesis is unavailable."
-        ) from exc
+        raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "Speech synthesis is unavailable.") from exc
 
     async def body():
         yield first

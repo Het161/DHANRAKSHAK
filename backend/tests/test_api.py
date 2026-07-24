@@ -29,6 +29,12 @@ class FakeProvider(LLMProvider):
         for chunk in self._chunks:
             yield chunk
 
+    async def stream_chat(self, messages: list[dict[str, str]]) -> AsyncIterator[str]:
+        if self._error is not None:
+            raise self._error
+        for chunk in self._chunks:
+            yield chunk
+
     async def warmup(self) -> bool:
         return True
 
@@ -37,6 +43,10 @@ class HangingProvider(LLMProvider):
     name = "hanging"
 
     async def stream(self, system: str, user: str) -> AsyncIterator[str]:
+        await asyncio.sleep(30)
+        yield "never"
+
+    async def stream_chat(self, messages: list[dict[str, str]]) -> AsyncIterator[str]:
         await asyncio.sleep(30)
         yield "never"
 

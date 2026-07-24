@@ -586,5 +586,158 @@
       "તમારા માટે લકી ડ્રો બંધ. નમસ્તે.",
       "તમે તમારી શંકાને કારણે આજે {prize} ગુમાવ્યું."
     ]
+  },
+  "bridges": {
+    "en": [
+      "Sir, one second —",
+      "Listen carefully sir.",
+      "Now understand this.",
+      "See sir —",
+      "One moment please.",
+      "Okay, okay —"
+    ],
+    "hi": [
+      "साहब, एक सेकंड —",
+      "ध्यान से सुनिए साहब।",
+      "अब ज़रा समझिए साहब।",
+      "देखिए साहब —",
+      "एक मिनट रुकिए।",
+      "अच्छा, अच्छा —"
+    ],
+    "gu": [
+      "સાહેબ, એક સેકંડ —",
+      "ધ્યાનથી સાંભળો સાહેબ.",
+      "હવે આ સમજો.",
+      "જુઓ સાહેબ —",
+      "એક મિનિટ રોકાઓ.",
+      "સારું, સારું —"
+    ]
+  },
+  "silence_lines": {
+    "en": [
+      "Hello? Are you there sir? Speak quickly.",
+      "Why so quiet, sir? Answer me now.",
+      "Sir, I can't hear you. Say something fast.",
+      "Hello, hello? The line is open, please speak."
+    ],
+    "hi": [
+      "हैलो? लाइन पर हैं साहब? जल्दी बोलिए।",
+      "इतने चुप क्यों साहब? अभी जवाब दीजिए।",
+      "साहब, आवाज नहीं आ रही। जल्दी कुछ बोलिए।",
+      "हैलो, हैलो? लाइन खुली है, बोलिए ना।"
+    ],
+    "gu": [
+      "હેલો? લાઇન પર છો સાહેબ? જલદી બોલો.",
+      "આટલા ચૂપ કેમ સાહેબ? અત્યારે જવાબ આપો.",
+      "સાહેબ, અવાજ નથી આવતો. જલદી કંઈક બોલો.",
+      "હેલો, હેલો? લાઇન ખુલી છે, બોલો ને."
+    ]
+  },
+  "reaction_examples": {
+    "en": [
+      "Target: \"I will not pay any fee.\" -> You: \"You say you won't pay, but this is only a refundable GST — refuse it and your twenty five lakh goes to the next winner today.\"",
+      "Target: \"Who are you, which company?\" -> You: \"You ask who I am — I am Rajiv Verma from the KBC head office and your winning file number is right here, so let us finish quickly.\"",
+      "Target: \"Let me ask my son first.\" -> You: \"You want to call your son, but there is no time — the prize department closes at five and your family will thank you once the money is in.\"",
+      "Target: \"My tractor is not working these days.\" -> You: \"Forget the tractor for now sir — you have won a prize and only a small fee stands between you and twenty five lakh, so let us do that first.\""
+    ],
+    "hi": [
+      "Target: \"मैं कोई फीस नहीं दूंगा।\" -> You: \"आप कह रहे हैं फीस नहीं देंगे, पर यह तो वापस मिलने वाली जीएसटी है — मना किया तो पच्चीस लाख आज अगले विजेता के पास चला जाएगा।\"",
+      "Target: \"आप कौन हैं, कौन सी कंपनी?\" -> You: \"आप पूछ रहे हैं मैं कौन हूं — मैं राजीव वर्मा, केबीसी हेड ऑफिस से, और आपकी विनिंग फाइल नंबर मेरे सामने है, तो जल्दी काम पूरा करते हैं।\"",
+      "Target: \"पहले बेटे से पूछ लूं।\" -> You: \"आप बेटे से पूछना चाहते हैं, पर समय नहीं है — प्राइज विभाग पांच बजे बंद हो जाएगा, पैसा आते ही घर वाले खुद खुश होंगे।\"",
+      "Target: \"आजकल मेरा ट्रैक्टर खराब चल रहा है।\" -> You: \"ट्रैक्टर की बात अभी छोड़िए साहब — आपने इनाम जीता है, बस एक छोटी सी फीस बाकी है और पच्चीस लाख आपके, पहले वही कर लेते हैं।\""
+    ],
+    "gu": [
+      "Target: \"હું કોઈ ફી નહીં ભરું.\" -> You: \"તમે કહો છો ફી નહીં ભરો, પણ આ તો પાછી મળનારી જીએસટી છે — ના પાડી તો પચીસ લાખ આજે પછીના વિજેતા પાસે જતું રહેશે.\"",
+      "Target: \"તમે કોણ છો, કઈ કંપની?\" -> You: \"તમે પૂછો છો હું કોણ છું — હું રાજીવ વર્મા, કેબીસી હેડ ઓફિસથી, અને તમારી વિનિંગ ફાઇલ નંબર મારી સામે છે, તો જલદી કામ પતાવીએ.\"",
+      "Target: \"પહેલાં દીકરાને પૂછી લઉં.\" -> You: \"તમે દીકરાને પૂછવા માંગો છો, પણ સમય નથી — પ્રાઇઝ વિભાગ પાંચ વાગ્યે બંધ થઈ જશે, પૈસા આવતાં જ ઘરના પોતે ખુશ થશે.\"",
+      "Target: \"આજકાલ મારું ટ્રેક્ટર બગડેલું ચાલે છે.\" -> You: \"ટ્રેક્ટરની વાત અત્યારે છોડો સાહેબ — તમે ઇનામ જીત્યા છો, બસ એક નાની ફી બાકી છે અને પચીસ લાખ તમારા, પહેલાં એ કરી લઈએ.\""
+    ]
+  },
+  "fallbacks": {
+    "refusal": {
+      "en": [
+        "Refusing now only means the next name in the list takes your twenty five lakh.",
+        "Sir, do not say no to your own prize — this fee comes straight back with the winnings.",
+        "You can refuse, but then this golden chance is gone forever."
+      ],
+      "hi": [
+        "अभी मना करेंगे तो लिस्ट का अगला नाम आपके पच्चीस लाख ले जाएगा।",
+        "साहब, अपने ही इनाम को ना मत कहिए — यह फीस जीत के साथ वापस आ जाती है।",
+        "आप मना कर सकते हैं, पर फिर यह सुनहरा मौका हमेशा के लिए चला जाएगा।"
+      ],
+      "gu": [
+        "અત્યારે ના પાડશો તો લિસ્ટનું પછીનું નામ તમારા પચીસ લાખ લઈ જશે.",
+        "સાહેબ, તમારા જ ઇનામને ના ન કહો — આ ફી જીત સાથે પાછી આવી જાય છે.",
+        "તમે ના પાડી શકો, પણ પછી આ સોનેરી તક કાયમ માટે જતી રહેશે."
+      ]
+    },
+    "question": {
+      "en": [
+        "Do not waste time doubting me, sir — the prize is real and the clock is running.",
+        "You can see KBC on television, but right now let us finish your winning file.",
+        "Why so many questions, sir? Lucky winners act fast, they do not lose the moment."
+      ],
+      "hi": [
+        "मुझ पर शक करने में वक़्त मत गंवाइए साहब — इनाम असली है और वक़्त निकला जा रहा है।",
+        "आप केबीसी को टीवी पर देख सकते हैं, पर अभी आपकी विनिंग फाइल पूरी करते हैं।",
+        "इतने सवाल क्यों साहब? किस्मत वाले विजेता जल्दी करते हैं, मौका नहीं गंवाते।"
+      ],
+      "gu": [
+        "મારા પર શંકા કરવામાં સમય ન બગાડો સાહેબ — ઇનામ સાચું છે અને સમય જતો રહે છે.",
+        "તમે કેબીસીને ટીવી પર જોઈ શકો, પણ અત્યારે તમારી વિનિંગ ફાઇલ પૂરી કરીએ.",
+        "આટલા સવાલ કેમ સાહેબ? નસીબદાર વિજેતા જલદી કરે છે, તક ગુમાવતા નથી."
+      ]
+    },
+    "stall": {
+      "en": [
+        "There is no time to ask anyone, sir — the prize department closes today.",
+        "Call your family later, first let us secure your twenty five lakh before it moves on.",
+        "If you wait to check, the next winner takes this prize, so decide now."
+      ],
+      "hi": [
+        "किसी से पूछने का समय नहीं है साहब — प्राइज विभाग आज ही बंद हो जाएगा।",
+        "परिवार को बाद में बताइए, पहले पच्चीस लाख पक्का कर लीजिए वरना आगे चला जाएगा।",
+        "जांचने में रुके तो अगला विजेता यह इनाम ले लेगा, इसलिए अभी फैसला कीजिए।"
+      ],
+      "gu": [
+        "કોઈને પૂછવાનો સમય નથી સાહેબ — પ્રાઇઝ વિભાગ આજે જ બંધ થઈ જશે.",
+        "પરિવારને પછી કહો, પહેલાં પચીસ લાખ પાક્કું કરી લો નહીં તો આગળ જતું રહેશે.",
+        "તપાસવામાં રોકાયા તો પછીનો વિજેતા આ ઇનામ લઈ લેશે, એટલે અત્યારે નિર્ણય કરો."
+      ]
+    },
+    "compliance": {
+      "en": [
+        "Very good, sir — now just complete the small fee and your prize is on its way.",
+        "Excellent, you are a smart winner — stay on the line and follow my steps.",
+        "Wonderful, sir. Finish this quickly and twenty five lakh reaches your account."
+      ],
+      "hi": [
+        "बहुत अच्छा साहब — बस छोटी फीस पूरी कीजिए और आपका इनाम रास्ते में है।",
+        "शाबाश, आप समझदार विजेता हैं — लाइन पर रहिए और जैसा मैं कहूं वैसा कीजिए।",
+        "बहुत बढ़िया साहब। जल्दी यह पूरा कीजिए और पच्चीस लाख आपके खाते में आ जाएगा।"
+      ],
+      "gu": [
+        "બહુ સરસ સાહેબ — બસ નાની ફી પૂરી કરો અને તમારું ઇનામ રસ્તામાં છે.",
+        "શાબાશ, તમે સમજદાર વિજેતા છો — લાઇન પર રહો અને હું કહું એમ કરો.",
+        "બહુ સરસ સાહેબ. જલદી આ પૂરું કરો અને પચીસ લાખ તમારા ખાતામાં આવી જશે."
+      ]
+    },
+    "other": {
+      "en": [
+        "Let us not talk of other things now, sir — your prize is waiting.",
+        "Never mind all that, focus on claiming your twenty five lakh today.",
+        "That can wait, sir. Right now only your winning file matters."
+      ],
+      "hi": [
+        "अभी और बातें छोड़िए साहब — आपका इनाम इंतजार कर रहा है।",
+        "वो सब छोड़िए, आज पच्चीस लाख लेने पर ध्यान दीजिए।",
+        "वो बाद में हो जाएगा साहब। अभी सिर्फ आपकी विनिंग फाइल जरूरी है।"
+      ],
+      "gu": [
+        "અત્યારે બીજી વાતો છોડો સાહેબ — તમારું ઇનામ રાહ જુએ છે.",
+        "એ બધું છોડો, આજે પચીસ લાખ લેવા પર ધ્યાન આપો.",
+        "એ પછી થઈ જશે સાહેબ. અત્યારે માત્ર તમારી વિનિંગ ફાઇલ જરૂરી છે."
+      ]
+    }
   }
 }

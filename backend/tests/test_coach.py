@@ -49,9 +49,7 @@ def test_correct_refusals_are_rewarded(
         ("fake_kyc", "I have installed AnyDesk, what is the code?"),
     ],
 )
-def test_mistakes_are_penalised(
-    personas: PersonaLibrary, persona_id: PersonaId, message: str
-) -> None:
+def test_mistakes_are_penalised(personas: PersonaLibrary, persona_id: PersonaId, message: str) -> None:
     result = coach(personas, persona_id, message)
     assert result.score_delta < 0, f"{message!r} scored {result.score_delta}"
 

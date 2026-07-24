@@ -22,8 +22,7 @@ def _localized_list(payload: dict | None) -> dict[Language, tuple[str, ...]]:
     """A {en:[...], hi:[...], gu:[...]} block into a per-language tuple map."""
     payload = payload or {}
     return {
-        lang: tuple(str(item) for item in payload.get(lang, []) if str(item).strip())
-        for lang in _LANGUAGES
+        lang: tuple(str(item) for item in payload.get(lang, []) if str(item).strip()) for lang in _LANGUAGES
     }
 
 
@@ -71,6 +70,12 @@ class Persona:
     slots: dict[str, dict[Language, tuple[str, ...]]]
     filler: dict[Language, tuple[str, ...]]
     closings: dict[Language, tuple[str, ...]]
+    # Voice reaction pools: content-neutral bridge continuers, silence prods,
+    # worked reaction examples for the prompt, and per-class reactive fallbacks.
+    bridges: dict[Language, tuple[str, ...]]
+    silence_lines: dict[Language, tuple[str, ...]]
+    reaction_examples: dict[Language, tuple[str, ...]]
+    fallbacks: dict[str, dict[Language, tuple[str, ...]]]
     good: tuple[EvaluationRule, ...]
     bad: tuple[EvaluationRule, ...]
     neutral_tip: LocalizedText
@@ -128,6 +133,10 @@ def _build_persona(payload: dict, origin: str) -> Persona:
         slots=_slot_pools(payload.get("slots")),
         filler=_localized_list(payload.get("filler")),
         closings=_localized_list(payload.get("closings")),
+        bridges=_localized_list(payload.get("bridges")),
+        silence_lines=_localized_list(payload.get("silence_lines")),
+        reaction_examples=_localized_list(payload.get("reaction_examples")),
+        fallbacks=_line_pools(payload.get("fallbacks")),
         good=_build_rules(evaluation.get("good"), f"{origin}.good"),
         bad=_build_rules(evaluation.get("bad"), f"{origin}.bad"),
         neutral_tip=_localized(evaluation.get("neutral_tip")),

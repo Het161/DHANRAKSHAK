@@ -78,6 +78,17 @@ function DebugOverlay({ state }: { state: VoiceCallState }) {
           <p>slots: {Object.entries(state.plan.slots).map(([k, v]) => `${k}=${v}`).join(", ")}</p>
         </>
       )}
+      {state.turnDebug && (
+        <>
+          <p className="mt-1 font-bold">
+            last turn ({state.turnDebug.class}, {state.turnDebug.path}, msgs {state.turnDebug.messages_len},
+            hist {state.turnDebug.history_len})
+          </p>
+          <p>heard: {state.turnDebug.transcript || "(silence)"}</p>
+          <p>bridge: {state.turnDebug.bridge}</p>
+          <p>reply: {state.turnDebug.reply}</p>
+        </>
+      )}
       <p className="mt-1 font-bold">sentences (fetch/toPlay/play ms)</p>
       {state.timings.slice(-5).map((timing, index) => (
         <p key={`${timing.turnId}-${timing.seq}-${index}`}>

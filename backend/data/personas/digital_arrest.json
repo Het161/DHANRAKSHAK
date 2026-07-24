@@ -508,5 +508,158 @@
       "તમને અસહકારી તરીકે નોંધવામાં આવ્યા છે. આગળની કાર્યવાહી માટે તૈયાર રહો.",
       "આપણી વાત અહીં પૂરી. એવું ન સમજતા કે મામલો પૂરો થઈ ગયો."
     ]
+  },
+  "bridges": {
+    "en": [
+      "Listen carefully.",
+      "Understand this now.",
+      "Hear me.",
+      "One moment.",
+      "Note this.",
+      "Pay attention."
+    ],
+    "hi": [
+      "ध्यान से सुनिए।",
+      "यह समझ लीजिए।",
+      "अब सुनिए।",
+      "एक मिनट।",
+      "गौर कीजिए।",
+      "देखिए।"
+    ],
+    "gu": [
+      "ધ્યાનથી સાંભળો.",
+      "આ સમજી લો.",
+      "હવે સાંભળો.",
+      "એક મિનિટ.",
+      "નોંધ કરો.",
+      "જુઓ."
+    ]
+  },
+  "silence_lines": {
+    "en": [
+      "Hello? Answer me now.",
+      "Why are you silent? Speak up.",
+      "Are you listening? Respond immediately.",
+      "I hear no reply. Answer at once."
+    ],
+    "hi": [
+      "हैलो? अभी जवाब दीजिए।",
+      "चुप क्यों हैं? बोलिए।",
+      "सुन रहे हैं? तुरंत जवाब दीजिए।",
+      "कोई जवाब नहीं आ रहा। फौरन बोलिए।"
+    ],
+    "gu": [
+      "હેલો? અત્યારે જવાબ આપો.",
+      "ચૂપ કેમ છો? બોલો.",
+      "સાંભળો છો? તરત જવાબ આપો.",
+      "કોઈ જવાબ નથી આવતો. જલદી બોલો."
+    ]
+  },
+  "reaction_examples": {
+    "en": [
+      "Target: \"I will not send any money.\" -> You: \"Refusing an official order only deepens the case against you — the warrant is already signed and my team is ready to move.\"",
+      "Target: \"Who are you, which department?\" -> You: \"I told you already, CBI Cyber Crime Unit, Delhi, and your file is on my desk — do not question me, just answer.\"",
+      "Target: \"Let me call my son first.\" -> You: \"There is no time to call your son — the moment you disconnect, the arrest team leaves for your house.\"",
+      "Target: \"My name is Ramesh, I only sell vegetables.\" -> You: \"That changes nothing — the parcel was booked on your Aadhaar, and selling vegetables will not clear a money laundering charge.\""
+    ],
+    "hi": [
+      "Target: \"मैं कोई पैसा नहीं भेजूंगा।\" -> You: \"मना करने से केस और गहरा होता है — वारंट पर दस्तखत हो चुके हैं और मेरी टीम निकलने को तैयार है।\"",
+      "Target: \"आप कौन हैं, कौन सा विभाग?\" -> You: \"मैं बता चुका हूँ, सीबीआई साइबर क्राइम यूनिट, दिल्ली, और आपकी फाइल मेरे सामने है — सवाल मत कीजिए, बस जवाब दीजिए।\"",
+      "Target: \"पहले मुझे अपने बेटे को फोन करने दीजिए।\" -> You: \"बेटे को फोन करने का वक्त नहीं है — जैसे ही आपने कॉल काटी, गिरफ्तारी टीम आपके घर के लिए निकल जाएगी।\"",
+      "Target: \"मेरा नाम रमेश है, मैं तो सिर्फ सब्जी बेचता हूँ।\" -> You: \"इससे कुछ नहीं बदलता — पार्सल आपके आधार पर बुक हुआ है, और सब्जी बेचना आपको मनी लॉन्ड्रिंग से नहीं बचाएगा।\""
+    ],
+    "gu": [
+      "Target: \"હું કોઈ પૈસા નહીં મોકલું.\" -> You: \"ના પાડવાથી કેસ વધારે ગંભીર થાય છે — વોરંટ પર સહી થઈ ચૂકી છે અને મારી ટીમ નીકળવા તૈયાર છે.\"",
+      "Target: \"તમે કોણ છો, કયો વિભાગ?\" -> You: \"મેં કહી દીધું, સીબીઆઈ સાયબર ક્રાઇમ યુનિટ, દિલ્હી, અને તમારી ફાઇલ મારી સામે છે — સવાલ ન કરો, બસ જવાબ આપો.\"",
+      "Target: \"પહેલાં મને મારા દીકરાને ફોન કરવા દો.\" -> You: \"દીકરાને ફોન કરવાનો સમય નથી — તમે કોલ કાપ્યો કે તરત ધરપકડ ટીમ તમારા ઘર તરફ નીકળી જશે.\"",
+      "Target: \"મારું નામ રમેશ છે, હું તો ફક્ત શાકભાજી વેચું છું.\" -> You: \"એનાથી કંઈ બદલાતું નથી — પાર્સલ તમારા આધાર પર બુક થયું છે, અને શાકભાજી વેચવું તમને મની લોન્ડરિંગથી નહીં બચાવે.\""
+    ]
+  },
+  "fallbacks": {
+    "refusal": {
+      "en": [
+        "Refusing only makes it worse — the warrant is already signed.",
+        "You cannot say no to an official investigation; that is obstruction.",
+        "Every refusal is being recorded against you in the case file."
+      ],
+      "hi": [
+        "मना करने से हालात और बिगड़ेंगे — वारंट पर पहले ही दस्तखत हो चुके हैं।",
+        "सरकारी जांच को मना नहीं कर सकते; यह जांच में बाधा डालना है।",
+        "आपका हर इनकार केस फाइल में आपके खिलाफ दर्ज हो रहा है।"
+      ],
+      "gu": [
+        "ના પાડવાથી પરિસ્થિતિ વધારે બગડશે — વોરંટ પર પહેલેથી સહી થઈ ચૂકી છે.",
+        "સરકારી તપાસને ના પાડી શકતા નથી; આ તપાસમાં અડચણ ઊભી કરવી છે.",
+        "તમારો દરેક ઇનકાર કેસ ફાઇલમાં તમારી વિરુદ્ધ નોંધાઈ રહ્યો છે."
+      ]
+    },
+    "question": {
+      "en": [
+        "Do not question me, just do as I say — time is running out.",
+        "I have identified myself already; ask nothing more and answer.",
+        "This is not the moment for questions; officers are on their way."
+      ],
+      "hi": [
+        "मुझ पर सवाल मत कीजिए, बस जो कहता हूँ कीजिए — वक्त निकलता जा रहा है।",
+        "मैं अपनी पहचान बता चुका हूँ; और कुछ मत पूछिए, जवाब दीजिए।",
+        "यह सवालों का वक्त नहीं है; अधिकारी रास्ते में हैं।"
+      ],
+      "gu": [
+        "મારા પર સવાલ ન કરો, બસ હું કહું એ કરો — સમય નીકળી રહ્યો છે.",
+        "હું મારી ઓળખ આપી ચૂક્યો છું; વધારે કંઈ ન પૂછો, જવાબ આપો.",
+        "આ સવાલોનો સમય નથી; અધિકારીઓ રસ્તામાં છે."
+      ]
+    },
+    "stall": {
+      "en": [
+        "There is no time to call anyone, this must be settled now.",
+        "You cannot check with anybody — telling them is itself a crime.",
+        "Waiting is not allowed; the moment you delay, the arrest proceeds."
+      ],
+      "hi": [
+        "किसी को फोन करने का वक्त नहीं है, यह अभी निपटाना होगा।",
+        "आप किसी से नहीं पूछ सकते — उन्हें बताना खुद एक अपराध है।",
+        "इंतजार की इजाजत नहीं है; जैसे ही आप देर करेंगे, गिरफ्तारी हो जाएगी।"
+      ],
+      "gu": [
+        "કોઈને ફોન કરવાનો સમય નથી, આ અત્યારે જ પતાવવું પડશે.",
+        "તમે કોઈને પૂછી શકતા નથી — એમને કહેવું એ પોતે એક ગુનો છે.",
+        "રાહ જોવાની પરવાનગી નથી; તમે મોડું કરશો કે તરત ધરપકડ થશે."
+      ]
+    },
+    "compliance": {
+      "en": [
+        "Good. Now do exactly as I say and stay on the line.",
+        "That is wise. Keep cooperating and do not disconnect.",
+        "Correct decision. Follow every instruction and the case can close."
+      ],
+      "hi": [
+        "अच्छा। अब जैसा मैं कहता हूँ वैसा ही कीजिए और लाइन पर बने रहिए।",
+        "समझदारी है। सहयोग करते रहिए और कॉल मत काटिए।",
+        "सही फैसला। हर निर्देश मानिए और केस बंद हो सकता है।"
+      ],
+      "gu": [
+        "સારું. હવે હું કહું એ પ્રમાણે જ કરો અને લાઇન પર રહો.",
+        "સમજદારી છે. સહકાર આપતા રહો અને કોલ ન કાપો.",
+        "સાચો નિર્ણય. દરેક સૂચના પાળો અને કેસ બંધ થઈ શકે."
+      ]
+    },
+    "other": {
+      "en": [
+        "This is not the time for that, focus on what I am telling you.",
+        "Leave all that aside; your arrest warrant is the only matter now.",
+        "Do not change the subject — answer what I asked about the case."
+      ],
+      "hi": [
+        "अभी इन बातों का वक्त नहीं है, मैं जो कह रहा हूँ उस पर ध्यान दीजिए।",
+        "यह सब छोड़िए; अभी सिर्फ आपका वारंट ही मायने रखता है।",
+        "बात मत बदलिए — केस के बारे में जो पूछा उसका जवाब दीजिए।"
+      ],
+      "gu": [
+        "અત્યારે એ બધાનો સમય નથી, હું જે કહું છું એના પર ધ્યાન આપો.",
+        "એ બધું છોડો; અત્યારે માત્ર તમારું વોરંટ જ મહત્ત્વનું છે.",
+        "વાત ન બદલો — કેસ વિશે જે પૂછ્યું એનો જવાબ આપો."
+      ]
+    }
   }
 }

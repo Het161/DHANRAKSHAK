@@ -199,6 +199,9 @@ class VoiceDonePayload(BaseModel):
     finished: bool
     score: int
     turn: int
+    # Debug only (?debug=1): the exact transcript received, the bridge line, the
+    # class, the path (llm|fallback), history length and the final spoken reply.
+    debug: dict[str, Any] | None = None
 
 
 class TurnResponse(BaseModel):

@@ -101,9 +101,7 @@ async def voice_turn(
             # The client speaks the sentences with on-device speech instead.
             yield sse.encode("tts_unavailable", {})
         try:
-            async for event in ctx.voice.stream_turn(
-                payload.session_id, payload.message, payload.gender
-            ):
+            async for event in ctx.voice.stream_turn(payload.session_id, payload.message, payload.gender):
                 yield sse.encode(event.type, event.payload)
         except (SessionNotFound, PersonaNotFound):
             yield sse.encode(
@@ -111,8 +109,6 @@ async def voice_turn(
             )
         except Exception:
             logger.exception("voice turn failed")
-            yield sse.encode(
-                "error", ErrorPayload(code="turn_failed", message="The call hit a problem.")
-            )
+            yield sse.encode("error", ErrorPayload(code="turn_failed", message="The call hit a problem."))
 
     return StreamingResponse(events(), media_type="text/event-stream", headers=sse.SSE_HEADERS)

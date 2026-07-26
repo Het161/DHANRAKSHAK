@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { localAnalyzer } from "@/lib/engine/client";
 import { PermanentApiError, pingHealth, streamAnalyzeFile, streamAnalyzeText } from "@/lib/api";
-import { serverPlan } from "@/lib/connectivity";
+import { isOnline, serverPlan } from "@/lib/connectivity";
 import { prepareImage } from "@/lib/prepareImage";
 import { delay, isAbort } from "@/lib/retry";
 import type { AnalyzeResponse, ExplanationSource, LanguageHint, SSEEvent } from "@/lib/types";
@@ -357,9 +357,15 @@ export function useAnalyze(languageHint: LanguageHint) {
       controllerRef.current = controller;
       inFlightSignatureRef.current = signature;
 
-      // Screenshots and recordings need the server (OCR/STT); no offline path.
+      // Screenshots and recordings need the server (OCR/STT); there is no on-device
+      // path. But navigator.onLine only reflects the public internet — our server can
+      // still be reachable on localhost or a LAN when the browser reports "offline"
+      // (a local demo, a captive network). So we probe the server directly and only
+      // refuse when it genuinely does not answer AND we are offline.
       if (input.kind === "image" || input.kind === "audio") {
-        if (!serverPlan().attempt) {
+        const reachable = await pingHealth(HEALTH_PING_MS);
+        if (controller.signal.aborted) return;
+        if (!reachable && !isOnline()) {
           setState({ ...INITIAL, phase: "error", errorMessage: null, ranOffline: true });
           return;
         }

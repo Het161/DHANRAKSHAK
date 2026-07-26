@@ -2,9 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { PermanentApiError, sendSimulatorTurn, startSimulator } from "@/lib/api";
+import { PermanentApiError, pingHealth, sendSimulatorTurn, startSimulator } from "@/lib/api";
 import { loadPracticeEngine, type PracticeEngine, type PracticeSession } from "@/lib/practice/engine";
 import { WAKE_UP_AFTER_MS, isAbort, retryTransient } from "@/lib/retry";
+
+// Confirm the server really is unreachable before falling back to on-device play;
+// navigator.onLine alone is a false-negative on localhost/LAN. See useOnline.ts.
+const CONFIRM_PING_MS = 3_000;
 import type { Coach, Language, PersonaId, ScenarioPlanDebug } from "@/lib/types";
 
 /** Everything ?debug=1 needs to prove the session was randomized. */
@@ -96,8 +100,16 @@ export function useSimulator() {
       nextIdRef.current = 0;
       setState({ ...INITIAL, phase: "starting" });
 
-      // Offline: run the whole session on-device from the precached pools.
-      if (typeof navigator !== "undefined" && !navigator.onLine) {
+      // Offline: run the whole session on-device from the precached pools. But
+      // only when the server is genuinely unreachable — navigator.onLine can be a
+      // false-negative (localhost/LAN stays up), so a failed flag is confirmed
+      // with a health ping before we give up the richer server session.
+      const forcedOffline =
+        typeof navigator !== "undefined" &&
+        !navigator.onLine &&
+        !(await pingHealth(CONFIRM_PING_MS));
+      if (controller.signal.aborted) return;
+      if (forcedOffline) {
         try {
           const engine = await loadPracticeEngine();
           const { session, opening } = engine.start(persona, lang);

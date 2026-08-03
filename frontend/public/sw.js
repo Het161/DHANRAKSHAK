@@ -17,10 +17,54 @@ const PRECACHE = __PRECACHE_MANIFEST__;
 
 const CACHE = `dhanrakshak-${BUILD_ID}`;
 
+// The shell essentials: everything the app needs to OPEN and run a full on-device
+// verdict with zero network - route HTML, the JS/CSS chunks, the engine artifacts,
+// the manifest and icons. The RSC `.txt` prefetch files are the only precache
+// entries that are NOT essential: they only speed up client-side navigation, and
+// the navigation fallback below covers offline routing without them. Splitting
+// them out lets a flaky link drop a `.txt` without ever costing us "offline opens".
+const CRITICAL = PRECACHE.filter((url) => !url.endsWith(".txt"));
+
+// Fetch one entry into the cache, bypassing the HTTP cache so we never store a
+// stale or half-written response. Returns true only on a genuine 200.
+async function cacheOne(cache, url) {
+  try {
+    const response = await fetch(new Request(url, { cache: "reload" }));
+    if (response && response.ok) {
+      await cache.put(url, response.clone());
+      return true;
+    }
+  } catch {
+    /* offline / flaky: reported to the caller as a miss */
+  }
+  return false;
+}
+
+// Resilient install. `cache.addAll` is ATOMIC - a single failed fetch aborts the
+// whole thing and caches NOTHING, so on a rural 2G/3G link (exactly our users) the
+// app silently fails to work offline. Instead we add every asset best-effort, then
+// GUARANTEE the essentials: if any is still missing we retry it, and only fail the
+// install if an essential truly cannot be fetched - so the browser retries the
+// install later rather than leaving a half-populated, unusable cache.
+async function precache() {
+  const cache = await caches.open(CACHE);
+  await Promise.allSettled(PRECACHE.map((url) => cacheOne(cache, url)));
+
+  let missing = [];
+  for (const url of CRITICAL) if (!(await cache.match(url))) missing.push(url);
+  if (missing.length) {
+    await Promise.allSettled(missing.map((url) => cacheOne(cache, url)));
+    missing = [];
+    for (const url of CRITICAL) if (!(await cache.match(url))) missing.push(url);
+  }
+  if (missing.length) throw new Error(`precache incomplete: ${missing.length} essential asset(s)`);
+}
+
 self.addEventListener("install", (event) => {
   // Do NOT skipWaiting here: a new version waits until the user accepts the
   // "updated" toast, so an in-progress check is never yanked out from under them.
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(PRECACHE)));
+  // (First install has no controller, so activate still claims immediately below.)
+  event.waitUntil(precache());
 });
 
 self.addEventListener("activate", (event) => {
@@ -75,14 +119,27 @@ async function cacheFirst(request) {
   }
 }
 
-// Navigations: fresh HTML when online, the precached shell when not, so the app
-// always opens - airplane mode included.
+// Navigations are the whole ballgame for "does the site open offline".
+//
+// When you reopen the app (or the installed PWA) in airplane mode, the browser
+// makes a NAVIGATION request for the URL. With no worker, that hits the network,
+// fails, and the browser shows its offline error page - THIS is the exact reason a
+// static site "doesn't open at all" offline. So here we go network-first (fresh
+// HTML when online) and, when the fetch rejects, fall back to a cached document:
+// the exact route if we precached it, otherwise the app shell at "/". App Router
+// then does its own client-side routing from cache, so every screen still works.
+// "/" is a guaranteed install essential, so this fallback can always answer.
 async function networkFirstNavigation(request) {
   try {
     return await fetch(request);
   } catch {
     const cache = await caches.open(CACHE);
-    return (await cache.match(request)) || (await cache.match("/")) || Response.error();
+    const cached = (await cache.match(request)) || (await cache.match("/"));
+    if (cached) return cached;
+    // Should be unreachable (install guarantees "/"), but never dead-end a nav.
+    return new Response("<!doctype html><meta charset=utf-8><title>Offline</title>", {
+      headers: { "Content-Type": "text/html; charset=utf-8" },
+    });
   }
 }
 

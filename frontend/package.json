@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build:worker": "node scripts/build-worker.mjs"
+    "build:worker": "node scripts/build-worker.mjs",
+    "verify:offline": "node scripts/verify-offline.mjs"
   },
   "dependencies": {
     "next": "16.2.11",

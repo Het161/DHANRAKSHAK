@@ -21,3 +21,14 @@
   for = "/_next/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# The service worker must NEVER be cached by the browser or the CDN. If a stale
+# sw.js is served, users are pinned to an old app forever and never see updates.
+# no-cache forces revalidation on every load, so a new deploy's worker is picked
+# up promptly (it then waits for the "App updated - refresh" toast before taking
+# over). Service-Worker-Allowed keeps the worker's control scope at the origin root.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Service-Worker-Allowed = "/"

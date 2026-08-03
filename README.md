@@ -130,7 +130,7 @@ The live link must never break. The API returns a complete answer in every tier;
 We didn't just claim the phone matches the server — we tested it.
 
 - **On-device parity: 20 / 20.** Twenty test messages sent through both engines; every verdict label matches and every risk score lands within **±5 points**. The parity test lives in the suite.
-- **Real offline test.** A headless-Chrome run loads the app with the network switched off and confirms a full verdict still renders — in Gujarati, with highlights.
+- **Real offline test.** A headless-Chrome run loads the app once online, switches the network **off**, reloads, and confirms a full verdict still renders — in **both English and Gujarati**, with highlights and the "ran on your device" chip. The install is resilient: the service worker precaches each asset best-effort and **guarantees the shell essentials**, so one dropped byte on a rural link never leaves the app un-openable offline.
 - **84 backend + 31 frontend tests**, all green. Typed, small modules.
 - **Privacy by design.** Messages are analysed and never stored; an offline check never leaves the device.
 
@@ -160,20 +160,49 @@ cd frontend
 npm run build:worker && npm run dev      # http://localhost:3000
 ```
 
+## Works offline after the first online visit
+
+**One online visit is all it takes.** On that first load the service worker precaches the
+whole shell — every route, JS/CSS chunk, font, the i18n dictionaries, the on-device engine
+artifacts, the persona pools and the icons (~638KB gzipped, budget 1.5MB). After that the app
+opens and works with **zero network**: the shell loads, language switching works, the analyzer
+runs a full on-device verdict with highlights, sample chips work, and text-mode practice works.
+A quiet **"Offline — instant checks still work"** indicator appears; screenshot/voice features
+(which need the server) degrade with a clear note. When a new version deploys, a subtle
+**"App updated — refresh"** toast appears and the old cache is cleaned on refresh — never a
+stale-forever app.
+
+> Why a static site normally *doesn't* open offline: reopening it makes a **navigation request**
+> that hits the network and fails. Our worker answers navigations from the cached shell instead,
+> so the app always opens — App Router then routes client-side from cache.
+
 <details>
-<summary><b>See offline mode (the aeroplane-mode test)</b></summary>
+<summary><b>Judge demo — prove it in 60 seconds</b></summary>
 
 <br/>
 
-The service worker only registers in a production build, so:
+**On a phone (the real test):**
+1. Open **https://dhanrakshakai.netlify.app** once with internet. Wait ~5–10s (the shell is caching).
+2. Optional: **Add to Home Screen** from the browser menu — it installs as an app.
+3. Turn on **Airplane mode**.
+4. Reopen the site (or tap the installed icon). It opens — no dinosaur, no blank screen.
+5. Paste a scam (e.g. *"Your account will be blocked. Enter your UPI PIN to receive ₹5000."*) → tap **Check** → full verdict, risk score, highlighted evidence, and the chip reads **"ran on your device."**
 
+**On a laptop (DevTools):**
 ```bash
 cd frontend
 npm run build && npx serve out -l 3000
-# open http://localhost:3000, then DevTools → Network → Offline, and reload
+# open http://localhost:3000 once, then DevTools → Application → Service Worker
+# (shows "activated"; the precache list includes /engine/*), then
+# DevTools → Network → Offline → reload → paste a scam → full verdict, chip = on-device
 ```
 
-The app still opens and a pasted scam still gets a full verdict — no network.
+**Reproduce the automated proof** (real headless Chrome, online→offline→reload→analyze):
+```bash
+cd frontend && npm run build
+# serves the export Netlify-style and drives real Chrome through the offline flow
+node scripts/verify-offline.mjs      # prints VERDICT for English and Gujarati
+```
 
 </details>
 

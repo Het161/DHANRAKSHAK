@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { VerdictCard } from "@/components/verdict/VerdictCard";
 import { useAnalyze, type AnalyzeInput } from "@/hooks/useAnalyze";
-import type { Recording } from "@/hooks/useRecorder";
+import { useRecorder } from "@/hooks/useRecorder";
 import { usePreferences } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/dictionary";
 import { validateAudio, validateImage, validateText } from "@/lib/caps";
@@ -61,8 +61,12 @@ export function AnalyzerPanel() {
   const [link, setLink] = useState("");
   const [image, setImage] = useState<File | null>(null);
   const [audioFile, setAudioFile] = useState<File | null>(null);
-  const [recording, setRecording] = useState<Recording | null>(null);
   const [validationKey, setValidationKey] = useState<MessageKey | null>(null);
+  // The recorder lives here (not inside VoiceInput) so the primary button can act
+  // on it: while recording, "Check" becomes "Stop & check" instead of rejecting
+  // the user with "enter something" because the blob only exists after stop.
+  const recorder = useRecorder();
+  const pendingVoiceSubmitRef = useRef(false);
 
   // The language the user reads in is what the backend should answer in.
   const { state, run, reset } = useAnalyze(hasChosenLanguage ? lang : "auto");
@@ -85,20 +89,20 @@ export function AnalyzerPanel() {
       return check.ok ? { kind: "image", file: image } : { error: check.key };
     }
     if (tab === "voice") {
-      const blob = recording?.blob ?? audioFile;
+      const blob = recorder.recording?.blob ?? audioFile;
       if (!blob) return { error: "error.empty" };
       const check = validateAudio(blob);
       if (!check.ok) return { error: check.key };
       return {
         kind: "audio",
         file: blob,
-        filename: recording?.filename ?? audioFile?.name ?? "recording.webm",
+        filename: recorder.recording?.filename ?? audioFile?.name ?? "recording.webm",
       };
     }
     const value = tab === "link" ? link : text;
     const check = validateText(value);
     return check.ok ? { kind: tab === "link" ? "url" : "text", text: value } : { error: check.key };
-  }, [audioFile, image, link, recording, tab, text]);
+  }, [audioFile, image, link, recorder.recording, tab, text]);
 
   const submit = useCallback(() => {
     const input = buildInput();
@@ -110,6 +114,28 @@ export function AnalyzerPanel() {
     lastInputRef.current = input;
     void run(input);
   }, [buildInput, run]);
+
+  // Mid-recording, the primary button stops the mic and checks in one tap. The
+  // blob is not ready synchronously (it lands on MediaRecorder's onstop), so we
+  // flag intent and let the effect below submit once the recording appears.
+  const stopAndCheck = useCallback(() => {
+    setValidationKey(null);
+    pendingVoiceSubmitRef.current = true;
+    recorder.stop();
+  }, [recorder]);
+
+  useEffect(() => {
+    if (pendingVoiceSubmitRef.current && recorder.recording) {
+      pendingVoiceSubmitRef.current = false;
+      submit();
+    }
+  }, [recorder.recording, submit]);
+
+  // Leaving the voice tab (or unmounting) must release the mic; the recorder now
+  // outlives VoiceInput, so it no longer stops itself on that component's unmount.
+  useEffect(() => {
+    if (tab !== "voice" && recorder.status === "recording") recorder.reset();
+  }, [tab, recorder]);
 
   const retry = useCallback(() => {
     if (lastInputRef.current) void run(lastInputRef.current);
@@ -128,12 +154,14 @@ export function AnalyzerPanel() {
     setLink("");
     setImage(null);
     setAudioFile(null);
-    setRecording(null);
+    recorder.reset();
+    pendingVoiceSubmitRef.current = false;
     setValidationKey(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [reset]);
+  }, [reset, recorder]);
 
   const showForm = !state.verdict && state.phase !== "error";
+  const isRecording = tab === "voice" && recorder.status === "recording";
 
   return (
     <div className="space-y-5">
@@ -161,20 +189,34 @@ export function AnalyzerPanel() {
             {tab === "screenshot" && <ScreenshotInput file={image} onChange={setImage} />}
             {tab === "voice" && (
               <VoiceInput
+                status={recorder.status}
+                seconds={recorder.seconds}
+                recording={recorder.recording}
+                start={recorder.start}
+                stop={recorder.stop}
+                reset={recorder.reset}
                 uploaded={audioFile}
-                onRecording={setRecording}
                 onUpload={setAudioFile}
               />
             )}
 
-            {validationKey && (
+            {validationKey && !isRecording && (
               <p role="alert" className="rounded-xl bg-suspicious-tint px-3 py-2 text-suspicious">
                 {t(validationKey)}
               </p>
             )}
 
-            <Button variant="primary" block onClick={submit} disabled={state.isBusy}>
-              {state.isBusy ? t("analyzer.checking") : t("analyzer.check")}
+            <Button
+              variant="primary"
+              block
+              onClick={isRecording ? stopAndCheck : submit}
+              disabled={state.isBusy}
+            >
+              {state.isBusy
+                ? t("analyzer.checking")
+                : isRecording
+                  ? t("analyzer.voiceStopCheck")
+                  : t("analyzer.check")}
             </Button>
           </Card>
         </>

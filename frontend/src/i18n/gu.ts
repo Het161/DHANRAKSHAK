@@ -41,6 +41,7 @@ export const gu: Dictionary = {
   "analyzer.voiceStop": "બંધ કરો",
   "analyzer.voiceRecording": "રેકોર્ડ થાય છે, {seconds} સેકન્ડ",
   "analyzer.voiceReady": "રેકોર્ડિંગ તૈયાર છે, {seconds} સેકન્ડ",
+  "analyzer.voiceStopCheck": "બંધ કરીને તપાસો",
   "analyzer.voiceUpload": "રેકોર્ડિંગ મોકલો",
   "analyzer.voiceUnsupported": "આ ફોનમાં અહીં રેકોર્ડ થઈ શકતું નથી. તમે ફાઇલ મોકલી શકો છો.",
   "analyzer.voiceLimit": "90 સેકન્ડ પછી રેકોર્ડિંગ આપોઆપ બંધ થઈ જશે.",

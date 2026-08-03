@@ -1,29 +1,37 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 import { usePreferences } from "@/i18n/I18nProvider";
-import type { Recording } from "@/hooks/useRecorder";
-import { useRecorder } from "@/hooks/useRecorder";
+import type { Recording, RecorderStatus } from "@/hooks/useRecorder";
 
+/**
+ * Presentational recorder UI. The recorder itself lives in the parent so the
+ * page's primary "Check" button can coordinate with recording state (turning
+ * into "Stop & check" mid-recording), instead of silently rejecting the user
+ * with "enter something" while the mic is still running.
+ */
 export function VoiceInput({
+  status,
+  seconds,
+  recording,
+  start,
+  stop,
+  reset,
   uploaded,
-  onRecording,
   onUpload,
 }: {
+  status: RecorderStatus;
+  seconds: number;
+  recording: Recording | null;
+  start: () => Promise<void>;
+  stop: () => void;
+  reset: () => void;
   uploaded: File | null;
-  onRecording: (recording: Recording | null) => void;
   onUpload: (file: File | null) => void;
 }) {
   const { t } = usePreferences();
-  const { status, seconds, recording, start, stop, reset } = useRecorder();
   const fileRef = useRef<HTMLInputElement>(null);
-
-  // The blob only exists once MediaRecorder fires onstop, so the parent is
-  // notified by observing the result rather than by the stop handler.
-  useEffect(() => {
-    onRecording(recording);
-  }, [recording, onRecording]);
 
   const beginRecording = async () => {
     onUpload(null);

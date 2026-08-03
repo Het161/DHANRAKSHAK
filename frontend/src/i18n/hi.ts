@@ -41,6 +41,7 @@ export const hi: Dictionary = {
   "analyzer.voiceStop": "रिकॉर्डिंग बंद करें",
   "analyzer.voiceRecording": "रिकॉर्ड हो रहा है, {seconds} सेकंड",
   "analyzer.voiceReady": "रिकॉर्डिंग तैयार है, {seconds} सेकंड",
+  "analyzer.voiceStopCheck": "बंद करके जाँचें",
   "analyzer.voiceUpload": "रिकॉर्डिंग भेजें",
   "analyzer.voiceUnsupported": "यह फ़ोन यहाँ रिकॉर्ड नहीं कर सकता। आप कोई फ़ाइल भेज सकते हैं।",
   "analyzer.voiceLimit": "रिकॉर्डिंग 90 सेकंड पर अपने आप बंद हो जाएगी।",

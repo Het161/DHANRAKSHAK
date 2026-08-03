@@ -43,6 +43,7 @@ export const en = {
   "analyzer.voiceStop": "Stop recording",
   "analyzer.voiceRecording": "Recording, {seconds} seconds",
   "analyzer.voiceReady": "Recording ready, {seconds} seconds",
+  "analyzer.voiceStopCheck": "Stop & check",
   "analyzer.voiceUpload": "Upload a recording",
   "analyzer.voiceUnsupported": "This phone cannot record here. You can upload a file instead.",
   "analyzer.voiceLimit": "Recording stops automatically at 90 seconds.",

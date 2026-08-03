@@ -21,6 +21,13 @@
     "classifier_score": 0.0014
   },
   {
+    "text": "please send aadhaar card photo to complete verification",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 95,
+    "classifier_score": 0.0002
+  },
+  {
     "text": "Download our loan app apk from http://quickloan-cash.top/app.apk and get 50000 instantly",
     "lang": "en",
     "verdict": "scam",

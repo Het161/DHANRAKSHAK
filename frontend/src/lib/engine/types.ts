@@ -11,12 +11,17 @@ import type { AnalyzeResponse, Language } from "@/lib/types";
 
 // --- rules ---------------------------------------------------------------
 
-export interface LexiconGroup {
-  name: string;
+/** Per-language term lists, nested under `terms` exactly as the server's JSON is. */
+export interface TermSet {
   en?: string[];
   hi?: string[];
   gu?: string[];
   translit?: string[];
+}
+
+export interface LexiconGroup {
+  name: string;
+  terms?: TermSet;
   patterns?: string[];
 }
 
@@ -24,10 +29,7 @@ export interface LexiconPayload {
   tactic: string;
   weight: number;
   type?: "composite" | string;
-  en?: string[];
-  hi?: string[];
-  gu?: string[];
-  translit?: string[];
+  terms?: TermSet;
   patterns?: string[];
   veto_patterns?: string[];
   groups?: LexiconGroup[];

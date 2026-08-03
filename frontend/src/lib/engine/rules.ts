@@ -37,10 +37,16 @@ function termToPattern(term: string): string {
     : `(?<!${WB})${body}`;
 }
 
-function collectPatterns(payload: { patterns?: string[] } & Partial<Record<(typeof TERM_KEYS)[number], string[]>>): string[] {
+// The term lists live under `terms` (nested per language), exactly as the server's
+// lexicon JSON stores them. Reading `payload.en` instead silently dropped EVERY
+// term - the client then matched only via the raw `patterns` regexes, so any scam
+// phrasing covered only by a term (not a pattern) went undetected offline. Read
+// `payload.terms[key]` so the on-device engine compiles the same terms the server does.
+function collectPatterns(payload: { patterns?: string[]; terms?: Partial<Record<(typeof TERM_KEYS)[number], string[]>> }): string[] {
   const patterns: string[] = [];
+  const terms = payload.terms ?? {};
   for (const key of TERM_KEYS) {
-    for (const term of payload[key] ?? []) patterns.push(termToPattern(term));
+    for (const term of terms[key] ?? []) patterns.push(termToPattern(term));
   }
   for (const raw of payload.patterns ?? []) patterns.push(raw);
   return patterns;

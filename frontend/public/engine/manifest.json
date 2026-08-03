@@ -1,5 +1,5 @@
 {
-  "engine_version": "8d88f7fe29ca",
+  "engine_version": "8afcbd9f5065",
   "generated_from": "scripts/export_client_model.py",
   "files": [
     "rules.json",
@@ -13,8 +13,8 @@
   ],
   "sizes": {
     "rules.json": {
-      "raw": 61002,
-      "gzip": 16134
+      "raw": 61419,
+      "gzip": 16236
     },
     "url_config.json": {
       "raw": 2213,
@@ -41,8 +41,8 @@
       "gzip": 103
     },
     "personas.json": {
-      "raw": 169545,
-      "gzip": 45280
+      "raw": 213562,
+      "gzip": 55854
     }
   },
   "thresholds": {

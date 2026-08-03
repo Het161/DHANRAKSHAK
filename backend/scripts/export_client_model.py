@@ -44,12 +44,15 @@ logger = logging.getLogger("export")
 OUT_DIR = BACKEND_ROOT.parent / "frontend" / "public" / "engine"
 FIXTURES_OUT = BACKEND_ROOT.parent / "frontend" / "src" / "lib" / "engine" / "__fixtures__" / "parity.json"
 
-# 20 messages spanning every tactic, both scripts, and clear negatives. Expected
+# 21 messages spanning every tactic, both scripts, and clear negatives. Expected
 # verdicts are computed by the REAL server engine below, never hand-labelled.
 FIXTURE_INPUTS: list[tuple[str, str]] = [
     ("Your account will be blocked today. Complete KYC now at http://sbi-kyc.xyz/verify", "en"),
     ("Congratulations! You won 25 lakh in KBC lucky draw. Pay 4999 processing fee to claim.", "en"),
     ("Dear customer, share the OTP we just sent to verify your debit card ending 4432.", "en"),
+    # Terms-only: caught by a lexicon TERM, not a `patterns` regex. Guards against the
+    # client silently ignoring terms (which once made every terms-only scam pass offline).
+    ("please send aadhaar card photo to complete verification", "en"),
     ("Download our loan app apk from http://quickloan-cash.top/app.apk and get 50000 instantly", "en"),
     (
         "This is Inspector Sharma from CBI. Your Aadhaar is used in money laundering. Stay on video call.",

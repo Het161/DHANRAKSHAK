@@ -12,6 +12,7 @@ import { classifierScore } from "@/lib/engine/lgbm";
 import { cleanText, detectLanguage } from "@/lib/engine/normalize";
 import { RuleEngine } from "@/lib/engine/rules";
 import { fuseRisk, labelFor } from "@/lib/engine/fusion";
+import { isBenignAlert } from "@/lib/engine/transaction";
 import type { EngineArtifacts, LocalVerdict } from "@/lib/engine/types";
 import { UpiAnalyzer } from "@/lib/engine/upi";
 import { UrlAnalyzer } from "@/lib/engine/urls";
@@ -43,7 +44,20 @@ export class LocalEngine {
     const tactics = this.rules.detect(text);
     const urlFlags = this.urls.analyze(text);
     const upiFlags = this.upi.analyze(text);
-    const score = classifierScore(this.artifacts.model, text);
+    let score = classifierScore(this.artifacts.model, text);
+
+    // Veto the classifier on a genuine transaction alert when nothing deterministic
+    // fired: the spam-trained model misreads terse Indian bank SMS, and its vote is
+    // the only thing that would otherwise raise a false alarm on a real debit/credit
+    // notice. A scam disguised as an alert still trips a tactic/URL/UPI signal.
+    if (
+      tactics.length === 0 &&
+      urlFlags.length === 0 &&
+      upiFlags.length === 0 &&
+      isBenignAlert(text)
+    ) {
+      score = null;
+    }
 
     const risk = fuseRisk(
       {

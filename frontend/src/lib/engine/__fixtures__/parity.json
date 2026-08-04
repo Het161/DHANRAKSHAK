@@ -28,6 +28,41 @@
     "classifier_score": 0.0002
   },
   {
+    "text": "INR 280.00 debited A/c no. XX9670 03-08-26 UPI/P2M/658182359589/Mahakali petroleum. Not you? SMS BLOCKUPI Cust ID to 919951860002. Axis Bank",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": null
+  },
+  {
+    "text": "Rs 9999 debited without your approval. Call 9876543210 and share the OTP to reverse it.",
+    "lang": "en",
+    "verdict": "scam",
+    "risk_score": 95,
+    "classifier_score": 0.0269
+  },
+  {
+    "text": "Dear Customer, the available balance in your Canara Bank A/c XXXX8890 is Rs 12,340.55.",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": null
+  },
+  {
+    "text": "Mini statement A/c X9670: 01Aug Cr 45000.00; 02Aug Dr 280.00. Avl Bal 44720.00. -Axis Bank",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": null
+  },
+  {
+    "text": "911234 is your OTP for HDFC NetBanking login, valid 10 min. Do not share it with anyone.",
+    "lang": "en",
+    "verdict": "safe",
+    "risk_score": 0,
+    "classifier_score": null
+  },
+  {
     "text": "Download our loan app apk from http://quickloan-cash.top/app.apk and get 50000 instantly",
     "lang": "en",
     "verdict": "scam",

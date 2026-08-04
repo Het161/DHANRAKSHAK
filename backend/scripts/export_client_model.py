@@ -53,6 +53,21 @@ FIXTURE_INPUTS: list[tuple[str, str]] = [
     # Terms-only: caught by a lexicon TERM, not a `patterns` regex. Guards against the
     # client silently ignoring terms (which once made every terms-only scam pass offline).
     ("please send aadhaar card photo to complete verification", "en"),
+    # Genuine transaction alert: the classifier misreads it as a scam, so the engine
+    # vetoes that vote and it must read SAFE. Guards the transaction-alert veto's parity.
+    (
+        "INR 280.00 debited A/c no. XX9670 03-08-26 UPI/P2M/658182359589/Mahakali "
+        "petroleum. Not you? SMS BLOCKUPI Cust ID to 919951860002. Axis Bank",
+        "en",
+    ),
+    # A scam wearing an alert's clothes: still trips a real signal (OTP request), so the
+    # veto must NOT save it. Guards that the veto only silences the classifier, nothing more.
+    ("Rs 9999 debited without your approval. Call 9876543210 and share the OTP to reverse it.", "en"),
+    # Account notices with no debit/credit verb, and an OTP delivery - all genuine, all
+    # SAFE. Guards the widened recogniser (balance / mini-statement / do-not-share OTP).
+    ("Dear Customer, the available balance in your Canara Bank A/c XXXX8890 is Rs 12,340.55.", "en"),
+    ("Mini statement A/c X9670: 01Aug Cr 45000.00; 02Aug Dr 280.00. Avl Bal 44720.00. -Axis Bank", "en"),
+    ("911234 is your OTP for HDFC NetBanking login, valid 10 min. Do not share it with anyone.", "en"),
     ("Download our loan app apk from http://quickloan-cash.top/app.apk and get 50000 instantly", "en"),
     (
         "This is Inspector Sharma from CBI. Your Aadhaar is used in money laundering. Stay on video call.",

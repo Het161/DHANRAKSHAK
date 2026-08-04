@@ -35,3 +35,129 @@ text,label,lang,source
 "Beta, mai theek hu. Paise abhi mat bhejna, is mahine kharcha nikal jayega. Diwali par aaoge to sab saath me baithenge.",safe,translit,seed
 "Aapko Rs. 250.00 mile hain PhonePe par, bheja hai Mukesh General Store ne. UPI Ref 507723910488. Balance dekhne ke liye app kholein.",safe,translit,seed
 "Aapka Rs. 239 ka recharge safal raha. 1.5GB per day data aur unlimited calls, validity 28 din. Plan dekhne ke liye Jio app kholein.",safe,translit,seed
+"INR 49,999.00 debited from A/c XX9670 towards UPI/P2M. If this was NOT you, call our 24x7 Fraud Helpline 9988776655 immediately and share the OTP we send to reverse this transaction. -Axis Bank",scam,en,research
+"Rs 21,000 debited via UPI you didn't authorize? Call 1800-889-2211 within 10 minutes and share the PIN sent to reverse, else the debit becomes permanent. -Bank",scam,en,research
+"HDFC: Rs 74,300 debit request pending on your account. If not initiated by you, CANCEL now: http://hdfc-cancel-txn.in-secure.top/stop within 30 mins.",scam,en,research
+"Axis Bank: A payment of Rs 19,999 to an unknown merchant will be processed. To decline, verify your account here: http://axis-bank.reverse-pay.info/decline",scam,en,research
+"ICICI Alert: unrecognised debit of Rs 12,750 on your card. Tap to dispute and get instant reversal -> bit.ly/rev-icici-91",scam,en,research
+"URGENT Axis Bank: Rs 66,000 IMPS transfer is scheduled from your account. To BLOCK it, click http://axis-imps-block.online/stop and login with your credentials.",scam,en,research
+"Congratulations! Rs 3,500 refund for your failed transaction is ready. Accept the collect request in your UPI app and enter your PIN to receive it. upi://collect?pa=refund@ybl&am=3500",scam,en,research
+"Your recent payment failed. Refund of Rs 1,299 has been initiated. Approve the request in your app and enter UPI PIN to credit it back. -PhonePe Support",scam,en,research
+Flipkart cashback of Rs 900 credited! Claim it by approving the pending UPI collect request and entering your 6-digit PIN. Offer expires tonight.,scam,en,research
+"Dear Customer, your SBI YONO account is BLOCKED due to KYC pending. Update your PAN and Aadhaar now: http://sbi-kyc-verify.online/update or lose access permanently.",scam,en,research
+Your bank account will be suspended today because your PAN is not linked. Verify immediately at http://pan-link-bank.info to avoid a freeze.,scam,en,research
+NPCI: Your UPI ID will be deactivated due to incomplete re-KYC. Complete verification at http://npci-upi-kyc.in.net/verify to keep using UPI.,scam,en,research
+"SBI: Your debit card has been deactivated. Reactivate by confirming your card number, expiry and CVV at http://sbi-card-activate.info now.",scam,en,research
+PhonePe: Suspicious login detected on your account. Secure it now: http://phonpe-secure.in.net/login and re-enter your UPI PIN and mobile number.,scam,en,research
+"You have unclaimed SBI reward points worth Rs 6,750 expiring today! Redeem now at http://sbi-rewardz.shop/claim before they lapse.",scam,en,research
+"HDFC: Your recent transaction earned Rs 5,000 cashback. Claim it within 24 hours here: http://hdfc-cashback-offer.xyz/get",scam,en,research
+"Your Amazon Pay reward of Rs 2,000 is pending. Install this app and login to claim: http://amzn-reward.apk-get.info/download",scam,en,research
+"Dear customer, Rs 9,999 has been deducted for your Amazon Prime auto-renewal. To cancel and get a refund, call 6301122334 and provide the OTP we send.",scam,en,research
+Your SIM card KYC is pending and your number will be disconnected in 2 hours. Verify now: http://sim-kyc-verify.top/update to keep it active.,scam,en,research
+"Job offer: Earn Rs 5,000/day just liking YouTube videos. No experience needed. Pay Rs 1,500 refundable registration to start. Contact on Telegram @jobsdaily2026",scam,en,research
+"Congratulations! Your mobile number won Rs 25,00,000 in the KBC Lucky Draw 2026. Send your Aadhaar and bank details on WhatsApp 9000098765 and pay Rs 6,500 processing fee to claim.",scam,en,research
+"GIFT: Your BSNL number has been selected for Rs 10,00,000. To claim, send your A/c number, IFSC and Aadhaar to claimdesk2026@gmail.com and pay Rs 4,800 GST.",scam,en,research
+"This is Inspector Sharma, CBI Cyber Cell. A parcel in your name containing illegal items was seized. Stay on this video call, tell no one, and transfer Rs 95,000 to the RBI verification account for clearance.",scam,en,research
+"Sir, this is the HDFC card department. Your reward points worth Rs 4,999 expire today. Install the AnyDesk app from Play Store and share the 9-digit code with me and I will credit the amount now.",scam,en,research
+"Your loan EMI is overdue. Pay the Rs 8,000 settlement amount now or our recovery team will send your photo to all your contacts. This is your last warning. -InstantLoan",scam,en,research
+"Your electricity connection will be disconnected tonight at 9:30 PM as last month's bill was not updated. To avoid it, call officer 9000011122 immediately and pay online.",scam,en,research
+"सूचना: आपके खाते XX4471 से 45,000 रुपये कट रहे हैं। अगर आपने यह लेन-देन नहीं किया है तो तुरंत 9000012233 पर कॉल करें और मोबाइल पर आया OTP बताकर इसे रोकें।",scam,hi,research
+"आपका पेमेंट फेल हो गया था। 2,499 रुपये का रिफंड तैयार है। ऐप में आई रिक्वेस्ट को Accept करके अपना UPI PIN डालें, पैसे तुरंत वापस आ जाएंगे।",scam,hi,research
+"प्रिय ग्राहक, आपका KYC आज समाप्त हो रहा है। खाता बंद होने से बचाने के लिए तुरंत यहाँ अपडेट करें: http://kyc-update-sbi.top/hi",scam,hi,research
+"बधाई हो! आपके पिछले लेन-देन पर 4,999 रुपये का कैशबैक मिला है। आज ही क्लेम करें: http://cashback-reward.top/hi वरना ऑफर खत्म हो जाएगा।",scam,hi,research
+"मैं मुंबई क्राइम ब्रांच से बोल रहा हूँ। आपके आधार पर मनी लॉन्ड्रिंग का केस दर्ज है। गिरफ्तारी से बचने के लिए वीडियो कॉल पर बने रहें, किसी को न बताएं और 80,000 रुपये सत्यापन खाते में जमा करें।",scam,hi,research
+"मैं बैंक से बोल रहा हूँ, आपका रिफंड अटका है। Play Store से AnyDesk ऐप इंस्टॉल करें और 9 अंकों का कोड मुझे बताएं, मैं तुरंत पैसे डाल देता हूँ।",scam,hi,research
+"Aap ne 5,000 rupaye receive kiye hain. Neeche aayi request ko accept karke apna UPI PIN daaliye, tabhi paise aapke account me aayenge.",scam,hi,research
+"SBI: તમારા ખાતામાંથી રૂ. 38,000 નો શંકાસ્પદ વ્યવહાર થઈ રહ્યો છે. તેને રોકવા માટે અહીં ક્લિક કરો: http://sbi-online.txn-block.xyz/gj",scam,gu,research
+"તમારું બેંક ખાતું આજે બંધ થઈ જશે, પાન કાર્ડ લિંક નથી. તાત્કાલિક ચકાસો: http://bank-kyc-verify.click/gu નહીંતર પૈસા બ્લોક થઈ જશે.",scam,gu,research
+"તમારી લોનની કિસ્ત બાકી છે. આજ સાંજ સુધીમાં 4,999 રૂપિયા નહીં ભરો તો તમારો ફોટો તમારા બધા સંપર્કોને મોકલી દેવાશે. આ છેલ્લી ચેતવણી. -રિકવરી એજન્ટ",scam,gu,research
+"તમારું વીજ કનેક્શન આજે રાત્રે કાપી નાખવામાં આવશે, બિલ અપડેટ નથી. તાત્કાલિક વીજ અધિકારી 9000011122 પર સંપર્ક કરી ચૂકવણી કરો.",scam,gu,research
+"તમારું પેમેન્ટ નિષ્ફળ ગયું હતું. રૂ. 1,750 નું રિફંડ તૈયાર છે. એપમાં આવેલી રિક્વેસ્ટ સ્વીકારીને તમારો UPI PIN નાખો, પૈસા તરત પાછા આવશે.",scam,gu,research
+"INR 280.00 debited
+A/c no. XX9670
+03-08-26, 13:14:35
+UPI/P2M/658182359589/Mahakali petroleum
+Not you? SMS BLOCKUPI Cust ID to 919951860002
+Axis Bank",safe,en,research
+"Dear Customer, Rs.32,000.00 credited to A/c XXXX4321 on 01-Aug-26 by NEFT SALARY JUL2026. Avl Bal Rs.41,206.55. -BOIIND",safe,en,research
+"482913 is your OTP for HDFC Bank NetBanking login. Valid for 10 minutes. Do not share this OTP with anyone, including bank staff. -HDFCBK",safe,en,research
+Your OTP for Amazon delivery of order 402-5518 is 6042. Share it with the delivery agent at the doorstep. Do not share on call. -Amazon,safe,en,research
+"Dear Cardholder, your HDFC Bank credit card is eligible for a complimentary upgrade to Regalia with lounge access. Reply UPGRADE or visit NetBanking to accept. T&C apply. -HDFCBK",safe,en,research
+"Your Jio plan expires on 10-Aug-26. Recharge with Rs.239 for 1.5GB/day and unlimited calls, 28 days validity. Recharge via the MyJio app. -JIO",safe,en,research
+"Your Netflix membership will renew on 05-Aug-26 for Rs.649. No action is needed to continue. To manage your plan, open the Netflix app.",safe,en,research
+"Rs.5,000.00 withdrawn from A/c XXXX7781 at AXIS ATM, Navrangpura on 02-Aug-26 14:22. Avl Bal Rs.9,120.00. Not you? Call 1860-419-5555. -Axis Bank",safe,en,research
+"પ્રિય ગ્રાહક, તમારા ખાતા XXXX3390 માં 22-Jul-26 ના રોજ UPI થી રૂ. 3,000.00 જમા થયા. બાકી રકમ રૂ. 12,455.20. UPI Ref 519023774851. -BOBTXN",safe,gu,research
+તમારું ગેસ સિલિન્ડર બુકિંગ નોંધાઈ ગયું છે. ડિલિવરી બે દિવસમાં થશે. ડિલિવરી સમયે રૂ. 855.00 ચૂકવવાના રહેશે. બુકિંગ નંબર 4471902. -HP GAS,safe,gu,research
+"તમારા SBI નેટબેંકિંગ લોગિન માટે OTP 736410 છે. 10 મિનિટ સુધી માન્ય. આ OTP કોઈને, બેંક સ્ટાફને પણ, ન જણાવો. -SBI",safe,gu,research
+"प्रिय ग्राहक, आपके खाता XXXX7712 में 18-Jul-26 को UPI द्वारा 1,200.00 रुपये जमा हुए। शेष राशि 9,860.45 रुपये। UPI Ref 512478930164. -PNBSMS",safe,hi,research
+"रिमाइंडर: लोन खाता XXXX2213 की EMI 3,450 रुपये 05-Aug-26 को देय है। समय पर भुगतान के लिए खाते में पर्याप्त राशि रखें। लेट फीस से बचें। -ICICIB",safe,hi,research
+"Dear Customer, your periodic KYC update is due by 31-Aug-26. Please visit your nearest SBI branch with your ID proof or update via YONO app. No account details are requested over SMS. -SBI",safe,en,research
+Your parcel delivery failed due to unpaid customs. Confirm your OTP and pay Rs.45 at http://amaz0n-redelivery.info to reschedule.,scam,en,research
+URGENT: Your electricity will be disconnected tonight at 9:30 PM as your previous bill is not updated. Immediately call our officer 9812345678 to avoid disconnection.,scam,en,research
+Your Netflix payment failed. Update your card details within 24 hours to avoid cancellation: http://netflix-billing-update.xyz/verify,scam,en,research
+URGENT: Your HDFC net banking is suspended. Re-verify your login and card details within 2 hours at http://hdfcbank-securelogin.top/in or your account will be closed.,scam,en,research
+Refund of Rs.280 approved. Approve the collect request in your UPI app and enter your UPI PIN to receive the money. upi://collect?pa=refund280@ybl&am=280,scam,en,research
+"Sir, from HDFC card dept. Your reward points worth Rs.4,999 expire today. Install AnyDesk from Play Store and share the 9-digit code with me, I will credit it now.",scam,en,research
+http://axisbank-kyc-verify.xyz/login,scam,en,research
+"मैं दिल्ली साइबर सेल से बोल रहा हूँ। आपके आधार पर मनी लॉन्ड्रिंग का केस दर्ज है। गिरफ्तारी से बचने के लिए वीडियो कॉल पर बने रहिए, किसी को न बताएं और सत्यापन के लिए 50,000 रुपये तुरंत भेजें।",scam,hi,research
+"भैया मैंने आपको 7,000 रुपये भेज दिए हैं। फोन पर आई रिक्वेस्ट को स्वीकार करके अपना UPI PIN डालें, तभी पैसे खाते में आएंगे। जल्दी करें।",scam,hi,research
+"પ્રિય ગ્રાહક, તમારું KYC આજે સમાપ્ત થઈ ગયું છે. આજ રાત સુધીમાં અપડેટ નહીં કરો તો ખાતું બંધ થઈ જશે. અહીં ક્લિક કરો: http://kyc-update-bank.click/gj",scam,gu,research
+"બેંકની નવી એપ ડાઉનલોડ કરો, નહીં તો ખાતું ચાલુ નહીં રહે. વોટ્સએપ પર મોકલેલી SBI-Yono-Update.apk ફાઈલ ખોલી ઇન્સ્ટોલ કરો અને તેમાં લોગિન કરો.",scam,gu,research
+Dear UPI user A/C X9670 debited by 280.0 on 03Aug26 trf to Mahakali petroleum Refno 658182359589. If not u? call 1800111109. -SBI,safe,en,research
+Sent Rs.150.00 From HDFC Bank A/C x9670 To Zomato Ltd On 03-08 Ref 456789012345. Not You? Call 18002586161/SMS BLOCK UPI to 7308080808,safe,en,research
+"Dear Customer, Acct XX9670 is debited with Rs 500.00 on 03-Aug-26 and Vishal Mega Mart credited (UPI Ref no 312345678901). Call 18002662 for dispute. -ICICI Bank",safe,en,research
+"Sent Rs.1,200.00 from Kotak Bank AC X9670 to rahul.sharma@okhdfcbank on 03-08-26. UPI Ref 658182360012. Not you? kotak.com/fraud",safe,en,research
+"INR 750.00 debited
+A/c no. XX9670
+03-08-26, 19:40:11
+UPI/P2A/419023774851/Priya Mehta
+Not you? SMS BLOCKUPI to 919951860002
+Axis Bank",safe,en,research
+Dear UPI user A/C X9670 credited by Rs.2500.0 on 03Aug26 by transfer from suresh patel Refno 321987654321. -SBI,safe,en,research
+"Received Rs.2,000.00 in your Kotak Bank AC X9670 from ramesh@okaxis on 03-08-26. UPI Ref 658182360045.",safe,en,research
+"Dear Customer, Acct XX9670 is credited with Rs 3,400.00 on 03-Aug-26 by UPI (Ref no 312345670099) from meena.j@oksbi. -ICICI Bank",safe,en,research
+"Spent Rs.1,250.00 On HDFC Bank Debit Card 9670 At RELIANCE FRESH On 03-08-2026 14:22:05. Avl Bal Rs.24,310.55. Not You? Call 18002586161",safe,en,research
+"Dear Customer, Rs.899.00 spent on SBI Debit Card XX9670 at DMART on 03-Aug-26. Avl Bal Rs.7,120.40. Not you? Call 1800111109. -SBI",safe,en,research
+"Transaction alert: INR 2,999.00 spent on ICICI Bank Credit Card XX3456 at AMAZON on 03-Aug-26 at 20:15:44. Avl Limit: INR 84,201.00. -ICICI Bank",safe,en,research
+"Rs.4,560.00 spent on Axis Bank Credit Card no. XX7788 at CROMA on 03-08-26. Avl limit Rs.1,25,440.00. Not you? Call 18604195555. -Axis Bank",safe,en,research
+"Dear Customer, Rs.5,000 withdrawn at SBI ATM from A/c X9670 on 03Aug26 at 18:05. Avl Bal Rs.9,455.20. If not done by you, call 1800112211. -SBI",safe,en,research
+"Rs.10,000.00 withdrawn from HDFC Bank A/C x9670 at ATM on 03-AUG-26. Avl Bal Rs.31,240.00. Not you? Call 18002586161.",safe,en,research
+"Update! Rs.45,000.00 deposited in HDFC Bank A/c XX9670 on 31-JUL-26 for NEFT Cr-INFOSYS LTD-SALARY JUL26. Avl bal Rs.62,904.12",safe,en,research
+"Rs.24,600.00 credited to A/c XX9670 on 01-Aug-26 by NEFT-SALARY. Avl Bal Rs.31,904.12. -Bank of Baroda",safe,en,research
+"Rs.8,000.00 credited to your Union Bank A/c XX9670 via IMPS Ref 219023774851 on 03-08-2026. Bal Rs.19,340.00. -Union Bank of India",safe,en,research
+"Dear Customer, Rs.12,000.00 debited from YES BANK A/c XXXX9670 on 03-Aug-2026 via IMPS Ref 512478930164 to KUNAL SHAH. Avl Bal Rs.7,455.20.",safe,en,research
+"Cheque no.123456 for Rs.25,000.00 deposited in HDFC Bank A/c XX9670 has been credited on 03-AUG-26. Avl Bal Rs.48,210.00.",safe,en,research
+"Your cheque no. 456789 of Rs.15,000.00 has been cleared and A/c XX9670 credited on 03-08-26. Avl Bal Rs.22,110.50. -PNB",safe,en,research
+"Rs.649.00 will be debited on 05-Aug-26 from your IDFC FIRST Bank A/c XXXX9670 towards UPI AutoPay mandate for SPOTIFY. To manage, use IDFC FIRST app. -IDFC FIRST Bank",safe,en,research
+"INR 1,199.00 debited
+A/c no. XX9670
+05-08-26
+UPI/AUTOPAY/419023778899/Netflix Subscription
+Not you? SMS BLOCKUPI to 919951860002
+Axis Bank",safe,en,research
+"Dear Customer, Rs.4,500.00 has been debited from A/c XX9670 towards EMI for Loan A/c LNXXXX2213 on 03-Aug-26. Avl Bal Rs.18,340.00. -ICICI Bank",safe,en,research
+"Reminder: EMI of Rs.3,450 for Loan A/c XXXX2213 is due on 05-Aug-26. Please maintain sufficient balance in HDFC Bank A/c XX9670 to avoid late charges. -HDFCBK",safe,en,research
+"Dear Customer, the available balance in your Canara Bank A/c XXX9670 as on 03-08-2026 is INR 12,455.20. -Canara Bank",safe,en,research
+"Available balance in your Axis Bank A/c no. XX9670 as on 03-Aug-26 is INR 27,310.55. -Axis Bank",safe,en,research
+"Dear Customer, mini statement A/c X9670: 01Aug Cr 45000.00; 02Aug Dr 1200.00; 03Aug Dr 280.00. Avl Bal 43520.00. -SBI",safe,en,research
+"Rs.280.00 debited from A/c XX9670 & credited to MAHAKALI PETROLEUM via UPI:658182359589 on 03-08-26. Avbl Bal:Rs.12,455.20. Not you? Call 18001024455 -Bank of Baroda",safe,en,research
+"Your A/c XXXX9670 is debited by INR 280.00 on 03-Aug-26. Info: UPI/658182359589/Mahakali Petro. Avl Bal INR 12,455.20. -IDFC FIRST Bank",safe,en,research
+"Rs.280.00 debited from Union Bank A/c XX9670 on 03-08-2026 to UPI/658182359589. Avl Bal Rs.12,455.20. If not you SMS BLOCK to 09223008486 -Union Bank of India",safe,en,research
+"An amount of INR 280.00 has been DEBITED to your A/c XXX9670 on 03-08-2026 towards UPI/658182359589/MAHAKALI. Total Avail bal INR 12,455.20. -Canara Bank",safe,en,research
+"Ac X9670 Debited Rs.280.00 on 03-08-26 UPI/MAHAKALI/658182359589. Avl Bal Rs.12,455.20. Not you? Call 18001802222 -PNB",safe,en,research
+"Dear Customer, Rs.350.00 debited from YES BANK A/c no. XXXX9670 on 03-Aug-2026 towards UPI/P2M/658182360088/BigBasket. Avl Bal Rs.11,105.00.",safe,en,research
+"Rs.50,000.00 debited from HDFC Bank A/c XX9670 on 03-AUG-26 towards NEFT to SUNITA DEVI A/c XXXX3321. Avl Bal Rs.12,904.12. Not you? Call 18002586161",safe,en,research
+"प्रिय ग्राहक, आपके खाता X9670 से 03-08-26 को UPI द्वारा रु.280.00 डेबिट हुए। Refno 658182359589 महाकाली पेट्रोलियम। शेष राशि रु.12,455.20। आपने नहीं किया? कॉल करें 1800111109 -SBI",safe,hi,research
+"प्रिय ग्राहक, आपके खाता XXXX9670 में 03-08-26 को UPI द्वारा रु.1,200.00 जमा हुए। शेष राशि रु.9,860.45। UPI Ref 512478930164. -PNB",safe,hi,research
+"प्रिय ग्राहक, आपके खाता XX9670 में 31-07-26 को NEFT वेतन द्वारा रु.32,000.00 जमा हुए। उपलब्ध शेष रु.41,904.12। -Bank of Baroda",safe,hi,research
+"HDFC बैंक: आपके खाता x9670 से 03-08-26 को ATM से रु.5,000 निकाले गए। शेष राशि रु.18,340.00। आपने नहीं किया तो कॉल करें 18002586161।",safe,hi,research
+"यूनियन बैंक: आपके खाता XX9670 से 03-08-2026 को UPI/658182359589 द्वारा रु.499.00 डेबिट हुए। शेष रु.11,900.00। आपने नहीं किया तो BLOCK लिखकर 09223008486 पर भेजें।",safe,hi,research
+"प्रिय ग्राहक, आपके खाता XXX9670 से 03-08-2026 को ऋण खाता 2213 की EMI रु.4,500.00 डेबिट हुई। शेष रु.14,200.00। -Canara Bank",safe,hi,research
+"कोटक बैंक: आपके डेबिट कार्ड XX9670 से 03-08-26 को DMART पर रु.899.00 खर्च हुए। शेष राशि रु.7,120.40।",safe,hi,research
+"एक्सिस बैंक: दिनांक 03-08-26 को आपके खाता XX9670 की उपलब्ध शेष राशि रु.27,310.55 है। -Axis Bank",safe,hi,research
+"પ્રિય ગ્રાહક, તમારા ખાતા XX9670 માંથી 03-08-26 ના રોજ UPI/658182359589 મહાકાલી પેટ્રોલિયમ દ્વારા રૂ.280.00 ડેબિટ થયા. બાકી રકમ રૂ.12,455.20. -Bank of Baroda",safe,gu,research
+"પ્રિય ગ્રાહક, તમારા ખાતા X9670 માં 03-08-26 ના રોજ UPI થી રૂ.3,000.00 જમા થયા. UPI Ref 519023774851. બાકી રકમ રૂ.15,455.20. -SBI",safe,gu,research
+"એક્સિસ બેંક: તમારા ડેબિટ કાર્ડ XX9670 થી 03-08-26 ના રોજ D-MART પર રૂ.1,150.00 ખર્ચ થયા. બાકી રકમ રૂ.9,340.00. તમે નથી કર્યું? કૉલ 18604195555.",safe,gu,research
+"પ્રિય ગ્રાહક, તમારા ખાતા XX9670 માં 31-07-26 ના રોજ NEFT પગાર દ્વારા રૂ.28,500.00 જમા થયા. ઉપલબ્ધ બાકી રૂ.36,904.12. -ICICI Bank",safe,gu,research
+"બેંક ઓફ બરોડા: તમારા ખાતા XX9670 માંથી 03-08-26 ના રોજ ATM માંથી રૂ.4,000 ઉપાડ્યા. બાકી રકમ રૂ.8,455.20. તમે ન કર્યું હોય તો કૉલ 18001024455.",safe,gu,research
+"પ્રિય ગ્રાહક, તમારા HDFC બેંક ખાતા XX9670 માં 03-08-26 ના રોજ mehul@okaxis તરફથી UPI થી રૂ.2,000.00 જમા થયા. UPI Ref 658182360045.",safe,gu,research

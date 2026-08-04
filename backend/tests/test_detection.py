@@ -84,3 +84,56 @@ def test_upi_collect_intent_is_parsed() -> None:
     assert intents[0].is_collect
     assert intents[0].vpa == "refund@ybl"
     assert intents[0].amount == "5000"
+
+
+# --- transaction-alert classifier veto -------------------------------------
+
+# Genuine bank alerts the spam-trained classifier misreads (P(scam)~0.99). With no
+# rule/URL/UPI signal, the classifier's vote is vetoed and these must read SAFE.
+GENUINE_ALERTS = [
+    "INR 280.00 debited\nA/c no. XX9670\nUPI/P2M/658182359589/Mahakali petroleum\n"
+    "Not you? SMS BLOCKUPI Cust ID to 919951860002\nAxis Bank",
+    "Rs 500 credited to A/c XX1234 on 03-08-26 by UPI/P2A/1234/Rahul. -HDFC Bank",
+    "Rs.45000.00 credited to A/c XXXX3321 by NEFT salary. Avl Bal Rs.51203.22. -ICICI",
+    "Rs 199 debited for Netflix autopay from A/c XX5566. -Kotak Bank",
+    # account notices with no debit/credit verb, and an OTP delivery
+    "Dear Customer, the available balance in your Canara Bank A/c XXXX8890 is Rs 12,340.55.",
+    "Mini statement A/c X9670: 01Aug Cr 45000.00; 02Aug Dr 280.00. -Axis Bank",
+    "123456 is your OTP for login. Do not share your OTP with anyone. -HDFC Bank",
+]
+
+# Scams wearing an alert's clothes: each carries a real signal (link / OTP request /
+# threat / UPI trap), so the veto must NOT silence them - they stay flagged.
+DISGUISED_SCAMS = [
+    "INR 50000 debited from A/c XX1234. If not you, click http://axis-reverse.xyz/cancel now",
+    "Rs 9999 debited without approval. Call 9876543210 and share the OTP to reverse it.",
+    "Your account will be blocked. Rs 2000 debited. Complete KYC at http://sbi-kyc.top to unblock",
+    "Rs 5000 credited as reward! Enter your UPI PIN to receive the cashback in your account",
+]
+
+
+@pytest.mark.parametrize("text", GENUINE_ALERTS)
+def test_genuine_transaction_alert_reads_safe(engine: DetectionEngine, text: str) -> None:
+    signals = engine.analyze_sync(text, "en")
+    assert signals.label == "safe", f"scored {signals.risk_score} on {sorted(signal_names(signals))}"
+    assert signals.classifier_score is None  # the vote was vetoed
+
+
+@pytest.mark.parametrize("text", DISGUISED_SCAMS)
+def test_alert_shaped_scam_still_flagged(engine: DetectionEngine, text: str) -> None:
+    signals = engine.analyze_sync(text, "en")
+    assert signals.label != "safe", f"alert-shaped scam slipped through: {text[:60]}"
+
+
+def test_veto_only_fires_on_a_real_alert_shape() -> None:
+    from app.detection.transaction import is_benign_alert
+
+    assert is_benign_alert("INR 280.00 debited A/c no. XX9670 UPI/P2M/1 Axis Bank")
+    assert is_benign_alert("Rs.45000 credited to A/c XXXX3321 by NEFT")
+    assert is_benign_alert("Available balance in your A/c XXXX8890 is Rs 12,340")
+    assert is_benign_alert("Mini statement A/c X9670: 01Aug Cr 45000.00; 02Aug Dr 280.00")
+    assert is_benign_alert("123456 is your OTP for login. Do not share it with anyone.")
+    # Scams are not benign alerts, so the veto never applies to them.
+    assert not is_benign_alert("Congratulations you won a lottery, share your OTP to claim")
+    assert not is_benign_alert("Your OTP is 4499, please share this OTP with our bank executive")
+    assert not is_benign_alert("hello how are you, see you at 5pm")

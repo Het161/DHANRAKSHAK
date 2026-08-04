@@ -45,57 +45,19 @@ Last October the Prime Minister warned the whole country about **"digital arrest
 
 ### System at a glance
 
-```mermaid
-flowchart LR
-  U(["📱 User"]) -->|paste / forward| PWA
+<div align="center">
+<img src="docs/arch-3d.svg" alt="Isometric architecture — the phone runs the real detector offline-first; the server is an optional richer-explanation upgrade" width="100%"/>
+</div>
 
-  subgraph PWA["Next.js PWA · the phone"]
-    direction TB
-    UI["Verdict card"]
-    W["Web Worker"]
-    ENG["On-device engine<br/>rules + TF-IDF + LightGBM"]
-    SWc[["Service Worker cache"]]
-    UI --> W --> ENG
-    SWc -. precaches .-> ENG
-  end
-
-  PWA ==>|"verdict under 100ms"| U
-  PWA -. "optional · if online" .-> API
-
-  subgraph API["FastAPI backend · Render"]
-    direction TB
-    DET["Same detection engine"]
-    RAG["BM25 over RBI / NPCI / I4C advisories"]
-    LLM["LLM explainer · Groq"]
-    TPL["Template fallback"]
-    DET --> RAG --> LLM --> TPL
-  end
-
-  API -. "richer explanation" .-> PWA
-```
+> The **same** detection engine runs in two places: on the phone (offline-first, answering in under 100ms) and — only if you're online — on the server, which adds a fuller plain-language explanation on top of the verdict the phone already gave.
 
 ### The detection pipeline
 
 Four independent checks read every message at once, and none overrules the others. They are fused with a **noisy-OR**, so one strong signal (a poisoned link, a UPI PIN trap) can raise the alarm on its own.
 
-```mermaid
-flowchart TD
-  M(["Message / URL / screenshot / audio"]) --> N["Normalize + detect language"]
-  N --> R["Rule lexicons<br/>7 scam tactics · gu/hi/en"]
-  N --> URL["URL heuristics<br/>look-alike domains · .apk · bare-IP"]
-  N --> UPI["UPI trap detector<br/>PIN-to-receive inversion"]
-  N --> ML["TF-IDF + LightGBM classifier"]
-  R --> F(("noisy-OR<br/>fusion"))
-  URL --> F
-  UPI --> F
-  ML --> F
-  F --> V["Risk 0–100 · safe / suspicious / scam<br/>+ highlighted evidence"]
-
-  classDef sig fill:#e7f4ef,stroke:#0e7c5a,color:#0b1512;
-  classDef out fill:#0e7c5a,stroke:#0a5b42,color:#ffffff;
-  class R,URL,UPI,ML sig;
-  class V out;
-```
+<div align="center">
+<img src="docs/pipeline-3d.svg" alt="Isometric detection pipeline — rule lexicons, URL heuristics, UPI-PIN trap and a TF-IDF+LightGBM classifier fuse via noisy-OR into a 0–100 risk score; a transaction-alert veto mutes the classifier on genuine bank SMS" width="100%"/>
+</div>
 
 **Precision matters as much as recall.** The classifier is trained on public spam and can misread terse Indian bank SMS. So a **transaction-alert recognizer** vetoes its vote when a message is a genuine debit / credit / balance / OTP notice **and** no rule, link, or UPI-trap fired — a real *"INR 280 debited … Axis Bank"* reads **safe**. It can only ever mute a lone, over-confident classifier; a scam dressed as an alert (a phishing link, "call and share your OTP") still trips a real signal and stays flagged. Crying wolf on the messages banks send all day is exactly what teaches people to ignore a warning.
 

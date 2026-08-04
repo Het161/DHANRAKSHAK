@@ -4,9 +4,9 @@
 
 <br/>
 
-![On-device parity](https://img.shields.io/badge/on--device_parity-20%2F20_within_±5-0e7c5a?style=for-the-badge)
-![Tests](https://img.shields.io/badge/tests-84_backend_+_31_frontend-0e7c5a?style=for-the-badge)
-![Offline](https://img.shields.io/badge/offline_PWA-~636KB-0e7c5a?style=for-the-badge)
+![On-device parity](https://img.shields.io/badge/on--device_parity-26%2F26_within_±5-0e7c5a?style=for-the-badge)
+![Tests](https://img.shields.io/badge/tests-96_backend_+_37_frontend-0e7c5a?style=for-the-badge)
+![Offline](https://img.shields.io/badge/offline_PWA-~649KB-0e7c5a?style=for-the-badge)
 
 ![Next.js](https://img.shields.io/badge/Next.js-000?style=flat-square&logo=nextdotjs)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
@@ -33,7 +33,7 @@ The catch that makes it different: the detection engine doesn't live on a server
 
 | 🛡️ Real engine on-device | 📴 Works offline | 🇮🇳 Gujarati-first | 🎧 Practice mode |
 |:---:|:---:|:---:|:---:|
-| The full detector, not a cut-down copy — verified 20/20 against the server | Opens and answers in aeroplane mode, ~636KB | UI, verdicts & advisories in gu / hi / en | Rehearse a scam call that reacts to what you say |
+| The full detector, not a cut-down copy — verified 26/26 against the server | Opens and answers in aeroplane mode, ~649KB | UI, verdicts & advisories in gu / hi / en | Rehearse a scam call that reacts to what you say |
 
 </div>
 
@@ -97,6 +97,8 @@ flowchart TD
   class V out;
 ```
 
+**Precision matters as much as recall.** The classifier is trained on public spam and can misread terse Indian bank SMS. So a **transaction-alert recognizer** vetoes its vote when a message is a genuine debit / credit / balance / OTP notice **and** no rule, link, or UPI-trap fired — a real *"INR 280 debited … Axis Bank"* reads **safe**. It can only ever mute a lone, over-confident classifier; a scam dressed as an alert (a phishing link, "call and share your OTP") still trips a real signal and stays flagged. Crying wolf on the messages banks send all day is exactly what teaches people to ignore a warning.
+
 ### Local-first: instant on-device, then upgraded
 
 The verdict never waits on the network. The on-device engine answers immediately; if you happen to be online, the server adds a fuller plain-language explanation that **upgrades the card in place**. Honest little labels always say what actually ran — we never pretend the AI answered when it didn't.
@@ -129,9 +131,10 @@ The live link must never break. The API returns a complete answer in every tier;
 
 We didn't just claim the phone matches the server — we tested it.
 
-- **On-device parity: 20 / 20.** Twenty test messages sent through both engines; every verdict label matches and every risk score lands within **±5 points**. The parity test lives in the suite.
-- **Real offline test.** A headless-Chrome run loads the app once online, switches the network **off**, reloads, and confirms a full verdict still renders — in **both English and Gujarati**, with highlights and the "ran on your device" chip. The install is resilient: the service worker precaches each asset best-effort and **guarantees the shell essentials**, so one dropped byte on a rural link never leaves the app un-openable offline.
-- **84 backend + 31 frontend tests**, all green. Typed, small modules.
+- **On-device parity: 26 / 26.** Twenty-six test messages sent through both engines; every verdict label matches and every risk score lands within **±5 points**. The fixtures are the *real server engine's* output, regenerated on every model export, so the phone can never quietly drift from the server.
+- **Precision on real bank SMS: 147 / 147.** A labelled corpus of 147 messages (76 genuine bank alerts + 71 scams, across gu / hi / en) scores **precision 1.0 and recall 1.0** — no false alarm on a real debit/credit/OTP notice, no scam let through. Grows on every lexicon change (`scripts/eval_corpus.py`).
+- **Real offline test.** A headless-Chrome run loads the app once online, switches the network **off**, reloads, and confirms a full verdict still renders — in **both English and Gujarati**, with highlights and the "ran on your device" chip. The install is resilient: the service worker precaches each asset best-effort and **guarantees the shell essentials**, so one dropped byte on a rural link never leaves the app un-openable offline (`npm run verify:offline`).
+- **96 backend + 37 frontend tests**, all green. Typed, small modules.
 - **Privacy by design.** Messages are analysed and never stored; an offline check never leaves the device.
 
 > **Honest note.** The public demo runs on a free server tier (~a tenth of a CPU), so server-side screenshot OCR is slow there. On a laptop or a paid instance it is near-instant, and the on-device checks are always fast because they never leave the phone.
@@ -164,7 +167,7 @@ npm run build:worker && npm run dev      # http://localhost:3000
 
 **One online visit is all it takes.** On that first load the service worker precaches the
 whole shell — every route, JS/CSS chunk, font, the i18n dictionaries, the on-device engine
-artifacts, the persona pools and the icons (~638KB gzipped, budget 1.5MB). After that the app
+artifacts, the persona pools and the icons (~649KB gzipped, budget 1.5MB). After that the app
 opens and works with **zero network**: the shell loads, language switching works, the analyzer
 runs a full on-device verdict with highlights, sample chips work, and text-mode practice works.
 A quiet **"Offline — instant checks still work"** indicator appears; screenshot/voice features
